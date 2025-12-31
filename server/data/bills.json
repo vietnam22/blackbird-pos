@@ -1,0 +1,2768 @@
+{
+  "completedBills": [
+    {
+      "id": 1766406537474,
+      "table": "Table 4",
+      "items": [
+        {
+          "name": "Americano",
+          "price": 150,
+          "id": 1766406506690
+        },
+        {
+          "name": "Momo (Steam)",
+          "price": 180,
+          "id": 1766406507356
+        }
+      ],
+      "total": 330,
+      "paymentMode": "cash",
+      "creditName": null,
+      "creditPaid": false,
+      "timestamp": "2025-12-22T12:28:57.474Z"
+    },
+    {
+      "id": 1766406543831,
+      "table": "Table 2",
+      "items": [
+        {
+          "name": "Cappuccino",
+          "price": 180,
+          "id": 1766406540071
+        },
+        {
+          "name": "Cappuccino",
+          "price": 180,
+          "id": 1766406540258
+        }
+      ],
+      "total": 360,
+      "paymentMode": "cash",
+      "creditName": null,
+      "creditPaid": false,
+      "timestamp": "2025-12-22T12:29:03.831Z"
+    },
+    {
+      "id": 1766406550164,
+      "table": "Table 7",
+      "items": [
+        {
+          "name": "Latte",
+          "price": 180,
+          "id": 1766406547423
+        }
+      ],
+      "total": 180,
+      "paymentMode": "cash_qr",
+      "creditName": null,
+      "creditPaid": false,
+      "timestamp": "2025-12-22T12:29:10.164Z"
+    },
+    {
+      "id": 1766406773296,
+      "table": "Counter",
+      "items": [
+        {
+          "name": "Americano",
+          "price": 150,
+          "id": 1766406769125
+        }
+      ],
+      "total": 150,
+      "paymentMode": "cash_qr",
+      "creditName": null,
+      "creditPaid": false,
+      "timestamp": "2025-12-22T12:32:53.296Z"
+    },
+    {
+      "id": 1766407163287,
+      "table": "Counter",
+      "items": [
+        {
+          "name": "Americano",
+          "price": 150,
+          "id": 1766407138760
+        }
+      ],
+      "total": 150,
+      "paymentMode": "cash_qr",
+      "creditName": null,
+      "creditPaid": true,
+      "cashAmount": 100,
+      "qrAmount": 50,
+      "partialPayment": null,
+      "timestamp": "2025-12-22T12:39:23.287Z"
+    },
+    {
+      "id": 1766407202933,
+      "table": "Table 2",
+      "items": [
+        {
+          "name": "Momo (Fried)",
+          "price": 200,
+          "id": 1766407166651
+        },
+        {
+          "name": "Momo (Fried)",
+          "price": 200,
+          "id": 1766407166831
+        }
+      ],
+      "total": 400,
+      "paymentMode": "credit",
+      "creditName": "arpan",
+      "creditPaid": true,
+      "cashAmount": null,
+      "qrAmount": null,
+      "partialPayment": null,
+      "timestamp": "2025-12-22T12:40:02.933Z"
+    },
+    {
+      "id": 1766407464630,
+      "table": "Table 8",
+      "items": [
+        {
+          "name": "Espresso",
+          "price": 120,
+          "id": 1766407353326
+        },
+        {
+          "name": "Espresso",
+          "price": 120,
+          "id": 1766407353390
+        },
+        {
+          "name": "Espresso",
+          "price": 120,
+          "id": 1766407353633
+        }
+      ],
+      "total": 360,
+      "paymentMode": "cash",
+      "creditName": null,
+      "creditPaid": true,
+      "cashAmount": null,
+      "qrAmount": null,
+      "partialPayment": null,
+      "timestamp": "2025-12-22T12:44:24.630Z"
+    },
+    {
+      "id": 1766407475675,
+      "table": "Table 6",
+      "items": [
+        {
+          "name": "Americano",
+          "price": 150,
+          "id": 1766407252376
+        },
+        {
+          "name": "Americano",
+          "price": 150,
+          "id": 1766407252446
+        },
+        {
+          "name": "Americano",
+          "price": 150,
+          "id": 1766407252683
+        },
+        {
+          "name": "Latte",
+          "price": 180,
+          "id": 1766407467124
+        }
+      ],
+      "total": 630,
+      "paymentMode": "credit",
+      "creditName": "rh",
+      "creditPaid": true,
+      "cashAmount": null,
+      "qrAmount": null,
+      "partialPayment": null,
+      "timestamp": "2025-12-22T12:44:35.675Z"
+    },
+    {
+      "id": 1766407622434,
+      "table": "Table 4",
+      "items": [
+        {
+          "name": "Americano",
+          "price": 150,
+          "id": 1766407605424
+        },
+        {
+          "name": "Momo (Fried)",
+          "price": 200,
+          "id": 1766407607376
+        },
+        {
+          "name": "Momo (Fried)",
+          "price": 200,
+          "id": 1766407607983
+        },
+        {
+          "name": "Momo (Fried)",
+          "price": 200,
+          "id": 1766407608171
+        }
+      ],
+      "total": 750,
+      "paymentMode": "credit",
+      "creditName": "mahes sir",
+      "creditPaid": true,
+      "cashAmount": null,
+      "qrAmount": null,
+      "partialPayment": null,
+      "timestamp": "2025-12-22T12:47:02.434Z"
+    },
+    {
+      "id": 1766414939833,
+      "table": "Counter",
+      "items": [
+        {
+          "name": "Americano",
+          "price": 150,
+          "id": 1766414923399
+        }
+      ],
+      "total": 150,
+      "paymentMode": "partial",
+      "creditName": "arpan regmi",
+      "creditPaid": true,
+      "partialPayment": {
+        "paidAmount": 120,
+        "paidMethod": "qr",
+        "creditAmount": 30
+      },
+      "timestamp": "2025-12-22T14:48:59.833Z",
+      "clearRequested": true,
+      "clearRequestedBy": "Ram",
+      "clearRequestedAt": "2025-12-22T15:27:16.918Z",
+      "clearApprovedBy": "Admin",
+      "clearApprovedAt": "2025-12-22T15:27:36.015Z"
+    },
+    {
+      "id": 1766414974509,
+      "table": "Table 3",
+      "items": [
+        {
+          "name": "Americano",
+          "price": 150,
+          "id": 1766414955360
+        },
+        {
+          "name": "Americano",
+          "price": 150,
+          "id": 1766414955463
+        },
+        {
+          "name": "Americano",
+          "price": 150,
+          "id": 1766414955660
+        },
+        {
+          "name": "Americano",
+          "price": 150,
+          "id": 1766414955853
+        }
+      ],
+      "total": 600,
+      "paymentMode": "partial",
+      "creditName": "graham",
+      "creditPaid": true,
+      "partialPayment": {
+        "paidAmount": 30,
+        "paidMethod": "qr",
+        "creditAmount": 570
+      },
+      "timestamp": "2025-12-22T14:49:34.509Z",
+      "clearRequested": true,
+      "clearRequestedBy": "Ram",
+      "clearRequestedAt": "2025-12-22T15:27:18.864Z",
+      "clearApprovedBy": "Admin",
+      "clearApprovedAt": "2025-12-22T15:27:36.793Z"
+    },
+    {
+      "id": 1766415197264,
+      "table": "Counter",
+      "items": [
+        {
+          "name": "Americano",
+          "price": 150,
+          "id": 1766415186288
+        },
+        {
+          "name": "Americano",
+          "price": 150,
+          "id": 1766415186471
+        }
+      ],
+      "total": 300,
+      "paymentMode": "partial",
+      "creditName": "dsd",
+      "creditPaid": true,
+      "partialPayment": {
+        "paidAmount": 100,
+        "paidMethod": "cash",
+        "creditAmount": 200
+      },
+      "timestamp": "2025-12-22T14:53:17.264Z",
+      "clearRequested": true,
+      "clearRequestedBy": "Ram",
+      "clearRequestedAt": "2025-12-22T15:27:19.682Z",
+      "clearApprovedBy": "Admin",
+      "clearApprovedAt": "2025-12-22T15:27:38.281Z"
+    },
+    {
+      "id": 1766416955540,
+      "table": "Counter",
+      "items": [
+        {
+          "name": "Americano",
+          "price": 150,
+          "id": 1766416948771
+        },
+        {
+          "name": "Americano",
+          "price": 150,
+          "id": 1766416948953
+        }
+      ],
+      "total": 300,
+      "paymentMode": "cash",
+      "creditName": null,
+      "creditPaid": true,
+      "cashAmount": null,
+      "qrAmount": null,
+      "partialPayment": null,
+      "timestamp": "2025-12-22T15:22:35.540Z",
+      "createdBy": "Admin"
+    },
+    {
+      "id": 1766416965553,
+      "table": "Table 5",
+      "items": [
+        {
+          "name": "Cappuccino",
+          "price": 180,
+          "id": 1766416961123
+        },
+        {
+          "name": "Cappuccino",
+          "price": 180,
+          "id": 1766416961232
+        },
+        {
+          "name": "Cappuccino",
+          "price": 180,
+          "id": 1766416961468
+        }
+      ],
+      "total": 540,
+      "paymentMode": "qr",
+      "creditName": null,
+      "creditPaid": true,
+      "cashAmount": null,
+      "qrAmount": null,
+      "partialPayment": null,
+      "timestamp": "2025-12-22T15:22:45.553Z",
+      "createdBy": "Admin"
+    },
+    {
+      "id": 1766418665716,
+      "table": "Table 2",
+      "items": [
+        {
+          "name": "Americano",
+          "price": 150,
+          "id": 1766417274825
+        }
+      ],
+      "total": 150,
+      "paymentMode": "credit",
+      "creditName": "arpan",
+      "creditPaid": true,
+      "cashAmount": null,
+      "qrAmount": null,
+      "partialPayment": null,
+      "timestamp": "2025-12-22T15:51:05.716Z",
+      "createdBy": "Ram",
+      "clearRequested": true,
+      "clearRequestedBy": "Sita",
+      "clearRequestedAt": "2025-12-22T16:06:36.198Z",
+      "clearApprovedBy": "Admin",
+      "clearApprovedAt": "2025-12-23T02:10:45.657Z"
+    },
+    {
+      "id": 1766418970439,
+      "table": "Table 5",
+      "items": [
+        {
+          "name": "Momo (Steam)",
+          "price": 180,
+          "id": 1766418948244
+        },
+        {
+          "name": "Momo (Steam)",
+          "price": 180,
+          "id": 1766418948424
+        }
+      ],
+      "total": 360,
+      "paymentMode": "cash",
+      "creditName": null,
+      "creditPaid": true,
+      "cashAmount": null,
+      "qrAmount": null,
+      "partialPayment": null,
+      "timestamp": "2025-12-22T15:56:10.439Z",
+      "createdBy": "Ram"
+    },
+    {
+      "id": 1766419578484,
+      "table": "Table 6",
+      "items": [
+        {
+          "name": "Americano",
+          "price": 150,
+          "id": 1766419568942
+        },
+        {
+          "name": "Americano",
+          "price": 150,
+          "id": 1766419569263
+        },
+        {
+          "name": "Americano",
+          "price": 150,
+          "id": 1766419570458
+        },
+        {
+          "name": "Americano",
+          "price": 150,
+          "id": 1766419570550
+        },
+        {
+          "name": "Americano",
+          "price": 150,
+          "id": 1766419570779
+        },
+        {
+          "name": "Americano",
+          "price": 150,
+          "id": 1766419570865
+        },
+        {
+          "name": "Americano",
+          "price": 150,
+          "id": 1766419571109
+        },
+        {
+          "name": "Americano",
+          "price": 150,
+          "id": 1766419571217
+        },
+        {
+          "name": "Americano",
+          "price": 150,
+          "id": 1766419571454
+        },
+        {
+          "name": "Americano",
+          "price": 150,
+          "id": 1766419571546
+        },
+        {
+          "name": "Americano",
+          "price": 150,
+          "id": 1766419571782
+        },
+        {
+          "name": "Americano",
+          "price": 150,
+          "id": 1766419571882
+        },
+        {
+          "name": "Americano",
+          "price": 150,
+          "id": 1766419572119
+        },
+        {
+          "name": "Americano",
+          "price": 150,
+          "id": 1766419572242
+        },
+        {
+          "name": "Americano",
+          "price": 150,
+          "id": 1766419572522
+        },
+        {
+          "name": "Americano",
+          "price": 150,
+          "id": 1766419572645
+        },
+        {
+          "name": "Americano",
+          "price": 150,
+          "id": 1766419572889
+        },
+        {
+          "name": "Americano",
+          "price": 150,
+          "id": 1766419572974
+        },
+        {
+          "name": "Americano",
+          "price": 150,
+          "id": 1766419573232
+        },
+        {
+          "name": "Americano",
+          "price": 150,
+          "id": 1766419573310
+        },
+        {
+          "name": "Americano",
+          "price": 150,
+          "id": 1766419573569
+        }
+      ],
+      "total": 3150,
+      "paymentMode": "cash",
+      "creditName": null,
+      "creditPaid": true,
+      "cashAmount": null,
+      "qrAmount": null,
+      "partialPayment": null,
+      "timestamp": "2025-12-22T16:06:18.484Z",
+      "createdBy": "Sita"
+    },
+    {
+      "id": 1766419584403,
+      "table": "Table 4",
+      "items": [
+        {
+          "name": "Cappuccino",
+          "price": 180,
+          "id": 1766419474559
+        },
+        {
+          "name": "Cappuccino",
+          "price": 180,
+          "id": 1766419474747
+        }
+      ],
+      "total": 360,
+      "paymentMode": "cash",
+      "creditName": null,
+      "creditPaid": true,
+      "cashAmount": null,
+      "qrAmount": null,
+      "partialPayment": null,
+      "timestamp": "2025-12-22T16:06:24.403Z",
+      "createdBy": "Sita"
+    },
+    {
+      "id": 1766419617363,
+      "table": "Table 2",
+      "items": [
+        {
+          "name": "Cappuccino",
+          "price": 180,
+          "id": 1766419613402
+        }
+      ],
+      "total": 180,
+      "paymentMode": "qr",
+      "creditName": null,
+      "creditPaid": true,
+      "cashAmount": null,
+      "qrAmount": null,
+      "partialPayment": null,
+      "timestamp": "2025-12-22T16:06:57.363Z",
+      "createdBy": "Ram"
+    },
+    {
+      "id": 1766421494154,
+      "table": "Table 3",
+      "items": [
+        {
+          "name": "Americano",
+          "price": 150,
+          "id": 1766421491110
+        }
+      ],
+      "total": 150,
+      "paymentMode": "qr",
+      "creditName": null,
+      "creditPaid": true,
+      "cashAmount": null,
+      "qrAmount": null,
+      "partialPayment": null,
+      "timestamp": "2025-12-22T16:38:14.154Z",
+      "createdBy": "Admin"
+    },
+    {
+      "id": 1766450382682,
+      "table": "Table 5",
+      "items": [
+        {
+          "name": "Americano",
+          "price": 150,
+          "id": 1766450378950
+        },
+        {
+          "name": "Americano",
+          "price": 150,
+          "id": 1766450379141
+        }
+      ],
+      "total": 300,
+      "paymentMode": "cash",
+      "creditName": null,
+      "creditPaid": true,
+      "cashAmount": null,
+      "qrAmount": null,
+      "partialPayment": null,
+      "timestamp": "2025-12-23T00:39:42.682Z",
+      "createdBy": "Ram"
+    },
+    {
+      "id": 1766450529261,
+      "table": "Table 3",
+      "items": [
+        {
+          "name": "Cappuccino",
+          "price": 180,
+          "id": 1766422702679
+        },
+        {
+          "name": "Cappuccino",
+          "price": 180,
+          "id": 1766422702773
+        },
+        {
+          "name": "Cappuccino",
+          "price": 180,
+          "id": 1766422703000
+        },
+        {
+          "name": "Cappuccino",
+          "price": 180,
+          "id": 1766422703191
+        }
+      ],
+      "total": 720,
+      "paymentMode": "partial",
+      "creditName": "mahesh sir",
+      "creditPaid": true,
+      "partialPayment": {
+        "paidAmount": 77,
+        "paidMethod": "qr",
+        "creditAmount": 643
+      },
+      "timestamp": "2025-12-23T00:42:09.261Z",
+      "createdBy": "Sita",
+      "clearRequested": true,
+      "clearRequestedBy": "Sita",
+      "clearRequestedAt": "2025-12-23T03:42:17.902Z",
+      "clearApprovedBy": "Admin",
+      "clearApprovedAt": "2025-12-23T03:44:31.397Z"
+    },
+    {
+      "id": 1766453306717,
+      "table": "Counter",
+      "items": [
+        {
+          "name": "Momo (Steam)",
+          "price": 180,
+          "id": 1766453303169
+        },
+        {
+          "name": "Momo (Steam)",
+          "price": 180,
+          "id": 1766453303353
+        }
+      ],
+      "total": 360,
+      "paymentMode": "cash",
+      "creditName": null,
+      "creditPaid": true,
+      "cashAmount": null,
+      "qrAmount": null,
+      "partialPayment": null,
+      "timestamp": "2025-12-23T01:28:26.717Z",
+      "createdBy": "Ram"
+    },
+    {
+      "id": 1766454455676,
+      "table": "Table 3",
+      "items": [
+        {
+          "name": "Americano",
+          "price": 150,
+          "id": 1766453428968
+        },
+        {
+          "name": "Americano",
+          "price": 150,
+          "id": 1766453429445
+        }
+      ],
+      "total": 300,
+      "paymentMode": "cash",
+      "creditName": null,
+      "creditPaid": true,
+      "cashAmount": null,
+      "qrAmount": null,
+      "partialPayment": null,
+      "timestamp": "2025-12-23T01:47:35.676Z",
+      "createdBy": "Ram"
+    },
+    {
+      "id": 1766455554249,
+      "table": "Table 2",
+      "items": [
+        {
+          "name": "Americano",
+          "price": 150,
+          "id": 1766454737328
+        }
+      ],
+      "total": 150,
+      "paymentMode": "cash",
+      "creditName": null,
+      "creditPaid": true,
+      "cashAmount": null,
+      "qrAmount": null,
+      "partialPayment": null,
+      "timestamp": "2025-12-23T02:05:54.249Z",
+      "createdBy": "Ram"
+    },
+    {
+      "id": 1766455785605,
+      "table": "Table 5",
+      "items": [
+        {
+          "name": "Americano",
+          "price": 150,
+          "id": 1766455779010
+        },
+        {
+          "name": "Americano",
+          "price": 150,
+          "id": 1766455779188
+        }
+      ],
+      "total": 300,
+      "paymentMode": "cash",
+      "creditName": null,
+      "creditPaid": true,
+      "cashAmount": null,
+      "qrAmount": null,
+      "partialPayment": null,
+      "timestamp": "2025-12-23T02:09:45.605Z",
+      "createdBy": "Admin"
+    },
+    {
+      "id": 1766459872092,
+      "table": "Table 8",
+      "items": [
+        {
+          "name": "Cappuccino",
+          "price": 180,
+          "id": 1766459862842
+        }
+      ],
+      "total": 180,
+      "paymentMode": "cash",
+      "creditName": null,
+      "creditPaid": true,
+      "cashAmount": null,
+      "qrAmount": null,
+      "partialPayment": null,
+      "timestamp": "2025-12-23T03:17:52.092Z",
+      "createdBy": "Admin"
+    },
+    {
+      "id": 1766459892661,
+      "table": "Table 2",
+      "items": [
+        {
+          "name": "Latte",
+          "price": 180,
+          "id": 1766459875435
+        }
+      ],
+      "total": 180,
+      "paymentMode": "qr",
+      "creditName": null,
+      "creditPaid": true,
+      "cashAmount": null,
+      "qrAmount": null,
+      "partialPayment": null,
+      "timestamp": "2025-12-23T03:18:12.661Z",
+      "createdBy": "Admin"
+    },
+    {
+      "id": 1766461289113,
+      "table": "Table 2",
+      "items": [
+        {
+          "name": "Cappuccino",
+          "price": 180,
+          "id": 1766461279364
+        },
+        {
+          "name": "Cappuccino",
+          "price": 180,
+          "id": 1766461279541
+        }
+      ],
+      "total": 360,
+      "paymentMode": "credit",
+      "creditName": "mahesh sir",
+      "creditPaid": true,
+      "cashAmount": null,
+      "qrAmount": null,
+      "partialPayment": null,
+      "timestamp": "2025-12-23T03:41:29.113Z",
+      "createdBy": "Sita",
+      "clearRequested": true,
+      "clearRequestedBy": "Sita",
+      "clearRequestedAt": "2025-12-23T03:42:18.667Z",
+      "clearApprovedBy": "Admin",
+      "clearApprovedAt": "2025-12-23T03:44:33.873Z"
+    },
+    {
+      "id": 1766461380661,
+      "table": "Table 3",
+      "items": [
+        {
+          "name": "Americano",
+          "price": 150,
+          "id": 1766461373735
+        }
+      ],
+      "total": 150,
+      "paymentMode": "cash_qr",
+      "creditName": null,
+      "creditPaid": true,
+      "cashAmount": 100,
+      "qrAmount": 50,
+      "partialPayment": null,
+      "timestamp": "2025-12-23T03:43:00.661Z",
+      "createdBy": "Ram"
+    },
+    {
+      "id": 1766461392402,
+      "table": "Table 3",
+      "items": [
+        {
+          "name": "Cappuccino",
+          "price": 180,
+          "id": 1766461383570
+        }
+      ],
+      "total": 180,
+      "paymentMode": "cash_qr",
+      "creditName": null,
+      "creditPaid": true,
+      "cashAmount": 160,
+      "qrAmount": 20,
+      "partialPayment": null,
+      "timestamp": "2025-12-23T03:43:12.402Z",
+      "createdBy": "Ram"
+    },
+    {
+      "id": 1766479663300,
+      "table": "Table 1",
+      "items": [
+        {
+          "name": "Sandwich",
+          "price": 160,
+          "id": 1766479573536
+        },
+        {
+          "name": "Sandwich",
+          "price": 160,
+          "id": 1766479577400
+        },
+        {
+          "name": "Cappuccino",
+          "price": 180,
+          "id": 1766479579755
+        }
+      ],
+      "total": 500,
+      "paymentMode": "cash",
+      "creditName": null,
+      "creditPaid": true,
+      "cashAmount": null,
+      "qrAmount": null,
+      "partialPayment": null,
+      "timestamp": "2025-12-23T08:47:43.300Z",
+      "createdBy": "Admin"
+    },
+    {
+      "id": 1766479692672,
+      "table": "Table 2",
+      "items": [
+        {
+          "name": "Americano",
+          "price": 150,
+          "id": 1766479683001
+        }
+      ],
+      "total": 150,
+      "paymentMode": "credit",
+      "creditName": "Mahesh Sir",
+      "creditPaid": true,
+      "cashAmount": null,
+      "qrAmount": null,
+      "partialPayment": null,
+      "timestamp": "2025-12-23T08:48:12.672Z",
+      "createdBy": "Admin",
+      "clearRequested": true,
+      "clearRequestedBy": "Sandhya",
+      "clearRequestedAt": "2025-12-23T08:50:10.783Z",
+      "clearApprovedBy": "Admin",
+      "clearApprovedAt": "2025-12-23T08:50:28.216Z"
+    },
+    {
+      "id": 1766479753170,
+      "table": "Counter",
+      "items": [
+        {
+          "name": "Americano",
+          "price": 150,
+          "id": 1766479740880
+        },
+        {
+          "name": "Latte",
+          "price": 180,
+          "id": 1766479742139
+        }
+      ],
+      "total": 330,
+      "paymentMode": "cash_qr",
+      "creditName": null,
+      "creditPaid": true,
+      "cashAmount": 300,
+      "qrAmount": 30,
+      "partialPayment": null,
+      "timestamp": "2025-12-23T08:49:13.170Z",
+      "createdBy": "Admin"
+    },
+    {
+      "id": 1766480060011,
+      "table": "Table 6",
+      "items": [
+        {
+          "name": "Momo (Steam)",
+          "price": 180,
+          "id": 1766480046796
+        }
+      ],
+      "total": 180,
+      "paymentMode": "qr",
+      "creditName": null,
+      "creditPaid": true,
+      "cashAmount": null,
+      "qrAmount": null,
+      "partialPayment": null,
+      "timestamp": "2025-12-23T08:54:20.011Z",
+      "createdBy": "Shilu"
+    },
+    {
+      "id": 1766654679484,
+      "table": "Counter",
+      "items": [
+        {
+          "name": "Americano",
+          "price": 150,
+          "id": 1766654635892
+        }
+      ],
+      "total": 150,
+      "paymentMode": "cash",
+      "creditName": null,
+      "creditPaid": true,
+      "cashAmount": null,
+      "qrAmount": null,
+      "partialPayment": null,
+      "timestamp": "2025-12-25T09:24:39.484Z",
+      "createdBy": "Shilu"
+    },
+    {
+      "id": 1766654695336,
+      "table": "Table 3",
+      "items": [
+        {
+          "name": "Americano",
+          "price": 150,
+          "id": 1766654521751
+        },
+        {
+          "name": "Americano",
+          "price": 150,
+          "id": 1766654522595
+        }
+      ],
+      "total": 300,
+      "paymentMode": "qr",
+      "creditName": null,
+      "creditPaid": true,
+      "cashAmount": null,
+      "qrAmount": null,
+      "partialPayment": null,
+      "timestamp": "2025-12-25T09:24:55.336Z",
+      "createdBy": "Shilu"
+    },
+    {
+      "id": 1766654722451,
+      "table": "Table 6",
+      "items": [
+        {
+          "name": "Espresso",
+          "price": 120,
+          "id": 1766654701800
+        },
+        {
+          "name": "Espresso",
+          "price": 120,
+          "id": 1766654701991
+        }
+      ],
+      "total": 240,
+      "paymentMode": "partial",
+      "creditName": "Shiva Sir",
+      "creditPaid": true,
+      "partialPayment": {
+        "paidAmount": 150,
+        "paidMethod": "qr",
+        "creditAmount": 90
+      },
+      "timestamp": "2025-12-25T09:25:22.451Z",
+      "createdBy": "Shilu",
+      "clearRequested": true,
+      "clearRequestedBy": "Shilu",
+      "clearRequestedAt": "2025-12-25T09:25:49.287Z",
+      "clearApprovedBy": "Admin",
+      "clearApprovedAt": "2025-12-25T09:30:20.561Z"
+    },
+    {
+      "id": 1766654872564,
+      "table": "Table 8",
+      "items": [
+        {
+          "name": "Cappuccino",
+          "price": 180,
+          "id": 1766654863676
+        }
+      ],
+      "total": 180,
+      "paymentMode": "cash_qr",
+      "creditName": null,
+      "creditPaid": true,
+      "cashAmount": 100,
+      "qrAmount": 80,
+      "partialPayment": null,
+      "timestamp": "2025-12-25T09:27:52.564Z",
+      "createdBy": "Shilu"
+    },
+    {
+      "id": 1766654962558,
+      "table": "Table 3",
+      "items": [
+        {
+          "name": "Momo (Steam)",
+          "price": 180,
+          "id": 1766654956161
+        },
+        {
+          "name": "Momo (Steam)",
+          "price": 180,
+          "id": 1766654956344
+        },
+        {
+          "name": "Momo (Steam)",
+          "price": 180,
+          "id": 1766654957642
+        }
+      ],
+      "total": 540,
+      "paymentMode": "cash",
+      "creditName": null,
+      "creditPaid": true,
+      "cashAmount": null,
+      "qrAmount": null,
+      "partialPayment": null,
+      "timestamp": "2025-12-25T09:29:22.558Z",
+      "createdBy": "Sandhya"
+    },
+    {
+      "id": 1766655309646,
+      "table": "Table 5",
+      "items": [
+        {
+          "name": "Espresso",
+          "price": 120,
+          "id": 1766655273316
+        },
+        {
+          "name": "Espresso",
+          "price": 120,
+          "id": 1766655273499
+        }
+      ],
+      "total": 240,
+      "paymentMode": "cash_qr",
+      "creditName": null,
+      "creditPaid": true,
+      "cashAmount": 90,
+      "qrAmount": 150,
+      "partialPayment": null,
+      "timestamp": "2025-12-25T09:35:09.646Z",
+      "createdBy": "Shilu"
+    },
+    {
+      "id": 1766655868982,
+      "table": "Table 3",
+      "items": [
+        {
+          "name": "Momo (Steam)",
+          "price": 180,
+          "id": 1766655842879
+        }
+      ],
+      "total": 180,
+      "paymentMode": "cash",
+      "creditName": null,
+      "creditPaid": true,
+      "cashAmount": null,
+      "qrAmount": null,
+      "partialPayment": null,
+      "timestamp": "2025-12-25T09:44:28.982Z",
+      "createdBy": "Sandhya"
+    },
+    {
+      "id": 1766655978942,
+      "table": "Table 1",
+      "items": [
+        {
+          "name": "Latte",
+          "price": 180,
+          "id": 1766655928900
+        },
+        {
+          "name": "Cappuccino",
+          "price": 180,
+          "id": 1766655930373
+        },
+        {
+          "name": "Momo (Steam)",
+          "price": 180,
+          "id": 1766655932812
+        },
+        {
+          "name": "Momo (Fried)",
+          "price": 200,
+          "id": 1766655934108
+        },
+        {
+          "name": "Brownie",
+          "price": 140,
+          "id": 1766655935441
+        },
+        {
+          "name": "Sandwich",
+          "price": 160,
+          "id": 1766655936612
+        }
+      ],
+      "total": 1040,
+      "paymentMode": "qr",
+      "creditName": null,
+      "creditPaid": true,
+      "cashAmount": null,
+      "qrAmount": null,
+      "partialPayment": null,
+      "timestamp": "2025-12-25T09:46:18.942Z",
+      "createdBy": "Sandhya"
+    },
+    {
+      "id": 1766656149945,
+      "table": "Table 4",
+      "items": [
+        {
+          "name": "Momo (Fried)",
+          "price": 200,
+          "id": 1766656017741
+        }
+      ],
+      "total": 200,
+      "paymentMode": "cash_qr",
+      "creditName": null,
+      "creditPaid": true,
+      "cashAmount": 120,
+      "qrAmount": 80,
+      "partialPayment": null,
+      "timestamp": "2025-12-25T09:49:09.945Z",
+      "createdBy": "Sandhya"
+    },
+    {
+      "id": 1766715174629,
+      "table": "Table 5",
+      "items": [
+        {
+          "name": "Latte",
+          "price": 180,
+          "addedBy": "Shilu",
+          "addedAt": "2025-12-26T02:12:40.919Z"
+        },
+        {
+          "name": "Latte",
+          "price": 180,
+          "addedBy": "Shilu",
+          "addedAt": "2025-12-26T02:12:42.154Z"
+        },
+        {
+          "name": "Latte",
+          "price": 180,
+          "addedBy": "Shilu",
+          "addedAt": "2025-12-26T02:12:43.726Z"
+        }
+      ],
+      "total": 540,
+      "customerName": null,
+      "paymentMode": "cash",
+      "creditName": null,
+      "cashAmount": null,
+      "qrAmount": null,
+      "completedBy": "Shilu",
+      "timestamp": "2025-12-26T02:12:54.629Z"
+    },
+    {
+      "id": 1766715373625,
+      "table": "Table 2",
+      "items": [
+        {
+          "name": "Americano",
+          "price": 150,
+          "addedBy": "Shilu",
+          "addedAt": "2025-12-26T02:16:08.780Z"
+        },
+        {
+          "name": "Americano",
+          "price": 150,
+          "addedBy": "Shilu",
+          "addedAt": "2025-12-26T02:16:09.426Z"
+        },
+        {
+          "name": "Americano",
+          "price": 150,
+          "addedBy": "Shilu",
+          "addedAt": "2025-12-26T02:16:10.124Z"
+        }
+      ],
+      "total": 450,
+      "customerName": "Ankit",
+      "paymentMode": "qr",
+      "creditName": null,
+      "cashAmount": null,
+      "qrAmount": null,
+      "completedBy": "Shilu",
+      "timestamp": "2025-12-26T02:16:13.625Z"
+    },
+    {
+      "id": 1766715409677,
+      "table": "Table 3",
+      "items": [
+        {
+          "name": "Momo (Fried)",
+          "price": 200,
+          "addedBy": "Shilu",
+          "addedAt": "2025-12-26T02:16:18.258Z"
+        }
+      ],
+      "total": 200,
+      "customerName": null,
+      "paymentMode": "cash_qr",
+      "creditName": null,
+      "cashAmount": 20,
+      "qrAmount": 180,
+      "completedBy": "Shilu",
+      "timestamp": "2025-12-26T02:16:49.677Z"
+    },
+    {
+      "id": 1766715524682,
+      "table": "Table 5",
+      "items": [
+        {
+          "name": "Cappuccino",
+          "price": 180,
+          "addedBy": "Shilu",
+          "addedAt": "2025-12-26T02:18:08.164Z"
+        },
+        {
+          "name": "Espresso",
+          "price": 120,
+          "addedBy": "Shilu",
+          "addedAt": "2025-12-26T02:18:09.069Z"
+        }
+      ],
+      "total": 300,
+      "customerName": null,
+      "paymentMode": "credit",
+      "creditName": "Aroan",
+      "cashAmount": null,
+      "qrAmount": null,
+      "completedBy": "Shilu",
+      "timestamp": "2025-12-26T02:18:44.682Z"
+    },
+    {
+      "id": 1766715638597,
+      "table": "Table 4",
+      "items": [
+        {
+          "name": "Latte",
+          "price": 180,
+          "addedBy": "Shilu",
+          "addedAt": "2025-12-26T02:20:10.926Z"
+        },
+        {
+          "name": "Latte",
+          "price": 180,
+          "addedBy": "Shilu",
+          "addedAt": "2025-12-26T02:20:11.035Z"
+        },
+        {
+          "name": "Latte",
+          "price": 180,
+          "addedBy": "Shilu",
+          "addedAt": "2025-12-26T02:20:11.256Z"
+        }
+      ],
+      "total": 540,
+      "customerName": "dhanush",
+      "paymentMode": "cash_qr",
+      "creditName": null,
+      "cashAmount": 500,
+      "qrAmount": 40,
+      "completedBy": "Shilu",
+      "timestamp": "2025-12-26T02:20:38.597Z"
+    },
+    {
+      "id": 1766716738428,
+      "table": "Table 4",
+      "items": [
+        {
+          "name": "Latte",
+          "price": 180,
+          "addedBy": "Shilu",
+          "addedAt": "2025-12-26T02:25:05.104Z"
+        },
+        {
+          "name": "Latte",
+          "price": 180,
+          "addedBy": "Shilu",
+          "addedAt": "2025-12-26T02:25:06.554Z"
+        }
+      ],
+      "total": 360,
+      "customerName": "bishal",
+      "paymentMode": "cash_qr",
+      "creditName": null,
+      "creditPaid": true,
+      "cashAmount": 230,
+      "qrAmount": 130,
+      "partialPayment": null,
+      "timestamp": "2025-12-26T02:38:58.428Z",
+      "createdBy": "Sandhya"
+    },
+    {
+      "id": 1766716760180,
+      "table": "Table 8",
+      "items": [
+        {
+          "name": "Momo (Steam)",
+          "price": 180,
+          "addedBy": "Sandhya",
+          "addedAt": "2025-12-26T02:39:04.260Z"
+        },
+        {
+          "name": "Momo (Steam)",
+          "price": 180,
+          "addedBy": "Sandhya",
+          "addedAt": "2025-12-26T02:39:04.435Z"
+        }
+      ],
+      "total": 360,
+      "customerName": null,
+      "paymentMode": "partial",
+      "creditName": "Sandip",
+      "creditPaid": false,
+      "partialPayment": {
+        "paidAmount": 200,
+        "paidMethod": "qr",
+        "creditAmount": 160
+      },
+      "timestamp": "2025-12-26T02:39:20.180Z",
+      "createdBy": "Sandhya"
+    },
+    {
+      "id": 1766717373896,
+      "table": "Counter",
+      "items": [
+        {
+          "name": "Latte",
+          "price": 180,
+          "addedBy": "Sandhya",
+          "addedAt": "2025-12-26T02:47:30.736Z"
+        },
+        {
+          "name": "Espresso",
+          "price": 120,
+          "addedBy": "Sandhya",
+          "addedAt": "2025-12-26T02:47:31.437Z"
+        },
+        {
+          "name": "Momo (Fried)",
+          "price": 200,
+          "addedBy": "Sandhya",
+          "addedAt": "2025-12-26T02:47:33.499Z"
+        },
+        {
+          "name": "Espresso",
+          "price": 120,
+          "addedBy": "Sandhya",
+          "addedAt": "2025-12-26T02:47:36.373Z"
+        }
+      ],
+      "total": 620,
+      "customerName": "alsekjf",
+      "paymentMode": "qr",
+      "creditName": null,
+      "creditPaid": true,
+      "cashAmount": null,
+      "qrAmount": null,
+      "partialPayment": null,
+      "timestamp": "2025-12-26T02:49:33.897Z",
+      "createdBy": "Sandhya"
+    },
+    {
+      "id": 1766717425081,
+      "table": "Table 3",
+      "items": [
+        {
+          "name": "Latte",
+          "price": 180,
+          "addedBy": "Sandhya",
+          "addedAt": "2025-12-26T02:48:28.683Z"
+        }
+      ],
+      "total": 180,
+      "customerName": "saddham",
+      "paymentMode": "cash",
+      "creditName": null,
+      "creditPaid": true,
+      "cashAmount": null,
+      "qrAmount": null,
+      "partialPayment": null,
+      "timestamp": "2025-12-26T02:50:25.081Z",
+      "createdBy": "Sandhya"
+    },
+    {
+      "id": 1766718067006,
+      "table": "Table 2",
+      "items": [
+        {
+          "name": "Espresso",
+          "price": 120,
+          "addedBy": "Admin",
+          "addedAt": "2025-12-26T03:00:56.350Z"
+        },
+        {
+          "name": "Espresso",
+          "price": 120,
+          "addedBy": "Admin",
+          "addedAt": "2025-12-26T03:00:56.400Z"
+        },
+        {
+          "name": "Espresso",
+          "price": 120,
+          "addedBy": "Admin",
+          "addedAt": "2025-12-26T03:00:56.629Z"
+        }
+      ],
+      "total": 360,
+      "customerName": "mayor bill deblasion",
+      "paymentMode": "cash_qr",
+      "creditName": null,
+      "creditPaid": true,
+      "cashAmount": 40,
+      "qrAmount": 320,
+      "partialPayment": null,
+      "timestamp": "2025-12-26T03:01:07.006Z",
+      "createdBy": "Admin"
+    },
+    {
+      "id": 1766718823096,
+      "table": "Table 4",
+      "items": [
+        {
+          "name": "Latte",
+          "price": 180,
+          "addedBy": "Admin",
+          "addedAt": "2025-12-26T03:13:39.480Z"
+        }
+      ],
+      "total": 180,
+      "customerName": "brinda",
+      "paymentMode": "cash",
+      "creditName": null,
+      "creditPaid": true,
+      "cashAmount": null,
+      "qrAmount": null,
+      "partialPayment": null,
+      "timestamp": "2025-12-26T03:13:43.096Z",
+      "createdBy": "Admin"
+    },
+    {
+      "id": 1766718834993,
+      "table": "Table 6",
+      "items": [
+        {
+          "name": "Espresso",
+          "price": 120,
+          "addedBy": "Admin",
+          "addedAt": "2025-12-26T03:13:51.022Z"
+        },
+        {
+          "name": "Espresso",
+          "price": 120,
+          "addedBy": "Admin",
+          "addedAt": "2025-12-26T03:13:51.191Z"
+        }
+      ],
+      "total": 240,
+      "customerName": "brinda",
+      "paymentMode": "qr",
+      "creditName": null,
+      "creditPaid": true,
+      "cashAmount": null,
+      "qrAmount": null,
+      "partialPayment": null,
+      "timestamp": "2025-12-26T03:13:54.993Z",
+      "createdBy": "Admin"
+    },
+    {
+      "id": 1766718852090,
+      "table": "Table 3",
+      "items": [
+        {
+          "name": "Espresso",
+          "price": 120,
+          "addedBy": "Admin",
+          "addedAt": "2025-12-26T03:14:00.827Z"
+        }
+      ],
+      "total": 120,
+      "customerName": "risab",
+      "paymentMode": "cash",
+      "creditName": null,
+      "creditPaid": true,
+      "cashAmount": null,
+      "qrAmount": null,
+      "partialPayment": null,
+      "timestamp": "2025-12-26T03:14:12.090Z",
+      "createdBy": "Admin"
+    },
+    {
+      "id": 1766722182731,
+      "table": "Counter",
+      "items": [
+        {
+          "name": "Latte",
+          "price": 180,
+          "addedBy": "Sandhya",
+          "addedAt": "2025-12-26T04:09:18.205Z"
+        },
+        {
+          "name": "Latte",
+          "price": 180,
+          "addedBy": "Sandhya",
+          "addedAt": "2025-12-26T04:09:18.241Z"
+        },
+        {
+          "name": "Latte",
+          "price": 180,
+          "addedBy": "Sandhya",
+          "addedAt": "2025-12-26T04:09:18.314Z"
+        }
+      ],
+      "total": 540,
+      "customerName": null,
+      "paymentMode": "credit",
+      "creditName": "Datagram",
+      "creditPaid": false,
+      "cashAmount": null,
+      "qrAmount": null,
+      "partialPayment": null,
+      "timestamp": "2025-12-26T04:09:42.731Z",
+      "createdBy": "Sandhya"
+    },
+    {
+      "id": 1766975182174,
+      "table": "Table 3",
+      "items": [
+        {
+          "name": "Latte",
+          "price": 180,
+          "addedBy": "Shilu",
+          "addedAt": "2025-12-29T02:26:05.379Z"
+        },
+        {
+          "name": "Cappuccino",
+          "price": 180,
+          "addedBy": "Shilu",
+          "addedAt": "2025-12-29T02:26:06.092Z"
+        },
+        {
+          "name": "Espresso",
+          "price": 120,
+          "addedBy": "Shilu",
+          "addedAt": "2025-12-29T02:26:06.831Z"
+        }
+      ],
+      "total": 480,
+      "customerName": "Mahesh Sir",
+      "paymentMode": "credit",
+      "creditName": "Mahesh Sir",
+      "creditorId": 1766975140710,
+      "creditPaid": false,
+      "cashAmount": null,
+      "qrAmount": null,
+      "partialPayment": null,
+      "timestamp": "2025-12-29T02:26:22.174Z",
+      "createdBy": "Shilu",
+      "creditPayments": [
+        {
+          "id": 1766976226905,
+          "amount": 200,
+          "method": "cash",
+          "recordedBy": "Admin",
+          "paidAt": "2025-12-29T02:43:46.905Z"
+        },
+        {
+          "id": 1766976237911,
+          "amount": 100,
+          "method": "cash",
+          "recordedBy": "Admin",
+          "paidAt": "2025-12-29T02:43:57.911Z"
+        },
+        {
+          "id": 1766976280582,
+          "amount": 100,
+          "method": "cash",
+          "recordedBy": "Sandhya",
+          "paidAt": "2025-12-29T02:44:40.582Z"
+        },
+        {
+          "id": 1766977660389,
+          "amount": 50,
+          "method": "qr",
+          "recordedBy": "Sandhya",
+          "paidAt": "2025-12-29T03:07:40.389Z"
+        }
+      ]
+    },
+    {
+      "id": 1766975271983,
+      "table": "Counter",
+      "items": [
+        {
+          "name": "Latte",
+          "price": 180,
+          "addedBy": "Shilu",
+          "addedAt": "2025-12-29T02:27:28.628Z"
+        }
+      ],
+      "total": 180,
+      "customerName": null,
+      "paymentMode": "partial",
+      "creditName": "Mandeep Dai",
+      "creditorId": null,
+      "creditPaid": false,
+      "partialPayment": {
+        "paidAmount": 100,
+        "paidMethod": "qr",
+        "creditAmount": 80
+      },
+      "timestamp": "2025-12-29T02:27:51.983Z",
+      "createdBy": "Shilu"
+    },
+    {
+      "id": 1766975851983,
+      "table": "Table 4",
+      "items": [
+        {
+          "name": "Espresso",
+          "price": 120,
+          "addedBy": "Admin",
+          "addedAt": "2025-12-29T02:37:16.850Z"
+        },
+        {
+          "name": "Espresso",
+          "price": 120,
+          "addedBy": "Admin",
+          "addedAt": "2025-12-29T02:37:17.026Z"
+        },
+        {
+          "name": "Momo (Fried)",
+          "price": 200,
+          "addedBy": "Admin",
+          "addedAt": "2025-12-29T02:37:17.749Z"
+        }
+      ],
+      "total": 440,
+      "customerName": null,
+      "paymentMode": "partial",
+      "creditName": "Aahat Regmi",
+      "creditorId": 1766975831033,
+      "creditPaid": true,
+      "partialPayment": {
+        "paidAmount": 200,
+        "paidMethod": "cash",
+        "creditAmount": 240
+      },
+      "timestamp": "2025-12-29T02:37:31.983Z",
+      "createdBy": "Admin",
+      "clearApprovedBy": "Admin",
+      "clearApprovedAt": "2025-12-29T02:38:57.918Z"
+    },
+    {
+      "id": 1766977610018,
+      "table": "Table 3",
+      "items": [
+        {
+          "name": "Latte",
+          "price": 180,
+          "addedBy": "Sandhya",
+          "addedAt": "2025-12-29T03:06:45.737Z"
+        },
+        {
+          "name": "Latte",
+          "price": 180,
+          "addedBy": "Sandhya",
+          "addedAt": "2025-12-29T03:06:45.912Z"
+        }
+      ],
+      "total": 360,
+      "customerName": null,
+      "paymentMode": "cash",
+      "creditName": null,
+      "creditorId": null,
+      "creditPaid": true,
+      "cashAmount": null,
+      "qrAmount": null,
+      "partialPayment": null,
+      "timestamp": "2025-12-29T03:06:50.018Z",
+      "createdBy": "Sandhya"
+    },
+    {
+      "id": 1766980172052,
+      "table": "Table 4",
+      "items": [
+        {
+          "name": "Latte",
+          "price": 180,
+          "addedBy": "Sandhya",
+          "addedAt": "2025-12-29T03:49:25.450Z"
+        },
+        {
+          "name": "Latte",
+          "price": 180,
+          "addedBy": "Sandhya",
+          "addedAt": "2025-12-29T03:49:25.628Z"
+        }
+      ],
+      "total": 360,
+      "customerName": null,
+      "paymentMode": "cash",
+      "creditName": null,
+      "creditorId": null,
+      "creditPaid": true,
+      "cashAmount": null,
+      "qrAmount": null,
+      "partialPayment": null,
+      "timestamp": "2025-12-29T03:49:32.052Z",
+      "createdBy": "Sandhya"
+    },
+    {
+      "id": 1766980265666,
+      "table": "Table 3",
+      "items": [
+        {
+          "name": "Americano",
+          "price": 150,
+          "addedBy": "Sandhya",
+          "addedAt": "2025-12-29T03:49:52.377Z"
+        }
+      ],
+      "total": 150,
+      "customerName": "dhumrush",
+      "paymentMode": "credit",
+      "creditName": "Mahesh Sir",
+      "creditorId": 1766975140710,
+      "creditPaid": false,
+      "cashAmount": null,
+      "qrAmount": null,
+      "partialPayment": null,
+      "timestamp": "2025-12-29T03:51:05.666Z",
+      "createdBy": "Sandhya"
+    },
+    {
+      "id": 1766980829286,
+      "table": "Table 1",
+      "items": [
+        {
+          "name": "Americano",
+          "price": 150,
+          "addedBy": "Admin",
+          "addedAt": "2025-12-29T04:00:24.784Z"
+        },
+        {
+          "name": "Americano",
+          "price": 150,
+          "addedBy": "Admin",
+          "addedAt": "2025-12-29T04:00:24.966Z"
+        }
+      ],
+      "total": 300,
+      "customerName": null,
+      "paymentMode": "qr",
+      "creditName": null,
+      "creditorId": null,
+      "creditPaid": true,
+      "cashAmount": null,
+      "qrAmount": null,
+      "partialPayment": null,
+      "timestamp": "2025-12-29T04:00:29.286Z",
+      "createdBy": "Admin"
+    },
+    {
+      "id": 1766980893669,
+      "table": "Table 5",
+      "items": [
+        {
+          "name": "Momo (Steam)",
+          "price": 180,
+          "addedBy": "Admin",
+          "addedAt": "2025-12-29T04:01:30.357Z"
+        },
+        {
+          "name": "Momo (Steam)",
+          "price": 180,
+          "addedBy": "Admin",
+          "addedAt": "2025-12-29T04:01:30.532Z"
+        }
+      ],
+      "total": 360,
+      "customerName": null,
+      "paymentMode": "cash",
+      "creditName": null,
+      "creditorId": null,
+      "creditPaid": true,
+      "cashAmount": null,
+      "qrAmount": null,
+      "partialPayment": null,
+      "timestamp": "2025-12-29T04:01:33.669Z",
+      "createdBy": "Admin"
+    },
+    {
+      "id": 1766985746432,
+      "table": "Table 3",
+      "items": [
+        {
+          "name": "Americano",
+          "price": 150,
+          "addedBy": "Sandhya",
+          "addedAt": "2025-12-29T05:22:18.962Z"
+        },
+        {
+          "name": "Americano",
+          "price": 150,
+          "addedBy": "Sandhya",
+          "addedAt": "2025-12-29T05:22:19.038Z"
+        },
+        {
+          "name": "Americano",
+          "price": 150,
+          "addedBy": "Sandhya",
+          "addedAt": "2025-12-29T05:22:19.270Z"
+        }
+      ],
+      "total": 450,
+      "customerName": "Sabin",
+      "paymentMode": "cash",
+      "creditName": null,
+      "creditorId": null,
+      "creditPaid": true,
+      "cashAmount": null,
+      "qrAmount": null,
+      "partialPayment": null,
+      "timestamp": "2025-12-29T05:22:26.432Z",
+      "createdBy": "Sandhya"
+    },
+    {
+      "id": 1766985759112,
+      "table": "Table 5",
+      "items": [
+        {
+          "name": "Espresso",
+          "price": 120,
+          "addedBy": "Sandhya",
+          "addedAt": "2025-12-29T05:22:33.982Z"
+        }
+      ],
+      "total": 120,
+      "customerName": null,
+      "paymentMode": "qr",
+      "creditName": null,
+      "creditorId": null,
+      "creditPaid": true,
+      "cashAmount": null,
+      "qrAmount": null,
+      "partialPayment": null,
+      "timestamp": "2025-12-29T05:22:39.112Z",
+      "createdBy": "Sandhya"
+    },
+    {
+      "id": 1766985804244,
+      "table": "Table 3",
+      "items": [
+        {
+          "name": "Espresso",
+          "price": 120,
+          "addedBy": "Sandhya",
+          "addedAt": "2025-12-29T05:23:21.155Z"
+        }
+      ],
+      "total": 120,
+      "customerName": null,
+      "paymentMode": "cash",
+      "creditName": null,
+      "creditorId": null,
+      "creditPaid": true,
+      "cashAmount": null,
+      "qrAmount": null,
+      "partialPayment": null,
+      "timestamp": "2025-12-29T05:23:24.244Z",
+      "createdBy": "Sandhya"
+    },
+    {
+      "id": 1766986024177,
+      "table": "Table 3",
+      "items": [
+        {
+          "name": "Latte",
+          "price": 180,
+          "addedBy": "Sandhya",
+          "addedAt": "2025-12-29T05:26:48.317Z"
+        },
+        {
+          "name": "Latte",
+          "price": 180,
+          "addedBy": "Sandhya",
+          "addedAt": "2025-12-29T05:26:48.493Z"
+        }
+      ],
+      "total": 360,
+      "customerName": "Jamara",
+      "paymentMode": "qr",
+      "creditName": null,
+      "creditorId": null,
+      "creditPaid": true,
+      "cashAmount": null,
+      "qrAmount": null,
+      "partialPayment": null,
+      "timestamp": "2025-12-29T05:27:04.177Z",
+      "createdBy": "Sandhya"
+    },
+    {
+      "id": 1766986692260,
+      "table": "Table 3",
+      "items": [
+        {
+          "name": "Latte",
+          "price": 180,
+          "addedBy": "Sandhya",
+          "addedAt": "2025-12-29T05:36:42.949Z"
+        },
+        {
+          "name": "Latte",
+          "price": 180,
+          "addedBy": "Sandhya",
+          "addedAt": "2025-12-29T05:36:43.105Z"
+        },
+        {
+          "name": "Latte",
+          "price": 180,
+          "addedBy": "Sandhya",
+          "addedAt": "2025-12-29T05:36:43.300Z"
+        }
+      ],
+      "total": 540,
+      "customerName": null,
+      "paymentMode": "credit",
+      "creditName": "Mahesh Sir",
+      "creditorId": 1766975140710,
+      "creditPaid": false,
+      "cashAmount": null,
+      "qrAmount": null,
+      "partialPayment": null,
+      "timestamp": "2025-12-29T05:38:12.260Z",
+      "createdBy": "Sandhya"
+    },
+    {
+      "id": 1766986835163,
+      "table": "Table 2",
+      "items": [
+        {
+          "name": "Latte",
+          "price": 180,
+          "addedBy": "Sandhya",
+          "addedAt": "2025-12-29T05:38:15.254Z"
+        }
+      ],
+      "total": 180,
+      "customerName": null,
+      "paymentMode": "cash",
+      "creditName": null,
+      "creditorId": null,
+      "creditPaid": true,
+      "cashAmount": null,
+      "qrAmount": null,
+      "partialPayment": null,
+      "timestamp": "2025-12-29T05:40:35.163Z",
+      "createdBy": "Sandhya"
+    },
+    {
+      "id": 1766986885639,
+      "table": "Table 3",
+      "items": [
+        {
+          "name": "Momo (Steam)",
+          "price": 180,
+          "addedBy": "Admin",
+          "addedAt": "2025-12-29T05:41:20.985Z"
+        },
+        {
+          "name": "Momo (Steam)",
+          "price": 180,
+          "addedBy": "Admin",
+          "addedAt": "2025-12-29T05:41:21.064Z"
+        },
+        {
+          "name": "Momo (Steam)",
+          "price": 180,
+          "addedBy": "Admin",
+          "addedAt": "2025-12-29T05:41:21.309Z"
+        },
+        {
+          "name": "Momo (Steam)",
+          "price": 180,
+          "addedBy": "Admin",
+          "addedAt": "2025-12-29T05:41:21.484Z"
+        }
+      ],
+      "total": 720,
+      "customerName": "James Earl",
+      "paymentMode": "qr",
+      "creditName": null,
+      "creditorId": null,
+      "creditPaid": true,
+      "cashAmount": null,
+      "qrAmount": null,
+      "partialPayment": null,
+      "timestamp": "2025-12-29T05:41:25.639Z",
+      "createdBy": "Admin"
+    },
+    {
+      "id": 1766987436256,
+      "table": "Table 3",
+      "items": [
+        {
+          "name": "Latte",
+          "price": 180,
+          "addedBy": "Sandhya",
+          "addedAt": "2025-12-29T05:50:18.850Z"
+        },
+        {
+          "name": "Latte",
+          "price": 180,
+          "addedBy": "Sandhya",
+          "addedAt": "2025-12-29T05:50:18.942Z"
+        },
+        {
+          "name": "Latte",
+          "price": 180,
+          "addedBy": "Sandhya",
+          "addedAt": "2025-12-29T05:50:19.162Z"
+        }
+      ],
+      "total": 540,
+      "customerName": "Soltini",
+      "paymentMode": "credit",
+      "creditName": "Soltini",
+      "creditorId": 1766987431829,
+      "creditPaid": false,
+      "cashAmount": null,
+      "qrAmount": null,
+      "partialPayment": null,
+      "timestamp": "2025-12-29T05:50:36.256Z",
+      "createdBy": "Sandhya"
+    },
+    {
+      "id": 1766988548175,
+      "table": "Counter",
+      "items": [
+        {
+          "name": "Americano",
+          "price": 150,
+          "addedBy": "Sandhya",
+          "addedAt": "2025-12-29T06:08:39.560Z"
+        }
+      ],
+      "total": 150,
+      "customerName": null,
+      "paymentMode": "cash",
+      "creditName": null,
+      "creditorId": null,
+      "creditPaid": true,
+      "cashAmount": null,
+      "qrAmount": null,
+      "partialPayment": null,
+      "timestamp": "2025-12-29T06:09:08.175Z",
+      "createdBy": "Sandhya"
+    },
+    {
+      "id": 1766988578815,
+      "table": "Table 3",
+      "items": [
+        {
+          "name": "Americano",
+          "price": 150,
+          "addedBy": "Sandhya",
+          "addedAt": "2025-12-29T06:08:10.870Z"
+        },
+        {
+          "name": "Americano",
+          "price": 150,
+          "addedBy": "Sandhya",
+          "addedAt": "2025-12-29T06:08:11.052Z"
+        }
+      ],
+      "total": 300,
+      "customerName": "Mahesh Sir",
+      "paymentMode": "credit",
+      "creditName": "Mahesh Sir",
+      "creditorId": 1766975140710,
+      "creditPaid": false,
+      "cashAmount": null,
+      "qrAmount": null,
+      "partialPayment": null,
+      "timestamp": "2025-12-29T06:09:38.815Z",
+      "createdBy": "Sandhya"
+    },
+    {
+      "id": 1766988615822,
+      "table": "Table 5",
+      "items": [
+        {
+          "name": "Momo (Steam)",
+          "price": 180,
+          "addedBy": "Sandhya",
+          "addedAt": "2025-12-29T06:08:21.404Z"
+        },
+        {
+          "name": "Momo (Steam)",
+          "price": 180,
+          "addedBy": "Sandhya",
+          "addedAt": "2025-12-29T06:08:21.585Z"
+        }
+      ],
+      "total": 360,
+      "customerName": null,
+      "paymentMode": "cash_qr",
+      "creditName": null,
+      "creditorId": null,
+      "creditPaid": true,
+      "cashAmount": 300,
+      "qrAmount": 60,
+      "partialPayment": null,
+      "timestamp": "2025-12-29T06:10:15.822Z",
+      "createdBy": "Sandhya"
+    },
+    {
+      "id": 1766988857416,
+      "table": "Table 3",
+      "items": [
+        {
+          "name": "Latte",
+          "price": 180,
+          "addedBy": "Shilu",
+          "addedAt": "2025-12-29T06:14:10.221Z"
+        }
+      ],
+      "total": 180,
+      "customerName": null,
+      "paymentMode": "credit",
+      "creditName": "Mahesh Sir",
+      "creditorId": 1766975140710,
+      "creditPaid": false,
+      "cashAmount": null,
+      "qrAmount": null,
+      "partialPayment": null,
+      "timestamp": "2025-12-29T06:14:17.416Z",
+      "createdBy": "Shilu"
+    },
+    {
+      "id": 1767000867725,
+      "table": "Counter",
+      "items": [
+        {
+          "name": "Cappuccino",
+          "price": 180,
+          "addedBy": "Sandhya",
+          "addedAt": "2025-12-29T09:34:20.539Z"
+        }
+      ],
+      "total": 180,
+      "customerName": null,
+      "paymentMode": "credit",
+      "creditName": "Aahat Regmi",
+      "creditorId": 1766975831033,
+      "creditPaid": false,
+      "cashAmount": null,
+      "qrAmount": null,
+      "partialPayment": null,
+      "timestamp": "2025-12-29T09:34:27.725Z",
+      "createdBy": "Sandhya"
+    },
+    {
+      "id": 1767001064730,
+      "table": "Counter",
+      "items": [
+        {
+          "name": "Espresso",
+          "price": 120,
+          "addedBy": "Sandhya",
+          "addedAt": "2025-12-29T09:37:37.675Z"
+        }
+      ],
+      "total": 120,
+      "customerName": null,
+      "paymentMode": "credit",
+      "creditName": "Soltini",
+      "creditorId": 1766987431829,
+      "creditPaid": false,
+      "cashAmount": null,
+      "qrAmount": null,
+      "partialPayment": null,
+      "timestamp": "2025-12-29T09:37:44.730Z",
+      "createdBy": "Sandhya"
+    },
+    {
+      "id": 1767001099698,
+      "table": "Table 2",
+      "items": [
+        {
+          "name": "Cappuccino",
+          "price": 180,
+          "addedBy": "Shilu",
+          "addedAt": "2025-12-29T09:38:13.052Z"
+        }
+      ],
+      "total": 180,
+      "customerName": null,
+      "paymentMode": "credit",
+      "creditName": "Aahat Regmi",
+      "creditorId": 1766975831033,
+      "creditPaid": false,
+      "cashAmount": null,
+      "qrAmount": null,
+      "partialPayment": null,
+      "timestamp": "2025-12-29T09:38:19.698Z",
+      "createdBy": "Shilu"
+    },
+    {
+      "id": 1767001249186,
+      "table": "Table 3",
+      "items": [
+        {
+          "name": "Latte",
+          "price": 180,
+          "addedBy": "Admin",
+          "addedAt": "2025-12-29T09:40:41.827Z"
+        },
+        {
+          "name": "Latte",
+          "price": 180,
+          "addedBy": "Admin",
+          "addedAt": "2025-12-29T09:40:41.898Z"
+        },
+        {
+          "name": "Latte",
+          "price": 180,
+          "addedBy": "Admin",
+          "addedAt": "2025-12-29T09:40:42.105Z"
+        },
+        {
+          "name": "Latte",
+          "price": 180,
+          "addedBy": "Admin",
+          "addedAt": "2025-12-29T09:40:42.293Z"
+        }
+      ],
+      "total": 720,
+      "customerName": null,
+      "paymentMode": "credit",
+      "creditName": "Soltini",
+      "creditorId": 1766987431829,
+      "creditPaid": false,
+      "cashAmount": null,
+      "qrAmount": null,
+      "partialPayment": null,
+      "timestamp": "2025-12-29T09:40:49.186Z",
+      "createdBy": "Admin"
+    },
+    {
+      "id": 1767001281931,
+      "table": "Counter",
+      "items": [
+        {
+          "name": "Sandwich",
+          "price": 160,
+          "addedBy": "Sandhya",
+          "addedAt": "2025-12-29T09:41:14.033Z"
+        },
+        {
+          "name": "Sandwich",
+          "price": 160,
+          "addedBy": "Sandhya",
+          "addedAt": "2025-12-29T09:41:14.071Z"
+        },
+        {
+          "name": "Sandwich",
+          "price": 160,
+          "addedBy": "Sandhya",
+          "addedAt": "2025-12-29T09:41:14.133Z"
+        },
+        {
+          "name": "Sandwich",
+          "price": 160,
+          "addedBy": "Sandhya",
+          "addedAt": "2025-12-29T09:41:14.323Z"
+        }
+      ],
+      "total": 640,
+      "customerName": null,
+      "paymentMode": "credit",
+      "creditName": "Aahat Regmi",
+      "creditorId": 1766975831033,
+      "creditPaid": false,
+      "cashAmount": null,
+      "qrAmount": null,
+      "partialPayment": null,
+      "timestamp": "2025-12-29T09:41:21.931Z",
+      "createdBy": "Sandhya"
+    },
+    {
+      "id": 1767001361429,
+      "table": "Table 6",
+      "items": [
+        {
+          "name": "Cappuccino",
+          "price": 180,
+          "addedBy": "Shilu",
+          "addedAt": "2025-12-29T09:42:34.996Z"
+        },
+        {
+          "name": "Cappuccino",
+          "price": 180,
+          "addedBy": "Shilu",
+          "addedAt": "2025-12-29T09:42:35.091Z"
+        },
+        {
+          "name": "Cappuccino",
+          "price": 180,
+          "addedBy": "Shilu",
+          "addedAt": "2025-12-29T09:42:35.323Z"
+        }
+      ],
+      "total": 540,
+      "customerName": null,
+      "paymentMode": "credit",
+      "creditName": "Mahesh Sir",
+      "creditorId": 1766975140710,
+      "creditPaid": false,
+      "cashAmount": null,
+      "qrAmount": null,
+      "partialPayment": null,
+      "timestamp": "2025-12-29T09:42:41.429Z",
+      "createdBy": "Shilu"
+    },
+    {
+      "id": 1767001587264,
+      "table": "Table 5",
+      "items": [
+        {
+          "name": "Americano",
+          "price": 150,
+          "addedBy": "Admin",
+          "addedAt": "2025-12-29T09:46:15.002Z"
+        }
+      ],
+      "total": 150,
+      "customerName": null,
+      "paymentMode": "credit",
+      "creditName": "Dhurmush",
+      "creditorId": 1767001584366,
+      "creditPaid": false,
+      "cashAmount": null,
+      "qrAmount": null,
+      "partialPayment": null,
+      "timestamp": "2025-12-29T09:46:27.264Z",
+      "createdBy": "Admin"
+    },
+    {
+      "id": 1767001626928,
+      "table": "Table 7",
+      "items": [
+        {
+          "name": "Latte",
+          "price": 180,
+          "addedBy": "Sandhya",
+          "addedAt": "2025-12-29T09:46:49.622Z"
+        },
+        {
+          "name": "Latte",
+          "price": 180,
+          "addedBy": "Sandhya",
+          "addedAt": "2025-12-29T09:46:49.952Z"
+        },
+        {
+          "name": "Latte",
+          "price": 180,
+          "addedBy": "Sandhya",
+          "addedAt": "2025-12-29T09:46:50.138Z"
+        }
+      ],
+      "total": 540,
+      "customerName": null,
+      "paymentMode": "credit",
+      "creditName": "Lakhshys",
+      "creditorId": 1767001624702,
+      "creditPaid": false,
+      "cashAmount": null,
+      "qrAmount": null,
+      "partialPayment": null,
+      "timestamp": "2025-12-29T09:47:06.928Z",
+      "createdBy": "Sandhya"
+    },
+    {
+      "id": 1767002412463,
+      "table": "Table 3",
+      "items": [
+        {
+          "name": "Latte",
+          "price": 180,
+          "addedBy": "Sandhya",
+          "addedAt": "2025-12-29T10:00:03.741Z"
+        },
+        {
+          "name": "Latte",
+          "price": 180,
+          "addedBy": "Sandhya",
+          "addedAt": "2025-12-29T10:00:03.836Z"
+        },
+        {
+          "name": "Latte",
+          "price": 180,
+          "addedBy": "Sandhya",
+          "addedAt": "2025-12-29T10:00:04.083Z"
+        }
+      ],
+      "total": 540,
+      "customerName": null,
+      "paymentMode": "credit",
+      "creditName": "Soltini",
+      "creditorId": 1766987431829,
+      "creditPaid": false,
+      "cashAmount": null,
+      "qrAmount": null,
+      "partialPayment": null,
+      "timestamp": "2025-12-29T10:00:12.463Z",
+      "createdBy": "Sandhya"
+    },
+    {
+      "id": 1767002648526,
+      "table": "Table 3",
+      "items": [
+        {
+          "name": "Momo (Steam)",
+          "price": 180,
+          "addedBy": "Sandhya",
+          "addedAt": "2025-12-29T10:03:51.276Z"
+        }
+      ],
+      "total": 180,
+      "customerName": null,
+      "paymentMode": "credit",
+      "creditName": "Santosh",
+      "creditorId": 1767002643568,
+      "creditPaid": false,
+      "cashAmount": null,
+      "qrAmount": null,
+      "partialPayment": null,
+      "timestamp": "2025-12-29T10:04:08.526Z",
+      "createdBy": "Sandhya"
+    },
+    {
+      "id": 1767018869748,
+      "table": "Table 3",
+      "items": [
+        {
+          "name": "Americano",
+          "price": 150,
+          "addedBy": "Sandhya",
+          "addedAt": "2025-12-29T14:32:47.181Z"
+        },
+        {
+          "name": "Americano",
+          "price": 150,
+          "addedBy": "Sandhya",
+          "addedAt": "2025-12-29T14:32:57.337Z"
+        }
+      ],
+      "total": 300,
+      "customerName": "Ram",
+      "paymentMode": "cash",
+      "creditName": null,
+      "creditorId": null,
+      "creditPaid": true,
+      "cashAmount": null,
+      "qrAmount": null,
+      "partialPayment": null,
+      "timestamp": "2025-12-29T14:34:29.748Z",
+      "createdBy": "Sandhya"
+    },
+    {
+      "id": 1767018915935,
+      "table": "Table 3",
+      "items": [
+        {
+          "name": "Latte",
+          "price": 180,
+          "addedBy": "Sandhya",
+          "addedAt": "2025-12-29T14:34:53.762Z"
+        },
+        {
+          "name": "Latte",
+          "price": 180,
+          "addedBy": "Sandhya",
+          "addedAt": "2025-12-29T14:34:53.937Z"
+        }
+      ],
+      "total": 360,
+      "customerName": "Shuvam",
+      "paymentMode": "qr",
+      "creditName": null,
+      "creditorId": null,
+      "creditPaid": true,
+      "cashAmount": null,
+      "qrAmount": null,
+      "partialPayment": null,
+      "timestamp": "2025-12-29T14:35:15.935Z",
+      "createdBy": "Sandhya"
+    },
+    {
+      "id": 1767019033104,
+      "table": "Table 4",
+      "items": [
+        {
+          "name": "Cappuccino",
+          "price": 180,
+          "addedBy": "Sandhya",
+          "addedAt": "2025-12-29T14:35:37.888Z"
+        },
+        {
+          "name": "Cappuccino",
+          "price": 180,
+          "addedBy": "Sandhya",
+          "addedAt": "2025-12-29T14:35:38.072Z"
+        }
+      ],
+      "total": 360,
+      "customerName": "Ram",
+      "paymentMode": "cash_qr",
+      "creditName": null,
+      "creditorId": null,
+      "creditPaid": true,
+      "cashAmount": 330,
+      "qrAmount": 30,
+      "partialPayment": null,
+      "timestamp": "2025-12-29T14:37:13.104Z",
+      "createdBy": "Sandhya"
+    },
+    {
+      "id": 1767019364284,
+      "table": "Table 1",
+      "items": [
+        {
+          "name": "Espresso",
+          "price": 120,
+          "addedBy": "Sandhya",
+          "addedAt": "2025-12-29T14:35:19.380Z"
+        },
+        {
+          "name": "Espresso",
+          "price": 120,
+          "addedBy": "Sandhya",
+          "addedAt": "2025-12-29T14:35:19.556Z"
+        }
+      ],
+      "total": 240,
+      "customerName": "Hari",
+      "paymentMode": "cash",
+      "creditName": null,
+      "creditorId": null,
+      "creditPaid": true,
+      "cashAmount": null,
+      "qrAmount": null,
+      "partialPayment": null,
+      "timestamp": "2025-12-29T14:42:44.284Z",
+      "createdBy": "Shilu"
+    },
+    {
+      "id": 1767019608907,
+      "table": "Table 6",
+      "items": [
+        {
+          "name": "Cappuccino",
+          "price": 180,
+          "addedBy": "Shilu",
+          "addedAt": "2025-12-29T14:45:50.976Z"
+        },
+        {
+          "name": "Cappuccino",
+          "price": 180,
+          "addedBy": "Shilu",
+          "addedAt": "2025-12-29T14:45:52.123Z"
+        }
+      ],
+      "total": 360,
+      "customerName": "Sourav",
+      "paymentMode": "cash",
+      "creditName": null,
+      "creditorId": null,
+      "creditPaid": true,
+      "cashAmount": null,
+      "qrAmount": null,
+      "partialPayment": null,
+      "timestamp": "2025-12-29T14:46:48.907Z",
+      "createdBy": "Shilu"
+    },
+    {
+      "id": 1767019781983,
+      "table": "Counter",
+      "items": [
+        {
+          "name": "Cappuccino",
+          "price": 180,
+          "addedBy": "Sandhya",
+          "addedAt": "2025-12-29T14:49:29.464Z"
+        },
+        {
+          "name": "Cappuccino",
+          "price": 180,
+          "addedBy": "Sandhya",
+          "addedAt": "2025-12-29T14:49:29.523Z"
+        }
+      ],
+      "total": 360,
+      "customerName": null,
+      "paymentMode": "qr",
+      "creditName": null,
+      "creditorId": null,
+      "creditPaid": true,
+      "cashAmount": null,
+      "qrAmount": null,
+      "partialPayment": null,
+      "timestamp": "2025-12-29T14:49:41.983Z",
+      "createdBy": "Sandhya"
+    },
+    {
+      "id": 1767023373076,
+      "table": "Table 2",
+      "items": [
+        {
+          "name": "Espresso",
+          "price": 120,
+          "addedBy": "Sandhya",
+          "addedAt": "2025-12-29T15:41:50.077Z"
+        }
+      ],
+      "total": 120,
+      "customerName": null,
+      "paymentMode": "credit",
+      "creditName": "Madeep",
+      "creditorId": 1767023370416,
+      "creditPaid": false,
+      "cashAmount": null,
+      "qrAmount": null,
+      "partialPayment": null,
+      "timestamp": "2025-12-29T15:49:33.076Z",
+      "createdBy": "Sandhya"
+    },
+    {
+      "id": 1767023857013,
+      "table": "Table 3",
+      "items": [
+        {
+          "name": "Espresso",
+          "price": 120,
+          "addedBy": "Sandhya",
+          "addedAt": "2025-12-29T15:57:26.266Z"
+        },
+        {
+          "name": "Espresso",
+          "price": 120,
+          "addedBy": "Sandhya",
+          "addedAt": "2025-12-29T15:57:26.316Z"
+        },
+        {
+          "name": "Espresso",
+          "price": 120,
+          "addedBy": "Sandhya",
+          "addedAt": "2025-12-29T15:57:26.564Z"
+        }
+      ],
+      "total": 360,
+      "customerName": null,
+      "paymentMode": "credit",
+      "creditName": "Jabara",
+      "creditorId": 1767023854492,
+      "creditPaid": false,
+      "cashAmount": null,
+      "qrAmount": null,
+      "partialPayment": null,
+      "timestamp": "2025-12-29T15:57:37.013Z",
+      "createdBy": "Sandhya"
+    }
+  ],
+  "openTabs": {}
+}

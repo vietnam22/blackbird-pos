@@ -1,0 +1,25 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "Admin",
+      "pin": "4444",
+      "role": "admin",
+      "hourlyRate": 0
+    },
+    {
+      "id": 2,
+      "name": "Sandhya",
+      "pin": "5555",
+      "role": "staff",
+      "hourlyRate": 70
+    },
+    {
+      "id": 3,
+      "name": "Shilu",
+      "pin": "6666",
+      "role": "staff",
+      "hourlyRate": 70
+    }
+  ]
+}

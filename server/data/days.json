@@ -1,0 +1,280 @@
+{
+  "currentDay": {
+    "id": 1767019756953,
+    "startedAt": "2025-12-29T14:49:16.953Z",
+    "openingCash": 0,
+    "endedAt": null,
+    "endedBy": null,
+    "closingCash": null
+  },
+  "history": [
+    {
+      "id": 1766416866761,
+      "startedAt": "2025-12-22T15:21:06.761Z",
+      "startedBy": {
+        "userId": 1,
+        "userName": "Admin"
+      },
+      "endedAt": "2025-12-22T15:21:10.880Z",
+      "endedBy": {
+        "userId": 1,
+        "userName": "Admin"
+      }
+    },
+    {
+      "id": 1766416945225,
+      "startedAt": "2025-12-22T15:22:25.225Z",
+      "startedBy": {
+        "userId": 1,
+        "userName": "Admin"
+      },
+      "endedAt": "2025-12-22T15:28:28.423Z",
+      "endedBy": {
+        "userId": 1,
+        "userName": "Admin"
+      }
+    },
+    {
+      "id": 1766418086728,
+      "startedAt": "2025-12-22T15:41:26.728Z",
+      "startedBy": {
+        "userId": 1,
+        "userName": "Admin"
+      },
+      "endedAt": "2025-12-22T15:44:07.614Z",
+      "endedBy": {
+        "userId": 1,
+        "userName": "Admin"
+      }
+    },
+    {
+      "id": 1766418609623,
+      "startedAt": "2025-12-22T15:50:09.623Z",
+      "startedBy": {
+        "userId": 2,
+        "userName": "Ram"
+      },
+      "endedAt": "2025-12-22T15:51:21.991Z",
+      "endedBy": {
+        "userId": 2,
+        "userName": "Ram"
+      }
+    },
+    {
+      "id": 1766418908711,
+      "startedAt": "2025-12-22T15:55:08.711Z",
+      "startedBy": {
+        "userId": 2,
+        "userName": "Ram"
+      },
+      "endedAt": "2025-12-22T15:57:04.024Z",
+      "endedBy": {
+        "userId": 3,
+        "userName": "Sita"
+      }
+    },
+    {
+      "id": 1766419442024,
+      "startedAt": "2025-12-22T16:04:02.024Z",
+      "startedBy": {
+        "userId": 1,
+        "userName": "Admin"
+      },
+      "endedAt": "2025-12-22T16:07:33.628Z",
+      "endedBy": {
+        "userId": 2,
+        "userName": "Ram"
+      }
+    },
+    {
+      "id": 1766420524262,
+      "startedAt": "2025-12-22T16:22:04.262Z",
+      "startedBy": {
+        "userId": 2,
+        "userName": "Ram"
+      },
+      "endedAt": "2025-12-23T03:18:24.674Z",
+      "endedBy": {
+        "userId": 1,
+        "userName": "Admin"
+      }
+    },
+    {
+      "id": 1766460162461,
+      "startedAt": "2025-12-23T03:22:42.461Z",
+      "startedBy": {
+        "userId": 2,
+        "userName": "Ram"
+      },
+      "endedAt": "2025-12-23T03:23:34.526Z",
+      "endedBy": {
+        "userId": 1,
+        "userName": "Admin"
+      }
+    },
+    {
+      "id": 1766461172005,
+      "startedAt": "2025-12-23T03:39:32.005Z",
+      "startedBy": {
+        "userId": 2,
+        "userName": "Ram"
+      },
+      "endedAt": "2025-12-23T03:45:14.259Z",
+      "endedBy": {
+        "userId": 3,
+        "userName": "Sita"
+      }
+    },
+    {
+      "id": 1766479509586,
+      "startedAt": "2025-12-23T08:45:09.586Z",
+      "startedBy": {
+        "userId": 1,
+        "userName": "Admin"
+      },
+      "endedAt": "2025-12-23T08:54:56.444Z",
+      "endedBy": {
+        "userId": 2,
+        "userName": "Sandhya"
+      }
+    },
+    {
+      "id": 1766654434439,
+      "startedAt": "2025-12-25T09:20:34.439Z",
+      "startedBy": {
+        "userId": 3,
+        "userName": "Shilu"
+      },
+      "endedAt": "2025-12-25T09:37:09.826Z",
+      "endedBy": {
+        "userId": 3,
+        "userName": "Shilu"
+      }
+    },
+    {
+      "id": 1766655830474,
+      "startedAt": "2025-12-25T09:43:50.474Z",
+      "startedBy": {
+        "userId": 2,
+        "userName": "Sandhya"
+      },
+      "endedAt": "2025-12-25T10:49:17.970Z",
+      "endedBy": {
+        "userId": 2,
+        "userName": "Sandhya"
+      }
+    },
+    {
+      "id": 1766659861307,
+      "startedAt": "2025-12-25T10:51:01.307Z",
+      "startedBy": {
+        "userId": 2,
+        "userName": "Sandhya"
+      },
+      "endedAt": "2025-12-29T03:38:02.468Z",
+      "endedBy": {
+        "userId": 1,
+        "userName": "Admin"
+      },
+      "expectedCash": -1520,
+      "expectedQR": 1800,
+      "totalSales": 3070,
+      "creditGiven": 90,
+      "creditCollected": 0,
+      "inventoryTotal": 2700,
+      "totalWages": 1058,
+      "netProfit": -1488
+    },
+    {
+      "id": 1766979829374,
+      "startedAt": "2025-12-29T03:43:49.374Z",
+      "startedBy": {
+        "userId": 1,
+        "userName": "Admin"
+      },
+      "startingCash": 2000,
+      "endedAt": "2025-12-29T04:02:21.514Z",
+      "endedBy": {
+        "userId": 1,
+        "userName": "Admin"
+      },
+      "expectedCash": 3280,
+      "expectedQR": 450,
+      "totalSales": 2630,
+      "creditGiven": 950,
+      "creditCollected": 450,
+      "inventoryTotal": 400,
+      "totalWages": 0,
+      "netProfit": 1430
+    },
+    {
+      "id": 1766984918451,
+      "startedAt": "2025-12-29T05:08:38.451Z",
+      "startedBy": {
+        "userId": 2,
+        "userName": "Sandhya"
+      },
+      "startingCash": 2000,
+      "endedAt": "2025-12-29T05:11:19.536Z",
+      "endedBy": {
+        "userId": 2,
+        "userName": "Sandhya"
+      },
+      "expectedCash": 3280,
+      "expectedQR": 450,
+      "totalSales": 2630,
+      "creditGiven": 950,
+      "creditCollected": 450,
+      "inventoryTotal": 400,
+      "totalWages": 0,
+      "netProfit": 1430
+    },
+    {
+      "id": 1766985234843,
+      "startedAt": "2025-12-29T05:13:54.843Z",
+      "startedBy": {
+        "userId": 2,
+        "userName": "Sandhya"
+      },
+      "startingCash": 2000,
+      "endedAt": "2025-12-29T06:13:03.470Z",
+      "endedBy": {
+        "userId": 3,
+        "userName": "Shilu"
+      },
+      "expectedCash": 4480,
+      "expectedQR": 1710,
+      "totalSales": 6470,
+      "creditGiven": 2330,
+      "creditCollected": 450,
+      "inventoryTotal": 400,
+      "totalWages": 3,
+      "netProfit": 5267
+    },
+    {
+      "id": 1766988815793,
+      "startedAt": "2025-12-29T06:13:35.793Z",
+      "startedBy": {
+        "userId": 3,
+        "userName": "Shilu"
+      },
+      "startingCash": 2200,
+      "endedAt": "2025-12-29T14:22:36.088Z",
+      "closingCash": 0
+    },
+    {
+      "id": 1767018539530,
+      "startedAt": "2025-12-29T14:28:59.530Z",
+      "openingCash": 0,
+      "endedAt": "2025-12-29T14:43:36.910Z",
+      "closingCash": 0
+    },
+    {
+      "id": 1767019534971,
+      "startedAt": "2025-12-29T14:45:34.971Z",
+      "openingCash": 0,
+      "endedAt": "2025-12-29T14:48:09.813Z",
+      "closingCash": 0
+    }
+  ]
+}

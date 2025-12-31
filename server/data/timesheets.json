@@ -1,0 +1,239 @@
+{
+  "entries": [
+    {
+      "id": 1766416978975,
+      "userId": 1,
+      "userName": "Admin",
+      "clockIn": "2025-12-22T15:22:58.975Z",
+      "clockOut": "2025-12-22T15:28:28.423Z",
+      "hoursWorked": 0.09,
+      "autoClockOut": true
+    },
+    {
+      "id": 1766417016816,
+      "userId": 2,
+      "userName": "Ram",
+      "clockIn": "2025-12-22T15:23:36.816Z",
+      "clockOut": "2025-12-22T15:23:42.305Z",
+      "hoursWorked": 0
+    },
+    {
+      "id": 1766417025671,
+      "userId": 2,
+      "userName": "Ram",
+      "clockIn": "2025-12-22T15:23:45.671Z",
+      "clockOut": "2025-12-22T15:23:48.229Z",
+      "hoursWorked": 0
+    },
+    {
+      "id": 1766418111515,
+      "userId": 2,
+      "userName": "Ram",
+      "clockIn": "2025-12-22T15:41:51.515Z",
+      "clockOut": "2025-12-22T15:43:39.127Z",
+      "hoursWorked": 0.03
+    },
+    {
+      "id": 1766418143303,
+      "userId": 3,
+      "userName": "Sita",
+      "clockIn": "2025-12-22T15:42:23.303Z",
+      "clockOut": "2025-12-22T15:43:56.877Z",
+      "hoursWorked": 0.03
+    },
+    {
+      "id": 1766418626072,
+      "userId": 3,
+      "userName": "Sita",
+      "clockIn": "2025-12-22T15:50:26.072Z",
+      "clockOut": "2025-12-22T15:51:21.991Z",
+      "hoursWorked": 0.02,
+      "autoClockOut": true
+    },
+    {
+      "id": 1766418652836,
+      "userId": 2,
+      "userName": "Ram",
+      "clockIn": "2025-12-22T15:50:52.836Z",
+      "clockOut": "2025-12-22T15:51:21.991Z",
+      "hoursWorked": 0.01,
+      "autoClockOut": true
+    },
+    {
+      "id": 1766418926539,
+      "userId": 3,
+      "userName": "Sita",
+      "clockIn": "2025-12-22T15:55:26.539Z",
+      "clockOut": "2025-12-22T15:56:53.129Z",
+      "hoursWorked": 0.02
+    },
+    {
+      "id": 1766418935896,
+      "userId": 2,
+      "userName": "Ram",
+      "clockIn": "2025-12-22T15:55:35.896Z",
+      "clockOut": "2025-12-22T15:55:43.592Z",
+      "hoursWorked": 0
+    },
+    {
+      "id": 1766419450598,
+      "userId": 1,
+      "userName": "Admin",
+      "clockIn": "2025-12-22T16:04:10.598Z",
+      "clockOut": "2025-12-22T16:05:42.307Z",
+      "hoursWorked": 0.03
+    },
+    {
+      "id": 1766419521576,
+      "userId": 2,
+      "userName": "Ram",
+      "clockIn": "2025-12-22T16:05:21.576Z",
+      "clockOut": "2025-12-22T16:07:17.986Z",
+      "hoursWorked": 0.03
+    },
+    {
+      "id": 1766419562256,
+      "userId": 3,
+      "userName": "Sita",
+      "clockIn": "2025-12-22T16:06:02.256Z",
+      "clockOut": "2025-12-22T16:06:42.993Z",
+      "hoursWorked": 0.01
+    },
+    {
+      "id": 1766422642746,
+      "userId": 3,
+      "userName": "Sita",
+      "clockIn": "2025-12-22T16:57:22.746Z",
+      "clockOut": "2025-12-22T16:58:44.762Z",
+      "hoursWorked": 0.02
+    },
+    {
+      "id": 1766453278580,
+      "userId": 2,
+      "userName": "Ram",
+      "clockIn": "2025-12-23T01:27:58.580Z",
+      "clockOut": "2025-12-23T01:28:05.748Z",
+      "hoursWorked": 0
+    },
+    {
+      "id": 1766461192335,
+      "userId": 2,
+      "userName": "Ram",
+      "clockIn": "2025-12-23T03:39:52.335Z",
+      "clockOut": "2025-12-23T03:44:52.365Z",
+      "hoursWorked": 0.08
+    },
+    {
+      "id": 1766461211428,
+      "userId": 3,
+      "userName": "Sita",
+      "clockIn": "2025-12-23T03:40:11.428Z",
+      "clockOut": "2025-12-23T03:45:04.433Z",
+      "hoursWorked": 0.08
+    },
+    {
+      "id": 1766479780329,
+      "userId": 2,
+      "userName": "Sandhya",
+      "clockIn": "2025-12-23T08:49:40.329Z",
+      "clockOut": "2025-12-23T08:54:44.316Z",
+      "hoursWorked": 0.08
+    },
+    {
+      "id": 1766479973958,
+      "userId": 3,
+      "userName": "Shilu",
+      "clockIn": "2025-12-23T08:52:53.958Z",
+      "clockOut": "2025-12-23T08:53:51.058Z",
+      "hoursWorked": 0.02
+    },
+    {
+      "id": 1766654478442,
+      "userId": 3,
+      "userName": "Shilu",
+      "clockIn": "2025-12-25T09:21:18.442Z",
+      "clockOut": "2025-12-25T09:36:29.273Z",
+      "hoursWorked": 0.25
+    },
+    {
+      "id": 1766654909135,
+      "userId": 2,
+      "userName": "Sandhya",
+      "clockIn": "2025-12-25T09:28:29.135Z",
+      "clockOut": "2025-12-25T09:34:20.606Z",
+      "hoursWorked": 0.1
+    },
+    {
+      "id": 1766659836985,
+      "userId": 2,
+      "userName": "Sandhya",
+      "clockIn": "2025-12-25T10:50:36.985Z",
+      "clockOut": "2025-12-26T01:35:27.980Z",
+      "hoursWorked": 14.75
+    },
+    {
+      "id": 1766988424316,
+      "userId": 2,
+      "userName": "Sandhya",
+      "clockIn": "2025-12-29T06:07:04.316Z",
+      "clockOut": "2025-12-29T06:07:18.019Z",
+      "hoursWorked": 0
+    },
+    {
+      "id": 1766988645588,
+      "userId": 3,
+      "userName": "Shilu",
+      "clockIn": "2025-12-29T06:10:45.588Z",
+      "clockOut": "2025-12-29T06:12:43.081Z",
+      "hoursWorked": 0.03
+    },
+    {
+      "id": 1766988661622,
+      "userId": 2,
+      "userName": "Sandhya",
+      "clockIn": "2025-12-29T06:11:01.622Z",
+      "clockOut": "2025-12-29T06:12:28.951Z",
+      "hoursWorked": 0.02
+    },
+    {
+      "id": 1767018479402,
+      "userId": 2,
+      "userName": "Sandhya",
+      "clockIn": "2025-12-29T14:27:59.402Z",
+      "clockOut": "2025-12-29T14:29:50.159Z",
+      "hoursWorked": 0.03
+    },
+    {
+      "id": 1767018696066,
+      "userId": 2,
+      "userName": "Sandhya",
+      "clockIn": "2025-12-29T14:31:36.066Z",
+      "clockOut": "2025-12-29T14:43:03.113Z",
+      "hoursWorked": 0.19
+    },
+    {
+      "id": 1767019208416,
+      "userId": 3,
+      "userName": "Shilu",
+      "clockIn": "2025-12-29T14:40:08.416Z",
+      "clockOut": "2025-12-29T14:42:18.299Z",
+      "hoursWorked": 0.04
+    },
+    {
+      "id": 1767019497485,
+      "userId": 3,
+      "userName": "Shilu",
+      "clockIn": "2025-12-29T14:44:57.485Z",
+      "clockOut": "2025-12-29T14:47:18.983Z",
+      "hoursWorked": 0.04
+    },
+    {
+      "id": 1767019736301,
+      "userId": 2,
+      "userName": "Sandhya",
+      "clockIn": "2025-12-29T14:48:56.301Z",
+      "clockOut": null,
+      "hoursWorked": null
+    }
+  ]
+}

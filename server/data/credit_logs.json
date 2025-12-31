@@ -1,0 +1,91 @@
+{
+  "logs": [
+    {
+      "id": 1767002412490,
+      "type": "credit_given",
+      "timestamp": "2025-12-29T10:00:12.490Z",
+      "billId": 1767002412463,
+      "table": "Table 3",
+      "creditName": "Soltini",
+      "creditorId": 1766987431829,
+      "amount": 540,
+      "totalBillAmount": 540,
+      "createdBy": "Sandhya",
+      "customerName": null,
+      "paymentMode": "credit",
+      "partialPayment": null
+    },
+    {
+      "id": 1767002643569,
+      "type": "creditor_added",
+      "timestamp": "2025-12-29T10:04:03.569Z",
+      "creditorId": 1767002643568,
+      "creditorName": "Santosh",
+      "phone": null,
+      "createdBy": "Sandhya"
+    },
+    {
+      "id": 1767002648537,
+      "type": "credit_given",
+      "timestamp": "2025-12-29T10:04:08.537Z",
+      "billId": 1767002648526,
+      "table": "Table 3",
+      "creditName": "Santosh",
+      "creditorId": 1767002643568,
+      "amount": 180,
+      "totalBillAmount": 180,
+      "createdBy": "Sandhya",
+      "customerName": null,
+      "paymentMode": "credit",
+      "partialPayment": null
+    },
+    {
+      "id": 1767023370418,
+      "type": "creditor_added",
+      "timestamp": "2025-12-29T15:49:30.418Z",
+      "creditorId": 1767023370416,
+      "creditorName": "Madeep",
+      "phone": null,
+      "createdBy": "Sandhya"
+    },
+    {
+      "id": 1767023373094,
+      "type": "credit_given",
+      "timestamp": "2025-12-29T15:49:33.094Z",
+      "billId": 1767023373076,
+      "table": "Table 2",
+      "creditName": "Madeep",
+      "creditorId": 1767023370416,
+      "amount": 120,
+      "totalBillAmount": 120,
+      "createdBy": "Sandhya",
+      "customerName": null,
+      "paymentMode": "credit",
+      "partialPayment": null
+    },
+    {
+      "id": 1767023854495,
+      "type": "creditor_added",
+      "timestamp": "2025-12-29T15:57:34.495Z",
+      "creditorId": 1767023854492,
+      "creditorName": "Jabara",
+      "phone": null,
+      "createdBy": "Sandhya"
+    },
+    {
+      "id": 1767023857027,
+      "type": "credit_given",
+      "timestamp": "2025-12-29T15:57:37.027Z",
+      "billId": 1767023857013,
+      "table": "Table 3",
+      "creditName": "Jabara",
+      "creditorId": 1767023854492,
+      "amount": 360,
+      "totalBillAmount": 360,
+      "createdBy": "Sandhya",
+      "customerName": null,
+      "paymentMode": "credit",
+      "partialPayment": null
+    }
+  ]
+}

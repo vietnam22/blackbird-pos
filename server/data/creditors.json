@@ -1,0 +1,76 @@
+{
+  "creditors": [
+    {
+      "id": 1766975140710,
+      "name": "Mahesh Sir",
+      "phone": null,
+      "notes": null,
+      "createdBy": "Admin",
+      "createdAt": "2025-12-29T02:25:40.710Z",
+      "active": true
+    },
+    {
+      "id": 1766975831033,
+      "name": "Aahat Regmi",
+      "phone": null,
+      "notes": null,
+      "createdBy": "Admin",
+      "createdAt": "2025-12-29T02:37:11.033Z",
+      "active": true
+    },
+    {
+      "id": 1766987431829,
+      "name": "Soltini",
+      "phone": null,
+      "notes": null,
+      "createdBy": "Sandhya",
+      "createdAt": "2025-12-29T05:50:31.829Z",
+      "active": true
+    },
+    {
+      "id": 1767001584366,
+      "name": "Dhurmush",
+      "phone": null,
+      "notes": null,
+      "createdBy": "Admin",
+      "createdAt": "2025-12-29T09:46:24.366Z",
+      "active": true
+    },
+    {
+      "id": 1767001624702,
+      "name": "Lakhshys",
+      "phone": null,
+      "notes": null,
+      "createdBy": "Sandhya",
+      "createdAt": "2025-12-29T09:47:04.702Z",
+      "active": true
+    },
+    {
+      "id": 1767002643568,
+      "name": "Santosh",
+      "phone": null,
+      "notes": null,
+      "createdBy": "Sandhya",
+      "createdAt": "2025-12-29T10:04:03.568Z",
+      "active": true
+    },
+    {
+      "id": 1767023370416,
+      "name": "Madeep",
+      "phone": null,
+      "notes": null,
+      "createdBy": "Sandhya",
+      "createdAt": "2025-12-29T15:49:30.416Z",
+      "active": true
+    },
+    {
+      "id": 1767023854492,
+      "name": "Jabara",
+      "phone": null,
+      "notes": null,
+      "createdBy": "Sandhya",
+      "createdAt": "2025-12-29T15:57:34.492Z",
+      "active": true
+    }
+  ]
+}

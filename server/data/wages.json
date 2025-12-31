@@ -1,0 +1,44 @@
+{
+  "payments": [
+    {
+      "id": 1766461569251,
+      "userId": 2,
+      "userName": "Ram",
+      "amount": 11,
+      "paidBy": "Admin",
+      "paidAt": "2025-12-23T03:46:09.251Z"
+    },
+    {
+      "id": 1766461573248,
+      "userId": 3,
+      "userName": "Sita",
+      "amount": 13,
+      "paidBy": "Admin",
+      "paidAt": "2025-12-23T03:46:13.248Z"
+    },
+    {
+      "id": 1766461580071,
+      "userId": 1,
+      "userName": "Admin",
+      "amount": 8,
+      "paidBy": "Admin",
+      "paidAt": "2025-12-23T03:46:20.071Z"
+    },
+    {
+      "id": 1766461581046,
+      "userId": 1,
+      "userName": "Admin",
+      "amount": 8,
+      "paidBy": "Admin",
+      "paidAt": "2025-12-23T03:46:21.046Z"
+    },
+    {
+      "id": 1766712951216,
+      "userId": 2,
+      "userName": "Sandhya",
+      "amount": 1045,
+      "paidBy": "Admin",
+      "paidAt": "2025-12-26T01:35:51.216Z"
+    }
+  ]
+}
