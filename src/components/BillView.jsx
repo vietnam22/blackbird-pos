@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { MENU } from '../data/menu'
+import { MENU, MENU_CATEGORIES } from '../data/menu'
 import { api } from '../utils/api'
 
 const TABLES = [
@@ -12,6 +12,9 @@ function BillView({ table, tab, onBack, onUpdate, onSettle, user, openTabs, onTr
   const [showSuccessModal, setShowSuccessModal] = useState(false)
   const [showTransferModal, setShowTransferModal] = useState(false)
   
+  // Collapsible categories - start with first category open
+  const [expandedCategories, setExpandedCategories] = useState(['coffee'])
+  
   // Customer name state
   const [customerName, setCustomerName] = useState(tab?.customerName || '')
   const [editingCustomer, setEditingCustomer] = useState(false)
@@ -23,6 +26,21 @@ function BillView({ table, tab, onBack, onUpdate, onSettle, user, openTabs, onTr
 
   const items = tab?.items || []
   const total = items.reduce((sum, item) => sum + item.price, 0)
+
+  // Toggle category expansion
+  const toggleCategory = (categoryId) => {
+    setExpandedCategories(prev => 
+      prev.includes(categoryId)
+        ? prev.filter(id => id !== categoryId)
+        : [...prev, categoryId]
+    )
+  }
+
+  // Group menu items by category
+  const menuByCategory = MENU_CATEGORIES.map(category => ({
+    ...category,
+    items: MENU.filter(item => item.category === category.id)
+  }))
 
   // Get vacant tables for transfer
   const getVacantTables = () => {
@@ -160,7 +178,7 @@ function BillView({ table, tab, onBack, onUpdate, onSettle, user, openTabs, onTr
               autoFocus
             />
             <button onClick={handleUpdateCustomerName} style={styles.customerSaveButton}>
-              ✓
+              ✔
             </button>
             <button 
               onClick={() => { setEditingCustomer(false); setCustomerName(tab?.customerName || '') }} 
@@ -186,19 +204,49 @@ function BillView({ table, tab, onBack, onUpdate, onSettle, user, openTabs, onTr
       </div>
 
       <div style={styles.content}>
-        {/* Menu */}
+        {/* Menu with Collapsible Categories */}
         <div style={styles.menuSection}>
           <h3>Menu</h3>
-          <div style={styles.menuGrid}>
-            {MENU.map((item) => (
-              <button
-                key={item.name}
-                onClick={() => handleAddItem(item)}
-                style={styles.menuItem}
-              >
-                <span style={styles.menuItemName}>{item.name}</span>
-                <span style={styles.menuItemPrice}>Rs. {item.price}</span>
-              </button>
+          <div style={styles.categoryList}>
+            {menuByCategory.map((category) => (
+              <div key={category.id} style={styles.categoryContainer}>
+                {/* Category Header */}
+                <button
+                  onClick={() => toggleCategory(category.id)}
+                  style={styles.categoryHeader}
+                >
+                  <span style={styles.categoryTitle}>
+                    <span style={styles.categoryIcon}>{category.icon}</span>
+                    {category.name}
+                    <span style={styles.categoryCount}>({category.items.length})</span>
+                  </span>
+                  <span style={styles.expandIcon}>
+                    {expandedCategories.includes(category.id) ? '▼' : '▶'}
+                  </span>
+                </button>
+                
+                {/* Category Items */}
+                {expandedCategories.includes(category.id) && (
+                  <div style={styles.menuGrid}>
+                    {category.items.map((item) => (
+                      <button
+                        key={item.name}
+                        onClick={() => !item.priceOnRequest && handleAddItem(item)}
+                        style={{
+                          ...styles.menuItem,
+                          ...(item.priceOnRequest ? styles.menuItemDisabled : {})
+                        }}
+                        disabled={item.priceOnRequest}
+                      >
+                        <span style={styles.menuItemName}>{item.name}</span>
+                        <span style={styles.menuItemPrice}>
+                          {item.priceOnRequest ? '—' : `Rs. ${item.price}`}
+                        </span>
+                      </button>
+                    ))}
+                  </div>
+                )}
+              </div>
             ))}
           </div>
         </div>
@@ -268,7 +316,7 @@ function BillView({ table, tab, onBack, onUpdate, onSettle, user, openTabs, onTr
       {showSuccessModal && (
         <div style={styles.modalOverlay}>
           <div style={styles.modal}>
-            <div style={styles.successIcon}>✓</div>
+            <div style={styles.successIcon}>✔</div>
             <h3 style={styles.successTitle}>Bill Completed Successfully!</h3>
             <p style={styles.successText}>
               {table} • Rs. {total}
@@ -418,35 +466,83 @@ const styles = {
     background: '#2a2a2a',
     borderRadius: '12px',
     padding: '15px',
+    maxHeight: 'calc(100vh - 220px)',
+    overflowY: 'auto',
+  },
+  categoryList: {
+    marginTop: '10px',
+  },
+  categoryContainer: {
+    marginBottom: '8px',
+  },
+  categoryHeader: {
+    width: '100%',
+    display: 'flex',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    padding: '12px 15px',
+    background: '#1a1a1a',
+    border: '1px solid #333',
+    borderRadius: '8px',
+    cursor: 'pointer',
+    color: '#fff',
+    fontSize: '15px',
+    fontWeight: '600',
+    transition: 'background 0.2s',
+  },
+  categoryTitle: {
+    display: 'flex',
+    alignItems: 'center',
+    gap: '10px',
+  },
+  categoryIcon: {
+    fontSize: '18px',
+  },
+  categoryCount: {
+    color: '#666',
+    fontWeight: 'normal',
+    fontSize: '13px',
+  },
+  expandIcon: {
+    color: '#666',
+    fontSize: '12px',
   },
   menuGrid: {
     display: 'grid',
     gridTemplateColumns: 'repeat(2, 1fr)',
-    gap: '10px',
-    marginTop: '10px',
+    gap: '8px',
+    marginTop: '8px',
+    padding: '0 5px',
   },
   menuItem: {
     background: '#333',
     border: '1px solid #444',
     borderRadius: '8px',
-    padding: '12px',
+    padding: '10px',
     cursor: 'pointer',
     textAlign: 'left',
     color: '#fff',
+    transition: 'background 0.2s, transform 0.1s',
+  },
+  menuItemDisabled: {
+    opacity: 0.5,
+    cursor: 'not-allowed',
   },
   menuItemName: {
     display: 'block',
     fontWeight: 'bold',
     marginBottom: '4px',
+    fontSize: '13px',
   },
   menuItemPrice: {
     color: '#888',
-    fontSize: '14px',
+    fontSize: '12px',
   },
   orderSection: {
     background: '#2a2a2a',
     borderRadius: '12px',
     padding: '15px',
+    height: 'fit-content',
   },
   emptyText: {
     color: '#666',

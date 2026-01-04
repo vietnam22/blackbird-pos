@@ -15,12 +15,35 @@ function AdminHistoryView({ completedBills }) {
   const [dateFrom, setDateFrom] = useState('')
   const [dateTo, setDateTo] = useState('')
   const [salesReport, setSalesReport] = useState(null)
+  const [emailRecipients, setEmailRecipients] = useState([])
+  const [newEmail, setNewEmail] = useState('')
 
   useEffect(() => { loadData() }, [])
 
   const loadData = async () => {
     const [inv, ts] = await Promise.all([api.getInventory(), api.getTimesheets()])
     setInventory(inv); setTimesheets(ts); setLoading(false)
+  }
+
+  const loadEmailRecipients = async () => {
+    const data = await api.getEmailRecipients()
+    setEmailRecipients(data.recipients || [])
+  }
+
+  const addEmailRecipient = async () => {
+    if (!newEmail || !newEmail.includes('@')) return
+    const result = await api.addEmailRecipient(newEmail)
+    if (result.success !== false) {
+      setEmailRecipients(result.recipients || [])
+      setNewEmail('')
+    }
+  }
+
+  const deleteEmailRecipient = async (email) => {
+    const result = await api.deleteEmailRecipient(email)
+    if (result.success !== false) {
+      setEmailRecipients(result.recipients || [])
+    }
   }
 
   const fmtTime = ts => new Date(ts).toLocaleTimeString('en-NP', { hour: '2-digit', minute: '2-digit' })
@@ -81,6 +104,9 @@ function AdminHistoryView({ completedBills }) {
           </button>
           <button onClick={() => setHistoryView('itemSales')} style={S.histTabBtn}>
             📈 Monitor Item Sales
+          </button>
+          <button onClick={() => { setHistoryView('emailRecipients'); loadEmailRecipients() }} style={S.histTabBtn}>
+            ✉️ Daily Summary Emails
           </button>
         </div>
       )}
@@ -296,6 +322,42 @@ function AdminHistoryView({ completedBills }) {
           </>}
         </div>
       )}
+
+      {/* Email Recipients View */}
+      {historyView === 'emailRecipients' && (
+        <div>
+          <button onClick={() => setHistoryView(null)} style={S.backLink}>← Back</button>
+          <h4>✉️ Daily Summary Emails</h4>
+          <p style={{ color: '#888', fontSize: 14, marginBottom: 20 }}>
+            These emails receive daily summary when the day starts and ends.
+          </p>
+          
+          <div style={S.emailInputRow}>
+            <input
+              type="email"
+              value={newEmail}
+              onChange={e => setNewEmail(e.target.value)}
+              placeholder="Enter email address"
+              style={S.emailInput}
+              onKeyDown={e => e.key === 'Enter' && addEmailRecipient()}
+            />
+            <button onClick={addEmailRecipient} style={S.addEmailBtn}>Add</button>
+          </div>
+
+          {emailRecipients.length === 0 ? (
+            <p style={S.empty}>No email recipients configured</p>
+          ) : (
+            <div style={S.emailList}>
+              {emailRecipients.map(email => (
+                <div key={email} style={S.emailItem}>
+                  <span style={S.emailText}>{email}</span>
+                  <button onClick={() => deleteEmailRecipient(email)} style={S.deleteEmailBtn}>✕</button>
+                </div>
+              ))}
+            </div>
+          )}
+        </div>
+      )}
     </div>
   )
 }
@@ -363,6 +425,13 @@ const S = {
   invItem: { display: 'flex', justifyContent: 'space-between', alignItems: 'center', background: '#333', padding: '12px 15px', borderRadius: 8, marginBottom: 8 },
   staffItem: { display: 'flex', justifyContent: 'space-between', alignItems: 'center', background: '#333', padding: '12px 15px', borderRadius: 8, marginBottom: 8 },
   autoTag: { background: '#5a4a2d', color: '#fbbf24', padding: '2px 6px', borderRadius: 4, fontSize: 10, marginLeft: 5 },
+  emailInputRow: { display: 'flex', gap: 10, marginBottom: 20 },
+  emailInput: { flex: 1, padding: '12px 15px', border: '1px solid #555', borderRadius: 8, background: '#333', color: '#fff', fontSize: 16 },
+  addEmailBtn: { padding: '12px 20px', background: '#2d5a2d', color: '#fff', border: 'none', borderRadius: 8, fontSize: 16, cursor: 'pointer', fontWeight: 'bold' },
+  emailList: { display: 'flex', flexDirection: 'column', gap: 8 },
+  emailItem: { display: 'flex', justifyContent: 'space-between', alignItems: 'center', background: '#333', padding: '12px 15px', borderRadius: 8 },
+  emailText: { color: '#fff', fontSize: 15 },
+  deleteEmailBtn: { background: '#5a2d2d', color: '#f87171', border: 'none', width: 32, height: 32, borderRadius: 6, cursor: 'pointer', fontSize: 16 },
 }
 
 export default AdminHistoryView

@@ -232,8 +232,8 @@
       "userId": 2,
       "userName": "Sandhya",
       "clockIn": "2025-12-29T14:48:56.301Z",
-      "clockOut": null,
-      "hoursWorked": null
+      "clockOut": "2026-01-04T01:32:43.856Z",
+      "hoursWorked": 130.73
     }
   ]
 }

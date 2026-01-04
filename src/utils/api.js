@@ -542,4 +542,41 @@ export const api = {
       return { logs: [] }
     }
   },
+
+  // ============ EMAIL RECIPIENTS ============
+  getEmailRecipients: async () => {
+    try {
+      const res = await fetch(`${API_URL}/email-recipients`)
+      return await res.json()
+    } catch (error) {
+      console.error('Failed to fetch email recipients:', error)
+      return { recipients: [] }
+    }
+  },
+
+  addEmailRecipient: async (email) => {
+    try {
+      const res = await fetch(`${API_URL}/email-recipients`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email }),
+      })
+      return await res.json()
+    } catch (error) {
+      console.error('Failed to add email recipient:', error)
+      return { success: false }
+    }
+  },
+
+  deleteEmailRecipient: async (email) => {
+    try {
+      const res = await fetch(`${API_URL}/email-recipients/${encodeURIComponent(email)}`, {
+        method: 'DELETE',
+      })
+      return await res.json()
+    } catch (error) {
+      console.error('Failed to delete email recipient:', error)
+      return { success: false }
+    }
+  },
 }

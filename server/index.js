@@ -22,6 +22,7 @@ const DAYS_FILE = path.join(DATA_DIR, 'days.json')
 const INVENTORY_FILE = path.join(DATA_DIR, 'inventory.json')
 const CREDITORS_FILE = path.join(DATA_DIR, 'creditors.json')
 const CREDIT_LOGS_FILE = path.join(DATA_DIR, 'credit_logs.json')
+const EMAIL_RECIPIENTS_FILE = path.join(DATA_DIR, 'email_recipients.json')
 
 const readJSON = (file, def) => {
   try { return JSON.parse(fs.readFileSync(file, 'utf8')) } 
@@ -689,6 +690,35 @@ app.get('/api/credit-logs/recent', (req, res) => {
   })
   
   res.json({ logs: recentLogs })
+})
+
+// ============ EMAIL RECIPIENTS ENDPOINTS ============
+
+app.get('/api/email-recipients', (req, res) => {
+  const data = readJSON(EMAIL_RECIPIENTS_FILE, { recipients: ['arpanregmi@protonmail.com'] })
+  res.json(data)
+})
+
+app.post('/api/email-recipients', (req, res) => {
+  const { email } = req.body
+  if (!email || !email.includes('@')) {
+    return res.status(400).json({ success: false, message: 'Invalid email' })
+  }
+  const data = readJSON(EMAIL_RECIPIENTS_FILE, { recipients: [] })
+  if (data.recipients.includes(email.toLowerCase())) {
+    return res.status(400).json({ success: false, message: 'Email already exists' })
+  }
+  data.recipients.push(email.toLowerCase())
+  writeJSON(EMAIL_RECIPIENTS_FILE, data)
+  res.json({ success: true, recipients: data.recipients })
+})
+
+app.delete('/api/email-recipients/:email', (req, res) => {
+  const { email } = req.params
+  const data = readJSON(EMAIL_RECIPIENTS_FILE, { recipients: [] })
+  data.recipients = data.recipients.filter(e => e !== decodeURIComponent(email))
+  writeJSON(EMAIL_RECIPIENTS_FILE, data)
+  res.json({ success: true, recipients: data.recipients })
 })
 
 const PORT = 3001
