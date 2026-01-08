@@ -348,21 +348,21 @@ export const api = {
     }
   },
 
-  endDay: async (userId, userName, endingCash, endingQR) => {
-    console.log('[API] Ending day...', { userId, userName, endingCash, endingQR })
-    try {
-      const res = await fetch(`${API_URL}/days/end`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ userId, userName, endingCash, endingQR }),
-      })
-      const data = await res.json()
-      console.log('[API] End day response:', data)
-      return data
-    } catch (error) {
-      console.error('[API] Failed to end day:', error)
-      return { success: false }
-    }
+  endDay: async (userId, userName, endingCash, endingQR, emailSummary) => {
+  console.log('[API] Ending day...', { userId, userName, endingCash, endingQR, hasEmailSummary: !!emailSummary })
+  try {
+    const res = await fetch(`${API_URL}/days/end`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ userId, userName, endingCash, endingQR, emailSummary }),
+    })
+    const data = await res.json()
+    console.log('[API] End day response:', data)
+    return data
+  } catch (error) {
+    console.error('[API] Failed to end day:', error)
+    return { success: false }
+  }
   },
 
   // ============ INVENTORY ============

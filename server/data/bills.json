@@ -2762,6 +2762,381 @@
       "partialPayment": null,
       "timestamp": "2025-12-29T15:57:37.013Z",
       "createdBy": "Sandhya"
+    },
+    {
+      "id": 1767869274419,
+      "table": "Counter",
+      "items": [
+        {
+          "name": "Milk Tea Small",
+          "price": 30,
+          "category": "tea",
+          "addedBy": "Admin",
+          "addedAt": "2026-01-08T10:47:40.018Z"
+        },
+        {
+          "name": "Milk Tea Small",
+          "price": 30,
+          "category": "tea",
+          "addedBy": "Admin",
+          "addedAt": "2026-01-08T10:47:40.187Z"
+        },
+        {
+          "name": "Masala Milk Tea",
+          "price": 45,
+          "category": "tea",
+          "addedBy": "Admin",
+          "addedAt": "2026-01-08T10:47:41.008Z"
+        },
+        {
+          "name": "Masala Milk Tea",
+          "price": 45,
+          "category": "tea",
+          "addedBy": "Admin",
+          "addedAt": "2026-01-08T10:47:41.198Z"
+        },
+        {
+          "name": "Lemon Tea",
+          "price": 30,
+          "category": "tea",
+          "addedBy": "Admin",
+          "addedAt": "2026-01-08T10:47:42.472Z"
+        },
+        {
+          "name": "Lemon Tea",
+          "price": 30,
+          "category": "tea",
+          "addedBy": "Admin",
+          "addedAt": "2026-01-08T10:47:42.659Z"
+        }
+      ],
+      "total": 210,
+      "customerName": "Sushant",
+      "paymentMode": "cash",
+      "creditName": null,
+      "creditorId": null,
+      "creditPaid": true,
+      "cashAmount": null,
+      "qrAmount": null,
+      "partialPayment": null,
+      "timestamp": "2026-01-08T10:47:54.419Z",
+      "createdBy": "Admin"
+    },
+    {
+      "id": 1767869449124,
+      "table": "Table 3",
+      "items": [
+        {
+          "name": "Black Tea",
+          "price": 25,
+          "category": "tea",
+          "addedBy": "Shilu",
+          "addedAt": "2026-01-08T10:50:42.273Z"
+        },
+        {
+          "name": "Black Tea",
+          "price": 25,
+          "category": "tea",
+          "addedBy": "Shilu",
+          "addedAt": "2026-01-08T10:50:42.437Z"
+        }
+      ],
+      "total": 50,
+      "customerName": null,
+      "paymentMode": "credit",
+      "creditName": "Aahat Regmi",
+      "creditorId": 1766975831033,
+      "creditPaid": false,
+      "cashAmount": null,
+      "qrAmount": null,
+      "partialPayment": null,
+      "timestamp": "2026-01-08T10:50:49.124Z",
+      "createdBy": "Shilu"
+    },
+    {
+      "id": 1767869485016,
+      "table": "Table 2",
+      "items": [
+        {
+          "name": "Sikhar Ice",
+          "price": 20,
+          "category": "smoke",
+          "addedBy": "Shilu",
+          "addedAt": "2026-01-08T10:51:07.367Z"
+        }
+      ],
+      "total": 20,
+      "customerName": null,
+      "paymentMode": "partial",
+      "creditName": "Mahesh Sir",
+      "creditorId": 1766975140710,
+      "creditPaid": false,
+      "partialPayment": {
+        "paidAmount": 11,
+        "paidMethod": "qr",
+        "creditAmount": 9
+      },
+      "timestamp": "2026-01-08T10:51:25.016Z",
+      "createdBy": "Shilu"
+    },
+    {
+      "id": 1767869492950,
+      "table": "Table 7",
+      "items": [
+        {
+          "name": "Americano (D)",
+          "price": 120,
+          "category": "coffee",
+          "addedBy": "Shilu",
+          "addedAt": "2026-01-08T10:51:28.192Z"
+        },
+        {
+          "name": "Americano (D)",
+          "price": 120,
+          "category": "coffee",
+          "addedBy": "Shilu",
+          "addedAt": "2026-01-08T10:51:28.369Z"
+        }
+      ],
+      "total": 240,
+      "customerName": null,
+      "paymentMode": "qr",
+      "creditName": null,
+      "creditorId": null,
+      "creditPaid": true,
+      "cashAmount": null,
+      "qrAmount": null,
+      "partialPayment": null,
+      "timestamp": "2026-01-08T10:51:32.950Z",
+      "createdBy": "Shilu"
+    },
+    {
+      "id": 1767869571456,
+      "table": "Table 1",
+      "items": [
+        {
+          "name": "Doppio",
+          "price": 130,
+          "category": "coffee",
+          "addedBy": "Shilu",
+          "addedAt": "2026-01-08T10:52:47.257Z"
+        }
+      ],
+      "total": 130,
+      "customerName": null,
+      "paymentMode": "cash",
+      "creditName": null,
+      "creditorId": null,
+      "creditPaid": true,
+      "cashAmount": null,
+      "qrAmount": null,
+      "partialPayment": null,
+      "timestamp": "2026-01-08T10:52:51.456Z",
+      "createdBy": "Shilu"
+    },
+    {
+      "id": 1767869580186,
+      "table": "Table 4",
+      "items": [
+        {
+          "name": "Doppio",
+          "price": 130,
+          "category": "coffee",
+          "addedBy": "Shilu",
+          "addedAt": "2026-01-08T10:52:54.476Z"
+        },
+        {
+          "name": "Doppio",
+          "price": 130,
+          "category": "coffee",
+          "addedBy": "Shilu",
+          "addedAt": "2026-01-08T10:52:54.595Z"
+        },
+        {
+          "name": "Doppio",
+          "price": 130,
+          "category": "coffee",
+          "addedBy": "Shilu",
+          "addedAt": "2026-01-08T10:52:54.788Z"
+        },
+        {
+          "name": "Doppio",
+          "price": 130,
+          "category": "coffee",
+          "addedBy": "Shilu",
+          "addedAt": "2026-01-08T10:52:54.877Z"
+        },
+        {
+          "name": "Doppio",
+          "price": 130,
+          "category": "coffee",
+          "addedBy": "Shilu",
+          "addedAt": "2026-01-08T10:52:55.103Z"
+        }
+      ],
+      "total": 650,
+      "customerName": null,
+      "paymentMode": "qr",
+      "creditName": null,
+      "creditorId": null,
+      "creditPaid": true,
+      "cashAmount": null,
+      "qrAmount": null,
+      "partialPayment": null,
+      "timestamp": "2026-01-08T10:53:00.186Z",
+      "createdBy": "Shilu"
+    },
+    {
+      "id": 1767869735658,
+      "table": "Table 3",
+      "items": [
+        {
+          "name": "Doppio",
+          "price": 130,
+          "category": "coffee",
+          "addedBy": "Shilu",
+          "addedAt": "2026-01-08T10:55:30.425Z"
+        },
+        {
+          "name": "Doppio",
+          "price": 130,
+          "category": "coffee",
+          "addedBy": "Shilu",
+          "addedAt": "2026-01-08T10:55:30.719Z"
+        }
+      ],
+      "total": 260,
+      "customerName": null,
+      "paymentMode": "cash",
+      "creditName": null,
+      "creditorId": null,
+      "creditPaid": true,
+      "cashAmount": null,
+      "qrAmount": null,
+      "partialPayment": null,
+      "timestamp": "2026-01-08T10:55:35.658Z",
+      "createdBy": "Shilu"
+    },
+    {
+      "id": 1767869745918,
+      "table": "Table 8",
+      "items": [
+        {
+          "name": "Doppio",
+          "price": 130,
+          "category": "coffee",
+          "addedBy": "Shilu",
+          "addedAt": "2026-01-08T10:55:40.113Z"
+        }
+      ],
+      "total": 130,
+      "customerName": null,
+      "paymentMode": "credit",
+      "creditName": "Aahat Regmi",
+      "creditorId": 1766975831033,
+      "creditPaid": false,
+      "cashAmount": null,
+      "qrAmount": null,
+      "partialPayment": null,
+      "timestamp": "2026-01-08T10:55:45.918Z",
+      "createdBy": "Shilu"
+    },
+    {
+      "id": 1767869753857,
+      "table": "Table 8",
+      "items": [
+        {
+          "name": "Doppio",
+          "price": 130,
+          "category": "coffee",
+          "addedBy": "Shilu",
+          "addedAt": "2026-01-08T10:55:49.371Z"
+        }
+      ],
+      "total": 130,
+      "customerName": null,
+      "paymentMode": "qr",
+      "creditName": null,
+      "creditorId": null,
+      "creditPaid": true,
+      "cashAmount": null,
+      "qrAmount": null,
+      "partialPayment": null,
+      "timestamp": "2026-01-08T10:55:53.857Z",
+      "createdBy": "Shilu"
+    },
+    {
+      "id": 1767869940191,
+      "table": "Table 3",
+      "items": [
+        {
+          "name": "Hibiscus Tea",
+          "price": 120,
+          "category": "herbal",
+          "addedBy": "Shilu",
+          "addedAt": "2026-01-08T10:58:54.260Z"
+        },
+        {
+          "name": "Hibiscus Tea",
+          "price": 120,
+          "category": "herbal",
+          "addedBy": "Shilu",
+          "addedAt": "2026-01-08T10:58:54.341Z"
+        },
+        {
+          "name": "Hibiscus Tea",
+          "price": 120,
+          "category": "herbal",
+          "addedBy": "Shilu",
+          "addedAt": "2026-01-08T10:58:54.571Z"
+        },
+        {
+          "name": "Hibiscus Tea",
+          "price": 120,
+          "category": "herbal",
+          "addedBy": "Shilu",
+          "addedAt": "2026-01-08T10:58:54.662Z"
+        },
+        {
+          "name": "Hibiscus Tea",
+          "price": 120,
+          "category": "herbal",
+          "addedBy": "Shilu",
+          "addedAt": "2026-01-08T10:58:54.885Z"
+        },
+        {
+          "name": "Hibiscus Tea",
+          "price": 120,
+          "category": "herbal",
+          "addedBy": "Shilu",
+          "addedAt": "2026-01-08T10:58:54.993Z"
+        },
+        {
+          "name": "Hibiscus Tea",
+          "price": 120,
+          "category": "herbal",
+          "addedBy": "Shilu",
+          "addedAt": "2026-01-08T10:58:55.209Z"
+        },
+        {
+          "name": "Hibiscus Tea",
+          "price": 120,
+          "category": "herbal",
+          "addedBy": "Shilu",
+          "addedAt": "2026-01-08T10:58:55.389Z"
+        }
+      ],
+      "total": 960,
+      "customerName": null,
+      "paymentMode": "cash",
+      "creditName": null,
+      "creditorId": null,
+      "creditPaid": true,
+      "cashAmount": null,
+      "qrAmount": null,
+      "partialPayment": null,
+      "timestamp": "2026-01-08T10:59:00.191Z",
+      "createdBy": "Shilu"
     }
   ],
   "openTabs": {}

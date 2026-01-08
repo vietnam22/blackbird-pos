@@ -11,11 +11,8 @@ function DayManagement({ dayStatus, user, onStartDay, onEndDay, onClose, onVerif
   const [loading, setLoading] = useState(true)
   const [processing, setProcessing] = useState(false)
 
-  // Cash tracking
   const [startingCash, setStartingCash] = useState('')
   const [showCashInput, setShowCashInput] = useState(false)
-  
-  // End day summary preview
   const [showEndConfirm, setShowEndConfirm] = useState(false)
   const [daySummary, setDaySummary] = useState(null)
 
@@ -26,10 +23,8 @@ function DayManagement({ dayStatus, user, onStartDay, onEndDay, onClose, onVerif
   }, [])
 
   const loadActiveWorkers = async () => {
-    console.log('[DayMgmt] Loading active workers...')
     try {
       const active = await api.getActiveTimesheets()
-      console.log('[DayMgmt] Active workers:', active)
       setActiveWorkers(active)
     } catch (err) {
       console.error('[DayMgmt] Failed to load active workers:', err)
@@ -37,17 +32,13 @@ function DayManagement({ dayStatus, user, onStartDay, onEndDay, onClose, onVerif
     setLoading(false)
   }
 
-  // Calculate day summary from bills data
+  // Calculate day summary including email data
   const calculateDaySummary = async () => {
     console.log('[DayMgmt] Calculating day summary...')
-    console.log('[DayMgmt] Day status:', dayStatus)
     
     try {
       const billsData = await api.getData()
-      console.log('[DayMgmt] Bills data loaded:', billsData?.completedBills?.length, 'bills')
-      
       const inventoryData = await api.getInventory()
-      console.log('[DayMgmt] Inventory data loaded:', inventoryData?.entries?.length, 'entries')
       
       if (!dayStatus?.currentDay?.startedAt) {
         console.error('[DayMgmt] No current day found!')
@@ -56,14 +47,12 @@ function DayManagement({ dayStatus, user, onStartDay, onEndDay, onClose, onVerif
       
       const dayDate = new Date(dayStatus.currentDay.startedAt).toISOString().split('T')[0]
       const startingCashAmount = dayStatus.currentDay.startingCash || 0
-      console.log('[DayMgmt] Day date:', dayDate, 'Starting cash:', startingCashAmount)
       
       // Filter today's bills
       const dayBills = (billsData.completedBills || []).filter(b => {
         const billDate = new Date(b.timestamp).toISOString().split('T')[0]
         return billDate === dayDate
       })
-      console.log('[DayMgmt] Today\'s bills:', dayBills.length)
 
       let cashFromSales = 0
       let qrFromSales = 0
@@ -107,8 +96,12 @@ function DayManagement({ dayStatus, user, onStartDay, onEndDay, onClose, onVerif
         }
       })
 
-      // Inventory expenses
-      const inventoryItems = (inventoryData.entries || []).filter(e => e.date === dayDate)
+      // Inventory expenses - filter by date properly
+      const inventoryItems = (inventoryData.entries || []).filter(e => {
+        const entryDate = e.addedAt ? new Date(e.addedAt).toISOString().split('T')[0] : e.date
+        return entryDate === dayDate
+      })
+      
       let inventoryCash = 0
       let inventoryQR = 0
       inventoryItems.forEach(e => {
@@ -123,7 +116,48 @@ function DayManagement({ dayStatus, user, onStartDay, onEndDay, onClose, onVerif
       const expectedQR = qrFromSales + qrFromCredit - inventoryQR
       const totalSales = dayBills.reduce((sum, b) => sum + b.total, 0)
 
+      // === EMAIL DATA: Sold items list ===
+      const soldItemsList = []
+      const itemTotals = {}
+      dayBills.forEach(bill => {
+        (bill.items || []).forEach(item => {
+          const key = item.name
+          if (!itemTotals[key]) {
+            itemTotals[key] = { name: item.name, quantity: 0, total: 0 }
+          }
+          itemTotals[key].quantity += item.quantity || 1
+          itemTotals[key].total += (item.price || 0) * (item.quantity || 1)
+        })
+      })
+      Object.values(itemTotals).forEach(item => soldItemsList.push(item))
+
+      // === EMAIL DATA: Staff wages ===
+      let staffWages = []
+      let totalWages = 0
+      try {
+        const tsData = await api.getTimesheets()
+        const dayTimesheets = (tsData.entries || []).filter(t => {
+          const tDate = new Date(t.clockIn).toISOString().split('T')[0]
+          return tDate === dayDate
+        })
+        staffWages = dayTimesheets.map(t => ({
+          name: t.userName,
+          hours: t.hoursWorked || 0
+        }))
+        totalWages = staffWages.reduce((sum, s) => sum + (s.hours * 70), 0)
+      } catch (e) {
+        console.error('Failed to load timesheets for email:', e)
+      }
+
+      // === EMAIL DATA: Totals ===
+      const rent = 800
+      const totalIn = totalSales
+      const inventoryTotal = inventoryCash + inventoryQR
+      const totalOut = inventoryTotal + totalWages + rent
+      const netProfit = totalIn - totalOut
+
       const summary = {
+        // Day management display fields
         startingCash: startingCashAmount,
         cashFromSales,
         qrFromSales,
@@ -132,11 +166,21 @@ function DayManagement({ dayStatus, user, onStartDay, onEndDay, onClose, onVerif
         qrFromCredit,
         inventoryCash,
         inventoryQR,
-        inventoryTotal: inventoryCash + inventoryQR,
+        inventoryTotal,
         expectedCash,
         expectedQR,
         totalSales,
         billCount: dayBills.length,
+        
+        // Email fields
+        soldItemsList,
+        inventoryItems,
+        staffWages,
+        totalWages,
+        totalIn,
+        totalOut,
+        rent,
+        netProfit,
       }
       
       console.log('[DayMgmt] Calculated summary:', summary)
@@ -168,7 +212,6 @@ function DayManagement({ dayStatus, user, onStartDay, onEndDay, onClose, onVerif
   }
 
   const handleEndClick = async () => {
-    console.log('[DayMgmt] End day clicked, canEndDay:', canEndDay)
     if (!canEndDay) return
     
     setLoading(true)
@@ -176,8 +219,6 @@ function DayManagement({ dayStatus, user, onStartDay, onEndDay, onClose, onVerif
     
     try {
       const summary = await calculateDaySummary()
-      console.log('[DayMgmt] Summary calculated successfully:', summary)
-      
       if (summary) {
         setDaySummary(summary)
         setShowEndConfirm(true)
@@ -204,7 +245,6 @@ function DayManagement({ dayStatus, user, onStartDay, onEndDay, onClose, onVerif
   }
 
   const handleConfirmEnd = () => {
-    console.log('[DayMgmt] Confirm end clicked')
     setAction('end')
     setShowEndConfirm(false)
     setShowPinEntry(true)
@@ -213,8 +253,6 @@ function DayManagement({ dayStatus, user, onStartDay, onEndDay, onClose, onVerif
   }
 
   const handlePinSubmit = async () => {
-    console.log('[DayMgmt] PIN submit, action:', action)
-    
     if (pin.length !== 4) {
       setError('Enter 4-digit PIN')
       return
@@ -225,7 +263,6 @@ function DayManagement({ dayStatus, user, onStartDay, onEndDay, onClose, onVerif
     
     try {
       const result = await onVerifyPin(pin)
-      console.log('[DayMgmt] PIN verify result:', result)
       
       if (!result.success) {
         setError('Invalid PIN')
@@ -235,9 +272,7 @@ function DayManagement({ dayStatus, user, onStartDay, onEndDay, onClose, onVerif
       }
 
       if (action === 'start') {
-        console.log('[DayMgmt] Starting day with cash:', startingCash)
         const startResult = await onStartDay(result.user.id, result.user.name, Number(startingCash))
-        console.log('[DayMgmt] Start result:', startResult)
         
         if (startResult.success) {
           setShowPinEntry(false)
@@ -246,15 +281,26 @@ function DayManagement({ dayStatus, user, onStartDay, onEndDay, onClose, onVerif
           setError('Failed to start day')
         }
       } else if (action === 'end') {
-        console.log('[DayMgmt] Ending day with calculated values:', daySummary?.expectedCash, daySummary?.expectedQR)
-        
+        // Build email summary object
+        const emailSummary = daySummary ? {
+          soldItemsList: daySummary.soldItemsList || [],
+          totalIn: daySummary.totalIn || daySummary.totalSales || 0,
+          inventoryItems: daySummary.inventoryItems || [],
+          inventoryTotal: daySummary.inventoryTotal || 0,
+          staffWages: daySummary.staffWages || [],
+          totalWages: daySummary.totalWages || 0,
+          rent: daySummary.rent || 0,
+          totalOut: daySummary.totalOut || 0,
+          netProfit: daySummary.netProfit || 0,
+        } : null
+
         const endResult = await onEndDay(
           result.user.id, 
           result.user.name, 
           daySummary?.expectedCash || 0, 
-          daySummary?.expectedQR || 0
+          daySummary?.expectedQR || 0,
+          emailSummary
         )
-        console.log('[DayMgmt] End result:', endResult)
         
         if (endResult.success) {
           setShowPinEntry(false)
@@ -288,9 +334,6 @@ function DayManagement({ dayStatus, user, onStartDay, onEndDay, onClose, onVerif
       month: 'short', day: 'numeric', year: 'numeric', hour: '2-digit', minute: '2-digit',
     })
   }
-
-  // Debug render
-  console.log('[DayMgmt] Render state:', { loading, showEndConfirm, showPinEntry, showSummary, showCashInput, isActive })
 
   if (loading) {
     return (
@@ -347,7 +390,6 @@ function DayManagement({ dayStatus, user, onStartDay, onEndDay, onClose, onVerif
           <h2>🔴 End Day</h2>
           <p style={styles.subtitle}>Review calculated totals</p>
 
-          {/* Expected Cash/QR */}
           <div style={styles.expectedSection}>
             <div style={styles.expectedRow}>
               <div style={styles.expectedItem}>
@@ -361,7 +403,6 @@ function DayManagement({ dayStatus, user, onStartDay, onEndDay, onClose, onVerif
             </div>
           </div>
 
-          {/* Cash Breakdown */}
           <div style={styles.breakdownSection}>
             <div style={styles.breakdownTitle}>Cash Calculation</div>
             <div style={styles.breakdownRow}>
@@ -382,7 +423,6 @@ function DayManagement({ dayStatus, user, onStartDay, onEndDay, onClose, onVerif
             </div>
           </div>
 
-          {/* QR Breakdown */}
           <div style={styles.breakdownSection}>
             <div style={styles.breakdownTitle}>QR Calculation</div>
             <div style={styles.breakdownRow}>
@@ -399,7 +439,6 @@ function DayManagement({ dayStatus, user, onStartDay, onEndDay, onClose, onVerif
             </div>
           </div>
 
-          {/* Credit Given Today */}
           {daySummary.creditGiven > 0 && (
             <div style={styles.creditNote}>
               ⚠️ Credit given today: Rs. {daySummary.creditGiven.toLocaleString()}

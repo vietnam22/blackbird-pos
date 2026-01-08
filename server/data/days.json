@@ -1,12 +1,5 @@
 {
-  "currentDay": {
-    "id": 1767019756953,
-    "startedAt": "2025-12-29T14:49:16.953Z",
-    "openingCash": 0,
-    "endedAt": null,
-    "endedBy": null,
-    "closingCash": null
-  },
+  "currentDay": null,
   "history": [
     {
       "id": 1766416866761,
@@ -275,6 +268,107 @@
       "openingCash": 0,
       "endedAt": "2025-12-29T14:48:09.813Z",
       "closingCash": 0
+    },
+    {
+      "id": 1767019756953,
+      "startedAt": "2025-12-29T14:49:16.953Z",
+      "openingCash": 0,
+      "endedAt": "2026-01-08T10:18:46.820Z",
+      "closingCash": 0
+    },
+    {
+      "id": 1767867757918,
+      "startedAt": "2026-01-08T10:22:37.918Z",
+      "openingCash": 0,
+      "endedAt": "2026-01-08T10:23:46.744Z",
+      "closingCash": 0
+    },
+    {
+      "id": 1767867872559,
+      "startedAt": "2026-01-08T10:24:32.559Z",
+      "openingCash": 0,
+      "endedAt": "2026-01-08T10:25:07.582Z",
+      "closingCash": 0
+    },
+    {
+      "id": 1767869143734,
+      "startedAt": "2026-01-08T10:45:43.734Z",
+      "startedBy": {
+        "userId": 1,
+        "userName": "Admin"
+      },
+      "startingCash": 2000,
+      "endedAt": "2026-01-08T10:48:17.892Z",
+      "endedBy": {
+        "userId": 1,
+        "userName": "Admin"
+      },
+      "closingCash": 2210,
+      "closingQR": 0
+    },
+    {
+      "id": 1767869411641,
+      "startedAt": "2026-01-08T10:50:11.641Z",
+      "startedBy": {
+        "userId": 3,
+        "userName": "Shilu"
+      },
+      "startingCash": 3000,
+      "endedAt": "2026-01-08T10:51:58.390Z",
+      "endedBy": {
+        "userId": 3,
+        "userName": "Shilu"
+      },
+      "closingCash": 3210,
+      "closingQR": 251
+    },
+    {
+      "id": 1767869563163,
+      "startedAt": "2026-01-08T10:52:43.163Z",
+      "startedBy": {
+        "userId": 3,
+        "userName": "Shilu"
+      },
+      "startingCash": 4000,
+      "endedAt": "2026-01-08T10:53:06.096Z",
+      "endedBy": {
+        "userId": 3,
+        "userName": "Shilu"
+      },
+      "closingCash": 4340,
+      "closingQR": 901
+    },
+    {
+      "id": 1767869687927,
+      "startedAt": "2026-01-08T10:54:47.927Z",
+      "startedBy": {
+        "userId": 3,
+        "userName": "Shilu"
+      },
+      "startingCash": 2000,
+      "endedAt": "2026-01-08T10:56:06.969Z",
+      "endedBy": {
+        "userId": 3,
+        "userName": "Shilu"
+      },
+      "closingCash": 2600,
+      "closingQR": 1031
+    },
+    {
+      "id": 1767869927201,
+      "startedAt": "2026-01-08T10:58:47.201Z",
+      "startedBy": {
+        "userId": 3,
+        "userName": "Shilu"
+      },
+      "startingCash": 5656,
+      "endedAt": "2026-01-08T10:59:06.945Z",
+      "endedBy": {
+        "userId": 3,
+        "userName": "Shilu"
+      },
+      "closingCash": 7216,
+      "closingQR": 1031
     }
   ]
 }

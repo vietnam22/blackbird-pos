@@ -100,29 +100,23 @@ function App() {
     }
   }
 
-  const handleEndDay = async (userId, userName, endingCash, endingQR) => {
-    console.log('[App] handleEndDay called:', { userId, userName, endingCash, endingQR })
-    try {
-      const result = await api.endDay(userId, userName, endingCash, endingQR)
-      console.log('[App] End day API result:', result)
-      if (result.success) {
-        console.log('[App] Day ended successfully, updating state...')
-        // Immediately update local state
-        setDayStatus(prev => {
-          console.log('[App] Previous dayStatus:', prev)
-          return { ...prev, currentDay: null }
-        })
-        // Then reload fresh data
-        console.log('[App] Reloading day status and data...')
-        await loadDayStatus()
-        await loadData()
-      }
-      return result
-    } catch (err) {
-      console.error('[App] End day error:', err)
-      return { success: false, error: err.message }
+  const handleEndDay = async (userId, userName, endingCash, endingQR, emailSummary) => {
+  console.log('[App] handleEndDay called:', { userId, userName, endingCash, endingQR, hasEmailSummary: !!emailSummary })
+  try {
+    const result = await api.endDay(userId, userName, endingCash, endingQR, emailSummary)
+    console.log('[App] End day API result:', result)
+    if (result.success) {
+      console.log('[App] Day ended successfully, updating state...')
+      setDayStatus(prev => ({ ...prev, currentDay: null }))
+      await loadDayStatus()
+      await loadData()
     }
+    return result
+  } catch (err) {
+    console.error('[App] End day error:', err)
+    return { success: false, error: err.message }
   }
+}
 
   const handleVerifyPin = async (pin) => {
     console.log('[App] Verifying PIN for user:', user?.name)

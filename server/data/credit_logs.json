@@ -86,6 +86,55 @@
       "customerName": null,
       "paymentMode": "credit",
       "partialPayment": null
+    },
+    {
+      "id": 1767869449139,
+      "type": "credit_given",
+      "timestamp": "2026-01-08T10:50:49.139Z",
+      "billId": 1767869449124,
+      "table": "Table 3",
+      "creditName": "Aahat Regmi",
+      "creditorId": 1766975831033,
+      "amount": 50,
+      "totalBillAmount": 50,
+      "createdBy": "Shilu",
+      "customerName": null,
+      "paymentMode": "credit",
+      "partialPayment": null
+    },
+    {
+      "id": 1767869485028,
+      "type": "credit_given",
+      "timestamp": "2026-01-08T10:51:25.028Z",
+      "billId": 1767869485016,
+      "table": "Table 2",
+      "creditName": "Mahesh Sir",
+      "creditorId": 1766975140710,
+      "amount": 9,
+      "totalBillAmount": 20,
+      "createdBy": "Shilu",
+      "customerName": null,
+      "paymentMode": "partial",
+      "partialPayment": {
+        "paidAmount": 11,
+        "paidMethod": "qr",
+        "creditAmount": 9
+      }
+    },
+    {
+      "id": 1767869745931,
+      "type": "credit_given",
+      "timestamp": "2026-01-08T10:55:45.931Z",
+      "billId": 1767869745918,
+      "table": "Table 8",
+      "creditName": "Aahat Regmi",
+      "creditorId": 1766975831033,
+      "amount": 130,
+      "totalBillAmount": 130,
+      "createdBy": "Shilu",
+      "customerName": null,
+      "paymentMode": "credit",
+      "partialPayment": null
     }
   ]
 }

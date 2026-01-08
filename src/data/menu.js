@@ -80,6 +80,9 @@ export const MENU = [
   // ═══════════════════════════════════════════════════
   // SMOKE
   // ═══════════════════════════════════════════════════
+  { name: 'Mint Cloud Hukka', price: 400, category: 'smoke' },
+  { name: 'Min Cloud Hukka-Discounted', price: 350, category: 'smoke' },
+  { name: 'Hukka Head Change', price: 250, category: 'smoke' },
   { name: 'Surya Red', price: 25, category: 'smoke' },
   { name: 'Surya Light', price: 25, category: 'smoke' },
   { name: 'Surya Fusion', price: 25, category: 'smoke' },

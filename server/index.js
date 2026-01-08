@@ -3,6 +3,7 @@ import cors from 'cors'
 import fs from 'fs'
 import path from 'path'
 import { fileURLToPath } from 'url'
+import { sendDayStartEmail, sendDayEndEmail } from './emailService.js'
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
@@ -465,39 +466,70 @@ app.get('/api/days/current', (req, res) => {
 })
 
 app.post('/api/days/start', (req, res) => {
-  const { startedBy, openingCash } = req.body
+  const { userId, userName, startingCash } = req.body
   const data = readJSON(DAYS_FILE, { currentDay: null, history: [] })
+  
   if (data.currentDay) {
     return res.status(400).json({ success: false, message: 'Day already started' })
   }
+  
+  const startedBy = { userId, userName }
+  const startedAt = new Date().toISOString()
+  
   data.currentDay = {
     id: Date.now(),
-    startedAt: new Date().toISOString(),
+    startedAt,
     startedBy,
-    openingCash: openingCash || 0,
+    startingCash: startingCash || 0,
     endedAt: null,
     endedBy: null,
     closingCash: null
   }
   writeJSON(DAYS_FILE, data)
+  
+  // Send email (fire and forget)
+  sendDayStartEmail({ startedBy, startedAt })
+    .then(r => console.log('Day start email result:', r))
+    .catch(err => console.error('Day start email error:', err))
+  
   res.json({ success: true, day: data.currentDay })
 })
 
 app.post('/api/days/end', (req, res) => {
-  const { endedBy, closingCash } = req.body
+  const { userId, userName, endingCash, endingQR, emailSummary } = req.body
   const data = readJSON(DAYS_FILE, { currentDay: null, history: [] })
+  
   if (!data.currentDay) {
     return res.status(400).json({ success: false, message: 'No day to end' })
   }
+  
+  const endedAt = new Date().toISOString()
+  const endedBy = { userId, userName }
+  
   const endedDay = {
     ...data.currentDay,
-    endedAt: new Date().toISOString(),
+    endedAt,
     endedBy,
-    closingCash: closingCash || 0
+    closingCash: endingCash || 0,
+    closingQR: endingQR || 0
   }
+  
   data.history.push(endedDay)
   data.currentDay = null
   writeJSON(DAYS_FILE, data)
+  
+  // Send summary email if data provided
+  if (emailSummary) {
+    sendDayEndEmail({
+      ...emailSummary,
+      endedBy,
+      endedAt,
+      date: endedDay.startedAt
+    })
+      .then(r => console.log('Day end email result:', r))
+      .catch(err => console.error('Day end email error:', err))
+  }
+  
   res.json({ success: true, day: endedDay })
 })
 
