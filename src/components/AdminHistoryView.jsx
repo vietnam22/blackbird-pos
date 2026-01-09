@@ -15,6 +15,7 @@ function AdminHistoryView({ completedBills }) {
   const [dateFrom, setDateFrom] = useState('')
   const [dateTo, setDateTo] = useState('')
   const [salesReport, setSalesReport] = useState(null)
+  const [purchaseReport, setPurchaseReport] = useState(null)
   const [emailRecipients, setEmailRecipients] = useState([])
   const [newEmail, setNewEmail] = useState('')
 
@@ -54,7 +55,19 @@ function AdminHistoryView({ completedBills }) {
   const getDateInv = () => selectedDate ? inventory.entries.filter(e => e.date === selectedDate) : []
   const getDateTS = () => selectedDate ? timesheets.filter(e => new Date(e.clockIn).toISOString().split('T')[0] === selectedDate) : []
 
-  const toggleItem = (n) => { setSelectedItems(p => p.includes(n) ? p.filter(i => i !== n) : [...p, n]); setSalesReport(null) }
+  const toggleItem = (n) => { setSelectedItems(p => p.includes(n) ? p.filter(i => i !== n) : [...p, n]); setSalesReport(null); setPurchaseReport(null) }
+
+  // Get unique inventory items from history (case-insensitive grouping)
+  const getUniqueInventoryItems = () => {
+    const itemMap = {}
+    inventory.entries.forEach(e => {
+      const key = e.item.toLowerCase().trim()
+      if (!itemMap[key]) {
+        itemMap[key] = e.item // Keep original casing of first occurrence
+      }
+    })
+    return Object.values(itemMap).sort((a, b) => a.toLowerCase().localeCompare(b.toLowerCase()))
+  }
 
   const genReport = () => {
     if (!selectedItems.length || !dateFrom || !dateTo) return
@@ -73,6 +86,44 @@ function AdminHistoryView({ completedBills }) {
       })
     })
     setSalesReport({ items: rpt, totQty: Object.values(rpt).reduce((s, r) => s + r.qty, 0), totRev: Object.values(rpt).reduce((s, r) => s + r.rev, 0), dateFrom, dateTo })
+  }
+
+  const genPurchaseReport = () => {
+    if (!selectedItems.length || !dateFrom || !dateTo) return
+    const from = new Date(dateFrom), to = new Date(dateTo); to.setHours(23, 59, 59, 999)
+    
+    // Filter inventory entries by date range
+    const entries = inventory.entries.filter(e => {
+      const d = e.timestamp ? new Date(e.timestamp) : new Date(e.date)
+      return d >= from && d <= to
+    })
+    
+    const rpt = {}
+    // Initialize report for selected items (case-insensitive matching)
+    selectedItems.forEach(n => { rpt[n] = { qty: 0, cost: 0, unit: null, daily: {} } })
+    
+    entries.forEach(e => {
+      const dt = e.date || new Date(e.timestamp).toISOString().split('T')[0]
+      // Find matching selected item (case-insensitive)
+      const matchedItem = selectedItems.find(s => s.toLowerCase() === e.item.toLowerCase())
+      if (matchedItem) {
+        rpt[matchedItem].qty += e.quantity || 0
+        rpt[matchedItem].cost += e.totalPrice || 0
+        if (e.unit && !rpt[matchedItem].unit) rpt[matchedItem].unit = e.unit
+        
+        if (!rpt[matchedItem].daily[dt]) rpt[matchedItem].daily[dt] = { qty: 0, cost: 0 }
+        rpt[matchedItem].daily[dt].qty += e.quantity || 0
+        rpt[matchedItem].daily[dt].cost += e.totalPrice || 0
+      }
+    })
+    
+    setPurchaseReport({ 
+      items: rpt, 
+      totQty: Object.values(rpt).reduce((s, r) => s + r.qty, 0), 
+      totCost: Object.values(rpt).reduce((s, r) => s + r.cost, 0), 
+      dateFrom, 
+      dateTo 
+    })
   }
 
   const getSummary = () => {
@@ -104,6 +155,9 @@ function AdminHistoryView({ completedBills }) {
           </button>
           <button onClick={() => setHistoryView('itemSales')} style={S.histTabBtn}>
             📈 Monitor Item Sales
+          </button>
+          <button onClick={() => setHistoryView('itemPurchase')} style={S.histTabBtn}>
+            🛒 Monitor Item Purchase
           </button>
           <button onClick={() => { setHistoryView('emailRecipients'); loadEmailRecipients() }} style={S.histTabBtn}>
             ✉️ Daily Summary Emails
@@ -221,6 +275,101 @@ function AdminHistoryView({ completedBills }) {
         </div>
       )}
 
+      {/* Item Purchase Monitor */}
+      {historyView === 'itemPurchase' && (
+        <div>
+          <button onClick={() => { setHistoryView(null); setSelectedItems([]); setDateFrom(''); setDateTo(''); setPurchaseReport(null) }} style={S.backLink}>← Back</button>
+          <h4 style={{ marginBottom: 15 }}>🛒 Monitor Item Purchase</h4>
+
+          <div style={S.dateRange}>
+            <div style={S.dateInp}>
+              <label>From:</label>
+              <input type="date" value={dateFrom} onChange={e => { setDateFrom(e.target.value); setPurchaseReport(null) }} style={S.datePick} max={new Date().toISOString().split('T')[0]} />
+            </div>
+            <div style={S.dateInp}>
+              <label>To:</label>
+              <input type="date" value={dateTo} onChange={e => { setDateTo(e.target.value); setPurchaseReport(null) }} style={S.datePick} max={new Date().toISOString().split('T')[0]} />
+            </div>
+          </div>
+
+          <div style={S.itemSec}>
+            <label style={S.secLbl}>Select Items to Monitor:</label>
+            {getUniqueInventoryItems().length === 0 ? (
+              <p style={S.empty}>No inventory items found. Add inventory entries first.</p>
+            ) : (
+              <div style={S.itemGrid}>
+                {getUniqueInventoryItems().map(item => (
+                  <button 
+                    key={item} 
+                    onClick={() => toggleItem(item)} 
+                    style={{ 
+                      ...S.itemBtn, 
+                      background: selectedItems.includes(item) ? '#2d4a6d' : '#3d3d3d', 
+                      borderColor: selectedItems.includes(item) ? '#60a5fa' : '#555' 
+                    }}
+                  >
+                    {selectedItems.includes(item) && <span style={{ color: '#60a5fa' }}>✓ </span>}
+                    {item}
+                  </button>
+                ))}
+              </div>
+            )}
+            {selectedItems.length > 0 && (
+              <div style={S.selCount}>
+                {selectedItems.length} item{selectedItems.length > 1 ? 's' : ''} selected
+                <button onClick={() => setSelectedItems([])} style={S.clearBtn}>Clear</button>
+              </div>
+            )}
+          </div>
+
+          <button 
+            onClick={genPurchaseReport} 
+            disabled={!selectedItems.length || !dateFrom || !dateTo} 
+            style={{ ...S.genBtn, opacity: !selectedItems.length || !dateFrom || !dateTo ? 0.5 : 1, background: '#2d4a6d' }}
+          >
+            📊 Generate Report
+          </button>
+
+          {purchaseReport && (
+            <div style={S.rptSec}>
+              <div style={S.rptHdr}>
+                <h4 style={{ margin: 0 }}>Purchase Report</h4>
+                <span style={S.rptRange}>{fmtDate(purchaseReport.dateFrom)} - {fmtDate(purchaseReport.dateTo)}</span>
+              </div>
+              <div style={S.rptSum}>
+                <div style={S.rptBox}><span style={S.rptLbl}>Total Entries</span><span style={S.rptVal}>{Object.values(purchaseReport.items).filter(r => r.qty > 0).length}</span></div>
+                <div style={S.rptBox}><span style={S.rptLbl}>Total Cost</span><span style={{ ...S.rptVal, color: '#f87171' }}>Rs. {purchaseReport.totCost.toLocaleString()}</span></div>
+              </div>
+              <div style={S.rptItems}>
+                {Object.entries(purchaseReport.items).map(([name, data]) => (
+                  <div key={name} style={S.rptItem}>
+                    <div style={S.rptItemHdr}>
+                      <span style={S.rptItemName}>{name}</span>
+                      <div style={S.rptItemStats}>
+                        <span style={S.rptItemQty}>{data.qty}{data.unit ? ` ${data.unit}` : ''}</span>
+                        <span style={{ ...S.rptItemRev, color: '#f87171' }}>Rs. {data.cost.toLocaleString()}</span>
+                      </div>
+                    </div>
+                    {Object.keys(data.daily).length > 0 && (
+                      <div style={S.dailyBrk}>
+                        {Object.entries(data.daily).sort(([a], [b]) => a.localeCompare(b)).map(([dt, dd]) => (
+                          <div key={dt} style={S.dailyRow}>
+                            <span style={S.dailyDt}>{fmtDate(dt)}</span>
+                            <span style={S.dailyQty}>{dd.qty}{data.unit ? ` ${data.unit}` : ''}</span>
+                            <span style={{ ...S.dailyRev, color: '#f87171' }}>Rs. {dd.cost.toLocaleString()}</span>
+                          </div>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                ))}
+              </div>
+              {purchaseReport.totCost === 0 && <p style={S.empty}>No purchases found for selected items in this date range.</p>}
+            </div>
+          )}
+        </div>
+      )}
+
       {/* Summary View */}
       {historyView === 'summary' && (
         <div>
@@ -307,16 +456,15 @@ function AdminHistoryView({ completedBills }) {
         <div>
           <button onClick={() => setHistoryView('daily')} style={S.backLink}>← Back</button>
           <h4>👥 Staff Hours - {fmtDate(selectedDate)}</h4>
-          {getDateTS().length === 0 ? <p style={S.empty}>No shifts</p> : <>
+          {getDateTS().length === 0 ? <p style={S.empty}>No staff hours</p> : <>
             <div style={S.statsRow}>
-              <div style={S.statBox}><span style={S.statLbl}>Shifts</span><span style={S.statVal}>{getDateTS().length}</span></div>
-              <div style={S.statBox}><span style={S.statLbl}>Hours</span><span style={S.statVal}>{getDateTS().reduce((s,e) => s+(e.hoursWorked||0), 0).toFixed(1)}h</span></div>
+              <div style={S.statBox}><span style={S.statLbl}>Entries</span><span style={S.statVal}>{getDateTS().length}</span></div>
+              <div style={S.statBox}><span style={S.statLbl}>Total Hours</span><span style={S.statVal}>{getDateTS().reduce((s,e) => s+(e.hoursWorked||0), 0).toFixed(1)}h</span></div>
             </div>
             {getDateTS().map(e => (
-              <div key={e.id} style={S.staffItem}>
-                <span style={{ fontWeight: 'bold' }}>{e.userName}</span>
-                <span style={{ color: '#888' }}>{fmtTime(e.clockIn)} - {e.clockOut ? fmtTime(e.clockOut) : 'Active'}</span>
-                <span style={{ fontWeight: 'bold' }}>{e.hoursWorked?.toFixed(1) || '-'}h {e.autoClockOut && <span style={S.autoTag}>Auto</span>}</span>
+              <div key={e.id} style={S.invItem}>
+                <div><span style={{ fontWeight: 'bold' }}>{e.userName}</span></div>
+                <div style={{ textAlign: 'right' }}><div style={{ fontWeight: 'bold' }}>{(e.hoursWorked || 0).toFixed(1)}h</div><div style={{ color: '#888', fontSize: 12 }}>{fmtTime(e.clockIn)} - {e.clockOut ? fmtTime(e.clockOut) : 'Active'}</div></div>
               </div>
             ))}
           </>}
@@ -327,31 +475,28 @@ function AdminHistoryView({ completedBills }) {
       {historyView === 'emailRecipients' && (
         <div>
           <button onClick={() => setHistoryView(null)} style={S.backLink}>← Back</button>
-          <h4>✉️ Daily Summary Emails</h4>
-          <p style={{ color: '#888', fontSize: 14, marginBottom: 20 }}>
-            These emails receive daily summary when the day starts and ends.
-          </p>
+          <h4>✉️ Daily Summary Email Recipients</h4>
+          <p style={{ color: '#888', marginBottom: 15 }}>These emails will receive daily summary when a day is ended.</p>
           
-          <div style={S.emailInputRow}>
-            <input
-              type="email"
-              value={newEmail}
-              onChange={e => setNewEmail(e.target.value)}
-              placeholder="Enter email address"
-              style={S.emailInput}
-              onKeyDown={e => e.key === 'Enter' && addEmailRecipient()}
+          <div style={{ display: 'flex', gap: 10, marginBottom: 20 }}>
+            <input 
+              type="email" 
+              value={newEmail} 
+              onChange={e => setNewEmail(e.target.value)} 
+              placeholder="Add email address" 
+              style={{ ...S.datePick, flex: 1 }}
             />
-            <button onClick={addEmailRecipient} style={S.addEmailBtn}>Add</button>
+            <button onClick={addEmailRecipient} style={{ ...S.genBtn, padding: '10px 20px' }}>Add</button>
           </div>
 
           {emailRecipients.length === 0 ? (
             <p style={S.empty}>No email recipients configured</p>
           ) : (
-            <div style={S.emailList}>
-              {emailRecipients.map(email => (
-                <div key={email} style={S.emailItem}>
-                  <span style={S.emailText}>{email}</span>
-                  <button onClick={() => deleteEmailRecipient(email)} style={S.deleteEmailBtn}>✕</button>
+            <div>
+              {emailRecipients.map((email, idx) => (
+                <div key={idx} style={{ ...S.invItem, display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                  <span>{email}</span>
+                  <button onClick={() => deleteEmailRecipient(email)} style={{ background: '#5a2d2d', border: 'none', color: '#f87171', padding: '5px 10px', borderRadius: 5, cursor: 'pointer' }}>Remove</button>
                 </div>
               ))}
             </div>
@@ -363,75 +508,66 @@ function AdminHistoryView({ completedBills }) {
 }
 
 const S = {
-  card: { background: '#2a2a2a', borderRadius: 12, padding: 20 },
-  backLink: { background: 'transparent', border: 'none', color: '#888', cursor: 'pointer', fontSize: 14, marginBottom: 15, padding: 0 },
-  histTabs: { display: 'flex', flexDirection: 'column', gap: 10, marginTop: 15 },
-  histTabBtn: { padding: '15px 20px', background: '#333', border: '1px solid #444', borderRadius: 8, color: '#fff', fontSize: 16, cursor: 'pointer', textAlign: 'left' },
-  dateSec: { display: 'flex', alignItems: 'center', gap: 15, marginTop: 15, marginBottom: 20 },
-  datePick: { padding: '10px 15px', border: '1px solid #555', borderRadius: 8, background: '#333', color: '#fff', fontSize: 16, cursor: 'pointer', width: '100%', marginTop: 5, boxSizing: 'border-box' },
+  card: { background: '#2d2d2d', borderRadius: 12, padding: 20 },
+  histTabs: { display: 'flex', flexDirection: 'column', gap: 10 },
+  histTabBtn: { background: '#3d3d3d', border: '1px solid #555', borderRadius: 8, padding: 15, color: '#fff', fontSize: 16, cursor: 'pointer', textAlign: 'left' },
+  backLink: { background: 'none', border: 'none', color: '#60a5fa', cursor: 'pointer', marginBottom: 15, padding: 0, fontSize: 14 },
+  dateSec: { marginBottom: 20 },
+  datePick: { width: '100%', padding: 10, borderRadius: 8, border: '1px solid #555', background: '#1e1e1e', color: '#fff', marginTop: 5 },
   histOpts: { display: 'flex', flexDirection: 'column', gap: 10 },
-  histOptBtn: { display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '15px 20px', background: '#333', border: '1px solid #444', borderRadius: 8, color: '#fff', fontSize: 16, cursor: 'pointer' },
-  optCount: { background: '#444', padding: '4px 10px', borderRadius: 12, fontSize: 13, color: '#aaa' },
-  empty: { color: '#666', textAlign: 'center', padding: 30 },
-  emptySmall: { color: '#666', fontSize: 13, padding: '10px 0', margin: 0 },
+  histOptBtn: { background: '#3d3d3d', border: '1px solid #555', borderRadius: 8, padding: 12, color: '#fff', cursor: 'pointer', textAlign: 'left', display: 'flex', justifyContent: 'space-between', alignItems: 'center' },
+  optCount: { background: '#555', padding: '2px 8px', borderRadius: 10, fontSize: 12 },
+  empty: { color: '#888', textAlign: 'center', padding: 20 },
+  emptySmall: { color: '#666', fontSize: 12, margin: '5px 0' },
   dateRange: { display: 'flex', gap: 15, marginBottom: 20 },
   dateInp: { flex: 1 },
   itemSec: { marginBottom: 20 },
-  secLbl: { display: 'block', color: '#888', fontSize: 12, textTransform: 'uppercase', marginBottom: 10 },
-  itemGrid: { display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 8 },
-  itemBtn: { padding: '10px 12px', border: '2px solid #555', borderRadius: 8, color: '#fff', fontSize: 14, cursor: 'pointer', textAlign: 'left' },
-  selCount: { display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: 10, color: '#888', fontSize: 13 },
-  clearBtn: { background: '#444', color: '#fff', border: 'none', padding: '4px 10px', borderRadius: 4, cursor: 'pointer', fontSize: 12 },
-  genBtn: { width: '100%', padding: 15, background: '#2d5a2d', color: '#fff', border: 'none', borderRadius: 8, fontSize: 16, fontWeight: 'bold', cursor: 'pointer' },
-  rptSec: { marginTop: 20, background: '#333', borderRadius: 12, overflow: 'hidden' },
-  rptHdr: { display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '15px 20px', background: '#2d4a3e' },
-  rptRange: { color: '#aaa', fontSize: 13 },
-  rptSum: { display: 'flex', gap: 10, padding: 15 },
-  rptBox: { flex: 1, background: '#2a2a2a', padding: 15, borderRadius: 8, textAlign: 'center' },
+  secLbl: { display: 'block', marginBottom: 10, color: '#888' },
+  itemGrid: { display: 'flex', flexWrap: 'wrap', gap: 8 },
+  itemBtn: { padding: '8px 12px', borderRadius: 6, border: '1px solid #555', color: '#fff', cursor: 'pointer', fontSize: 13 },
+  selCount: { marginTop: 10, color: '#888', display: 'flex', justifyContent: 'space-between', alignItems: 'center' },
+  clearBtn: { background: 'none', border: 'none', color: '#f87171', cursor: 'pointer' },
+  genBtn: { width: '100%', padding: 12, borderRadius: 8, border: 'none', background: '#2d5a2d', color: '#fff', fontSize: 16, cursor: 'pointer' },
+  rptSec: { marginTop: 20, background: '#1e1e1e', borderRadius: 8, padding: 15 },
+  rptHdr: { display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 15 },
+  rptRange: { color: '#888', fontSize: 12 },
+  rptSum: { display: 'flex', gap: 15, marginBottom: 15 },
+  rptBox: { flex: 1, background: '#2d2d2d', padding: 12, borderRadius: 8, textAlign: 'center' },
   rptLbl: { display: 'block', color: '#888', fontSize: 12, marginBottom: 5 },
-  rptVal: { fontSize: 20, fontWeight: 'bold' },
-  rptItems: { padding: '0 15px 15px' },
-  rptItem: { background: '#2a2a2a', borderRadius: 8, marginBottom: 10, overflow: 'hidden' },
-  rptItemHdr: { display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '12px 15px' },
-  rptItemName: { fontWeight: 'bold', fontSize: 16 },
+  rptVal: { fontSize: 18, fontWeight: 'bold' },
+  rptItems: { display: 'flex', flexDirection: 'column', gap: 10 },
+  rptItem: { background: '#2d2d2d', borderRadius: 8, padding: 12 },
+  rptItemHdr: { display: 'flex', justifyContent: 'space-between', alignItems: 'center' },
+  rptItemName: { fontWeight: 'bold' },
   rptItemStats: { display: 'flex', gap: 15, alignItems: 'center' },
   rptItemQty: { color: '#888' },
-  rptItemRev: { color: '#4ade80', fontWeight: 'bold' },
-  dailyBrk: { background: '#383838', padding: '10px 15px' },
+  rptItemRev: { fontWeight: 'bold', color: '#4ade80' },
+  dailyBrk: { marginTop: 10, paddingTop: 10, borderTop: '1px solid #444' },
   dailyRow: { display: 'flex', justifyContent: 'space-between', padding: '4px 0', fontSize: 13 },
-  dailyDt: { color: '#888', flex: 1 },
-  dailyQty: { color: '#aaa', marginRight: 15 },
-  dailyRev: { color: '#4ade80', minWidth: 80, textAlign: 'right' },
-  netBan: { display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: 20, borderRadius: 12, border: '2px solid', marginBottom: 20, marginTop: 15 },
-  netLbl: { fontSize: 18, fontWeight: 'bold' },
+  dailyDt: { color: '#888' },
+  dailyQty: { color: '#888' },
+  dailyRev: { color: '#4ade80' },
+  netBan: { padding: 20, borderRadius: 8, border: '1px solid', textAlign: 'center', marginBottom: 20 },
+  netLbl: { display: 'block', marginBottom: 5 },
   netAmt: { fontSize: 28, fontWeight: 'bold' },
-  sumCols: { display: 'flex', gap: 15, flexWrap: 'wrap' },
-  sumCol: { flex: 1, minWidth: 280, background: '#333', borderRadius: 12, overflow: 'hidden' },
-  colHdr: { background: '#1e3d1e', padding: '12px 15px', display: 'flex', alignItems: 'center', gap: 10, fontWeight: 'bold', fontSize: 14 },
-  colBody: { padding: 15, maxHeight: 350, overflowY: 'auto' },
-  colTot: { background: '#1e3d1e', padding: 15, display: 'flex', justifyContent: 'space-between', fontWeight: 'bold' },
-  secTitle: { color: '#888', fontSize: 12, textTransform: 'uppercase', letterSpacing: 1, marginBottom: 10, borderBottom: '1px solid #444', paddingBottom: 5 },
-  sumItem: { display: 'flex', justifyContent: 'space-between', padding: '6px 0', fontSize: 14 },
-  subRow: { display: 'flex', justifyContent: 'space-between', fontSize: 13, color: '#888', marginTop: 10, paddingTop: 10, borderTop: '1px dashed #444' },
-  statsRow: { display: 'flex', gap: 15, marginBottom: 20, marginTop: 15 },
-  statBox: { flex: 1, background: '#333', padding: 15, borderRadius: 8, textAlign: 'center' },
-  statLbl: { display: 'block', color: '#888', fontSize: 12, marginBottom: 5 },
+  sumCols: { display: 'flex', gap: 15 },
+  sumCol: { flex: 1, background: '#1e1e1e', borderRadius: 8, overflow: 'hidden' },
+  colHdr: { background: '#1e3d1e', padding: 10, fontWeight: 'bold', display: 'flex', gap: 8, alignItems: 'center' },
+  colBody: { padding: 10 },
+  colTot: { background: '#1e3d1e', padding: 10, display: 'flex', justifyContent: 'space-between', fontWeight: 'bold' },
+  secTitle: { color: '#888', fontSize: 12, marginBottom: 5, textTransform: 'uppercase' },
+  sumItem: { display: 'flex', justifyContent: 'space-between', padding: '4px 0', fontSize: 13 },
+  subRow: { display: 'flex', justifyContent: 'space-between', padding: '8px 0', borderTop: '1px solid #333', marginTop: 5, color: '#888', fontSize: 12 },
+  statsRow: { display: 'flex', gap: 15, marginBottom: 15 },
+  statBox: { flex: 1, background: '#1e1e1e', padding: 12, borderRadius: 8, textAlign: 'center' },
+  statLbl: { display: 'block', color: '#888', fontSize: 12 },
   statVal: { fontSize: 20, fontWeight: 'bold' },
-  billItem: { background: '#333', padding: 15, borderRadius: 8, marginBottom: 10 },
-  billHdr: { display: 'flex', justifyContent: 'space-between', marginBottom: 10 },
-  billTags: { display: 'flex', flexWrap: 'wrap', gap: 5, marginBottom: 10 },
-  billTag: { background: '#444', padding: '3px 8px', borderRadius: 4, fontSize: 12 },
-  billFoot: { display: 'flex', justifyContent: 'space-between', borderTop: '1px solid #444', paddingTop: 10 },
-  invItem: { display: 'flex', justifyContent: 'space-between', alignItems: 'center', background: '#333', padding: '12px 15px', borderRadius: 8, marginBottom: 8 },
-  staffItem: { display: 'flex', justifyContent: 'space-between', alignItems: 'center', background: '#333', padding: '12px 15px', borderRadius: 8, marginBottom: 8 },
-  autoTag: { background: '#5a4a2d', color: '#fbbf24', padding: '2px 6px', borderRadius: 4, fontSize: 10, marginLeft: 5 },
-  emailInputRow: { display: 'flex', gap: 10, marginBottom: 20 },
-  emailInput: { flex: 1, padding: '12px 15px', border: '1px solid #555', borderRadius: 8, background: '#333', color: '#fff', fontSize: 16 },
-  addEmailBtn: { padding: '12px 20px', background: '#2d5a2d', color: '#fff', border: 'none', borderRadius: 8, fontSize: 16, cursor: 'pointer', fontWeight: 'bold' },
-  emailList: { display: 'flex', flexDirection: 'column', gap: 8 },
-  emailItem: { display: 'flex', justifyContent: 'space-between', alignItems: 'center', background: '#333', padding: '12px 15px', borderRadius: 8 },
-  emailText: { color: '#fff', fontSize: 15 },
-  deleteEmailBtn: { background: '#5a2d2d', color: '#f87171', border: 'none', width: 32, height: 32, borderRadius: 6, cursor: 'pointer', fontSize: 16 },
+  billItem: { background: '#1e1e1e', borderRadius: 8, padding: 12, marginBottom: 10 },
+  billHdr: { display: 'flex', justifyContent: 'space-between', marginBottom: 8 },
+  billTags: { display: 'flex', flexWrap: 'wrap', gap: 5, marginBottom: 8 },
+  billTag: { background: '#333', padding: '2px 8px', borderRadius: 4, fontSize: 12 },
+  billFoot: { display: 'flex', justifyContent: 'space-between' },
+  invItem: { background: '#1e1e1e', borderRadius: 8, padding: 12, marginBottom: 10, display: 'flex', justifyContent: 'space-between' },
 }
 
 export default AdminHistoryView

@@ -3139,5 +3139,60 @@
       "createdBy": "Shilu"
     }
   ],
-  "openTabs": {}
+  "openTabs": {
+    "Table 3": {
+      "items": [
+        {
+          "name": "Masala Milk Tea",
+          "price": 45,
+          "category": "tea",
+          "addedBy": "Admin",
+          "addedAt": "2026-01-09T02:25:35.921Z"
+        },
+        {
+          "name": "Masala Milk Tea",
+          "price": 45,
+          "category": "tea",
+          "addedBy": "Admin",
+          "addedAt": "2026-01-09T02:25:36.397Z"
+        },
+        {
+          "name": "Masala Milk Tea Medium",
+          "price": 60,
+          "category": "tea",
+          "addedBy": "Admin",
+          "addedAt": "2026-01-09T02:25:39.920Z"
+        },
+        {
+          "name": "Masala Milk Tea Medium",
+          "price": 60,
+          "category": "tea",
+          "addedBy": "Admin",
+          "addedAt": "2026-01-09T02:25:40.192Z"
+        },
+        {
+          "name": "Masala Milk Tea Medium",
+          "price": 60,
+          "category": "tea",
+          "addedBy": "Admin",
+          "addedAt": "2026-01-09T02:25:41.319Z"
+        },
+        {
+          "name": "Milk Tea Small",
+          "price": 30,
+          "category": "tea",
+          "addedBy": "Admin",
+          "addedAt": "2026-01-09T02:25:45.292Z"
+        },
+        {
+          "name": "Milk Tea Medium",
+          "price": 45,
+          "category": "tea",
+          "addedBy": "Admin",
+          "addedAt": "2026-01-09T02:25:47.353Z"
+        }
+      ],
+      "customerName": "Amar"
+    }
+  }
 }

@@ -86,7 +86,9 @@ export const MENU = [
   { name: 'Surya Red', price: 25, category: 'smoke' },
   { name: 'Surya Light', price: 25, category: 'smoke' },
   { name: 'Surya Fusion', price: 25, category: 'smoke' },
+  { name: 'Surya Sleek Bolt', price: 25, category: 'smoke' },
   { name: 'Sikhar Ice', price: 20, category: 'smoke' },
+  
 
   // ═══════════════════════════════════════════════════
   // OUR LITTLE KITCHEN
