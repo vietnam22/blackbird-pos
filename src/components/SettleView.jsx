@@ -1,6 +1,12 @@
 import { useState, useEffect } from 'react'
-import { PAYMENT_MODES } from '../data/menu'
 import { api } from '../utils/api'
+
+const PAYMENT_MODES = [
+  { id: 'cash', label: '💵 Cash', color: '#2d5a2d' },
+  { id: 'qr', label: '📱 QR', color: '#2d4a6d' },
+  { id: 'credit', label: '📝 Credit', color: '#6d4a2d' },
+  { id: 'cash_qr', label: '💵+📱 Split', color: '#4a4a6d' },
+]
 
 function SettleView({ table, items, customerName, onBack, onConfirm, user }) {
   const [selectedPayment, setSelectedPayment] = useState(null)
@@ -13,22 +19,15 @@ function SettleView({ table, items, customerName, onBack, onConfirm, user }) {
   const [showSuccess, setShowSuccess] = useState(false)
   const [completedBillInfo, setCompletedBillInfo] = useState(null)
 
-  // Capitalize first letter of each word
   const capitalizeFirstLetter = (str) => {
     if (!str) return str
-    return str
-      .split(' ')
-      .map(word => word.charAt(0).toUpperCase() + word.slice(1))
-      .join(' ')
+    return str.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')
   }
   
-  // Creditor integration
   const [creditors, setCreditors] = useState([])
   const [selectedCreditor, setSelectedCreditor] = useState(null)
   const [showCreditorList, setShowCreditorList] = useState(false)
   const [creditorSearch, setCreditorSearch] = useState('')
-  
-  // Add new creditor modal
   const [showAddCreditor, setShowAddCreditor] = useState(false)
   const [newCreditorName, setNewCreditorName] = useState('')
   const [newCreditorPhone, setNewCreditorPhone] = useState('')
@@ -37,29 +36,18 @@ function SettleView({ table, items, customerName, onBack, onConfirm, user }) {
   const total = items.reduce((sum, item) => sum + item.price, 0)
   const isCounter = table === 'Counter'
 
-  // Load creditors on mount
-  useEffect(() => {
-    loadCreditors()
-  }, [])
+  useEffect(() => { loadCreditors() }, [])
 
   const loadCreditors = async () => {
     const data = await api.getCreditors()
     setCreditors(data.creditors || [])
   }
 
-  // Filter creditors based on search
-  const filteredCreditors = creditors.filter(c =>
-    c.name.toLowerCase().includes(creditorSearch.toLowerCase())
-  )
+  const filteredCreditors = creditors.filter(c => c.name.toLowerCase().includes(creditorSearch.toLowerCase()))
 
-  // Group items by name for display
   const groupedItems = items.reduce((acc, item) => {
     const existing = acc.find(g => g.name === item.name && g.price === item.price)
-    if (existing) {
-      existing.quantity += 1
-    } else {
-      acc.push({ name: item.name, price: item.price, quantity: 1 })
-    }
+    if (existing) { existing.quantity += 1 } else { acc.push({ name: item.name, price: item.price, quantity: 1 }) }
     return acc
   }, [])
 
@@ -70,63 +58,32 @@ function SettleView({ table, items, customerName, onBack, onConfirm, user }) {
       if (!selectedCreditor) return false
       return true
     }
-
     if (!selectedPayment) return false
-
-    if (selectedPayment === 'credit') {
-      if (!selectedCreditor) return false
-      return true
-    }
-
+    if (selectedPayment === 'credit') { if (!selectedCreditor) return false; return true }
     if (selectedPayment === 'cash_qr') {
       const cash = parseInt(cashAmount) || 0
       const qr = parseInt(qrAmount) || 0
       return cash + qr === total
     }
-
     return true
   }
 
   const canConfirm = validatePayment()
 
-  // Get payment mode label for success message
   const getPaymentLabel = () => {
-    if (isPartialPayment) {
-      return `Partial (Rs. ${partialAmount} ${partialMethod})`
-    }
-    if (selectedPayment === 'cash_qr') {
-      return `Cash Rs. ${cashAmount} + QR Rs. ${qrAmount}`
-    }
+    if (isPartialPayment) return `Partial (Rs. ${partialAmount} ${partialMethod})`
+    if (selectedPayment === 'cash_qr') return `Cash Rs. ${cashAmount} + QR Rs. ${qrAmount}`
     const mode = PAYMENT_MODES.find(m => m.id === selectedPayment)
     return mode?.label || selectedPayment
   }
 
   const handleConfirm = async () => {
     if (!canConfirm || processing) return
-
     setProcessing(true)
-
-    let paymentDetails = {
-      mode: selectedPayment,
-      creditName: null,
-      creditorId: null,
-      cashAmount: null,
-      qrAmount: null,
-      partialPayment: null,
-    }
-
+    let paymentDetails = { mode: selectedPayment, creditName: null, creditorId: null, cashAmount: null, qrAmount: null, partialPayment: null }
     if (isPartialPayment) {
       const paid = parseInt(partialAmount)
-      paymentDetails = {
-        mode: 'partial',
-        creditName: selectedCreditor?.name,
-        creditorId: selectedCreditor?.id,
-        partialPayment: {
-          paidAmount: paid,
-          paidMethod: partialMethod,
-          creditAmount: total - paid,
-        },
-      }
+      paymentDetails = { mode: 'partial', creditName: selectedCreditor?.name, creditorId: selectedCreditor?.id, partialPayment: { paidAmount: paid, paidMethod: partialMethod, creditAmount: total - paid } }
     } else if (selectedPayment === 'credit') {
       paymentDetails.creditName = selectedCreditor?.name
       paymentDetails.creditorId = selectedCreditor?.id
@@ -134,146 +91,64 @@ function SettleView({ table, items, customerName, onBack, onConfirm, user }) {
       paymentDetails.cashAmount = parseInt(cashAmount)
       paymentDetails.qrAmount = parseInt(qrAmount)
     }
-
-    // Store bill info for success modal before saving
-    setCompletedBillInfo({
-      table,
-      customerName,
-      total,
-      paymentLabel: getPaymentLabel(),
-      paymentDetails
-    })
-
+    setCompletedBillInfo({ table, customerName, total, paymentLabel: getPaymentLabel(), paymentDetails })
     setShowSuccess(true)
     setProcessing(false)
   }
 
-  const handleSuccessOk = async () => {
-    if (completedBillInfo) {
-      // Now actually save and navigate
-      await onConfirm(completedBillInfo.paymentDetails)
-    }
-  }
+  const handleSuccessOk = async () => { if (completedBillInfo) await onConfirm(completedBillInfo.paymentDetails) }
 
   const handleCashQrChange = (field, value) => {
     const numValue = value.replace(/[^0-9]/g, '')
-    if (field === 'cash') {
-      setCashAmount(numValue)
-      const cash = parseInt(numValue) || 0
-      if (cash <= total) setQrAmount(String(total - cash))
-    } else {
-      setQrAmount(numValue)
-      const qr = parseInt(numValue) || 0
-      if (qr <= total) setCashAmount(String(total - qr))
-    }
+    if (field === 'cash') { setCashAmount(numValue); const cash = parseInt(numValue) || 0; if (cash <= total) setQrAmount(String(total - cash)) }
+    else { setQrAmount(numValue); const qr = parseInt(numValue) || 0; if (qr <= total) setCashAmount(String(total - qr)) }
   }
 
-  const handlePartialToggle = () => {
-    setIsPartialPayment(!isPartialPayment)
-    setSelectedPayment(null)
-    setPartialAmount('')
-    setSelectedCreditor(null)
-  }
-
-  const selectCreditor = (creditor) => {
-    setSelectedCreditor(creditor)
-    setShowCreditorList(false)
-    setCreditorSearch('')
-  }
+  const handlePartialToggle = () => { setIsPartialPayment(!isPartialPayment); setSelectedPayment(null); setPartialAmount(''); setSelectedCreditor(null) }
+  const selectCreditor = (creditor) => { setSelectedCreditor(creditor); setShowCreditorList(false); setCreditorSearch('') }
 
   const handleAddCreditor = async () => {
-    console.log('[SettleView] handleAddCreditor called')
-    console.log('[SettleView] newCreditorName:', newCreditorName)
-    
-    if (!newCreditorName.trim()) {
-      console.log('[SettleView] Name is empty, returning')
-      return
-    }
-    
-    console.log('[SettleView] Setting addingCreditor to true')
+    if (!newCreditorName.trim()) return
     setAddingCreditor(true)
-    
     try {
-      console.log('[SettleView] Calling api.addCreditor...')
-      const result = await api.addCreditor(
-        newCreditorName.trim(),
-        newCreditorPhone.trim() || null,
-        null,
-        user.name
-      )
-      
-      console.log('[SettleView] api.addCreditor result:', result)
-      
-      if (result && result.success && result.creditor) {
-        console.log('[SettleView] Success! Creditor added:', result.creditor)
-        // Add totalPending field (new creditor has 0)
+      const result = await api.addCreditor(newCreditorName.trim(), newCreditorPhone.trim() || null, null, user.name)
+      if (result?.success && result.creditor) {
         const newCreditor = { ...result.creditor, totalPending: 0 }
         setCreditors(prev => [...prev, newCreditor])
         setSelectedCreditor(newCreditor)
         setShowAddCreditor(false)
         setNewCreditorName('')
         setNewCreditorPhone('')
-      } else {
-        console.log('[SettleView] Failed - result:', result)
       }
-    } catch (error) {
-      console.error('[SettleView] Error adding creditor:', error)
-    }
-    
-    console.log('[SettleView] Setting addingCreditor to false')
+    } catch (error) { console.error('Error adding creditor:', error) }
     setAddingCreditor(false)
   }
 
-  // Creditor selection component
   const renderCreditorSelection = () => (
     <div style={styles.creditorSection}>
       <div style={styles.creditorPicker}>
         {selectedCreditor ? (
           <div style={styles.selectedCreditor}>
             <span>👤 {selectedCreditor.name}</span>
-            {selectedCreditor.totalPending > 0 && (
-              <span style={styles.existingDebt}>
-                (Owes: Rs. {selectedCreditor.totalPending.toLocaleString()})
-              </span>
-            )}
+            {selectedCreditor.totalPending > 0 && <span style={styles.existingDebt}>(Owes: Rs. {selectedCreditor.totalPending.toLocaleString()})</span>}
             <button onClick={() => setSelectedCreditor(null)} style={styles.clearBtn}>✕</button>
           </div>
         ) : (
           <div style={styles.creditorSearch}>
-            <input
-              type="text"
-              value={creditorSearch}
-              onChange={(e) => { setCreditorSearch(capitalizeFirstLetter(e.target.value)); setShowCreditorList(true) }}
-              onFocus={() => setShowCreditorList(true)}
-              placeholder="Search or add creditor..."
-              style={styles.input}
-            />
+            <input type="text" value={creditorSearch} onChange={(e) => { setCreditorSearch(capitalizeFirstLetter(e.target.value)); setShowCreditorList(true) }} onFocus={() => setShowCreditorList(true)} placeholder="Search or add creditor..." style={styles.input} />
             {showCreditorList && (
               <div style={styles.creditorDropdown}>
-                {/* Add New Creditor Button */}
-                <div 
-                  onClick={() => { 
-                    setShowAddCreditor(true)
-                    setShowCreditorList(false)
-                    setNewCreditorName(capitalizeFirstLetter(creditorSearch))
-                  }} 
-                  style={styles.addCreditorOption}
-                >
+                <div onClick={() => { setShowAddCreditor(true); setShowCreditorList(false); setNewCreditorName(capitalizeFirstLetter(creditorSearch)) }} style={styles.addCreditorOption}>
                   <span>+ Add New Creditor</span>
                   {creditorSearch && <span style={styles.searchHint}>"{creditorSearch}"</span>}
                 </div>
-                
                 {filteredCreditors.length === 0 ? (
-                  <div style={styles.noCreditors}>
-                    {creditorSearch ? 'No matching creditors' : 'No creditors yet'}
-                  </div>
+                  <div style={styles.noCreditors}>{creditorSearch ? 'No matching creditors' : 'No creditors yet'}</div>
                 ) : (
                   filteredCreditors.slice(0, 5).map(c => (
                     <div key={c.id} onClick={() => selectCreditor(c)} style={styles.creditorOption}>
                       <span>{c.name}</span>
-                      {c.totalPending > 0 && (
-                        <span style={styles.pendingBadge}>Rs. {c.totalPending.toLocaleString()}</span>
-                      )}
+                      {c.totalPending > 0 && <span style={styles.pendingBadge}>Rs. {c.totalPending.toLocaleString()}</span>}
                     </div>
                   ))
                 )}
@@ -291,28 +166,18 @@ function SettleView({ table, items, customerName, onBack, onConfirm, user }) {
         <button onClick={onBack} style={styles.backButton}>← Back</button>
         <h1>Settle - {table}</h1>
       </header>
-
       <div style={styles.settleContainer}>
-        {/* Bill Summary */}
         <div style={styles.billSummary}>
           <h3>Bill Summary</h3>
           {customerName && <div style={styles.customerDisplay}>👤 {customerName}</div>}
           {groupedItems.map((group, idx) => (
             <div key={idx} style={styles.summaryItem}>
-              <span>
-                {group.name}
-                {group.quantity > 1 && <span style={styles.quantityBadge}> x{group.quantity}</span>}
-              </span>
+              <span>{group.name}{group.quantity > 1 && <span style={styles.quantityBadge}> x{group.quantity}</span>}</span>
               <span>Rs. {group.price * group.quantity}</span>
             </div>
           ))}
-          <div style={styles.summaryTotal}>
-            <span>Total</span>
-            <span>Rs. {total}</span>
-          </div>
+          <div style={styles.summaryTotal}><span>Total</span><span>Rs. {total}</span></div>
         </div>
-
-        {/* Payment Section */}
         <div style={styles.paymentSection}>
           <div style={styles.partialToggle}>
             <label style={styles.toggleLabel}>
@@ -320,34 +185,19 @@ function SettleView({ table, items, customerName, onBack, onConfirm, user }) {
               Partial Payment (remaining on credit)
             </label>
           </div>
-
           {isPartialPayment ? (
             <div style={styles.partialSection}>
               <h3>Partial Payment</h3>
               <div style={styles.inputGroup}>
                 <label>Amount Paying Now:</label>
-                <input
-                  type="text"
-                  value={partialAmount}
-                  onChange={(e) => setPartialAmount(e.target.value.replace(/[^0-9]/g, ''))}
-                  placeholder={`Max Rs. ${total - 1}`}
-                  style={styles.input}
-                />
+                <input type="text" value={partialAmount} onChange={(e) => setPartialAmount(e.target.value.replace(/[^0-9]/g, ''))} placeholder={`Max Rs. ${total - 1}`} style={styles.input} />
               </div>
-
               {partialAmount && parseInt(partialAmount) > 0 && parseInt(partialAmount) < total && (
                 <div style={styles.partialBreakdown}>
-                  <div style={styles.breakdownRow}>
-                    <span>Paying now:</span>
-                    <span style={styles.paidAmount}>Rs. {partialAmount}</span>
-                  </div>
-                  <div style={styles.breakdownRow}>
-                    <span>On credit:</span>
-                    <span style={styles.creditAmountText}>Rs. {total - parseInt(partialAmount)}</span>
-                  </div>
+                  <div style={styles.breakdownRow}><span>Paying now:</span><span style={styles.paidAmount}>Rs. {partialAmount}</span></div>
+                  <div style={styles.breakdownRow}><span>On credit:</span><span style={styles.creditAmountText}>Rs. {total - parseInt(partialAmount)}</span></div>
                 </div>
               )}
-
               <div style={styles.inputGroup}>
                 <label>Payment Method:</label>
                 <div style={styles.methodButtons}>
@@ -355,122 +205,51 @@ function SettleView({ table, items, customerName, onBack, onConfirm, user }) {
                   <button onClick={() => setPartialMethod('qr')} style={{ ...styles.methodButton, background: partialMethod === 'qr' ? '#2d4a6d' : '#3d3d3d' }}>QR</button>
                 </div>
               </div>
-
-              <div style={styles.inputGroup}>
-                <label>Credit To:</label>
-                {renderCreditorSelection()}
-              </div>
+              <div style={styles.inputGroup}><label>Credit To:</label>{renderCreditorSelection()}</div>
             </div>
           ) : (
             <>
               <h3>Payment Mode</h3>
               <div style={styles.paymentGrid}>
                 {PAYMENT_MODES.map(mode => (
-                  <button
-                    key={mode.id}
-                    onClick={() => {
-                      setSelectedPayment(mode.id)
-                      setCashAmount('')
-                      setQrAmount('')
-                      if (mode.id !== 'credit') { setSelectedCreditor(null) }
-                    }}
-                    style={{
-                      ...styles.paymentButton,
-                      background: selectedPayment === mode.id ? mode.color : '#3d3d3d',
-                      borderColor: selectedPayment === mode.id ? '#fff' : '#555',
-                    }}
-                  >
+                  <button key={mode.id} onClick={() => { setSelectedPayment(mode.id); setCashAmount(''); setQrAmount(''); if (mode.id !== 'credit') setSelectedCreditor(null) }}
+                    style={{ ...styles.paymentButton, background: selectedPayment === mode.id ? mode.color : '#3d3d3d', borderColor: selectedPayment === mode.id ? '#fff' : '#555' }}>
                     {mode.label}
                   </button>
                 ))}
               </div>
-
               {selectedPayment === 'cash_qr' && (
                 <div style={styles.splitSection}>
                   <div style={styles.splitInputs}>
-                    <div style={styles.splitInput}>
-                      <label>Cash:</label>
-                      <input type="text" value={cashAmount} onChange={(e) => handleCashQrChange('cash', e.target.value)} placeholder="0" style={styles.input} />
-                    </div>
-                    <div style={styles.splitInput}>
-                      <label>QR:</label>
-                      <input type="text" value={qrAmount} onChange={(e) => handleCashQrChange('qr', e.target.value)} placeholder="0" style={styles.input} />
-                    </div>
+                    <div style={styles.splitInput}><label>Cash:</label><input type="text" value={cashAmount} onChange={(e) => handleCashQrChange('cash', e.target.value)} placeholder="0" style={styles.input} /></div>
+                    <div style={styles.splitInput}><label>QR:</label><input type="text" value={qrAmount} onChange={(e) => handleCashQrChange('qr', e.target.value)} placeholder="0" style={styles.input} /></div>
                   </div>
-                  {(parseInt(cashAmount) || 0) + (parseInt(qrAmount) || 0) !== total && (
-                    <p style={styles.splitWarning}>Must equal Rs. {total} (currently Rs. {(parseInt(cashAmount) || 0) + (parseInt(qrAmount) || 0)})</p>
-                  )}
+                  {(parseInt(cashAmount) || 0) + (parseInt(qrAmount) || 0) !== total && <p style={styles.splitWarning}>Must equal Rs. {total} (currently Rs. {(parseInt(cashAmount) || 0) + (parseInt(qrAmount) || 0)})</p>}
                 </div>
               )}
-
-              {selectedPayment === 'credit' && (
-                <div style={styles.creditInput}>
-                  <label>Credit To:</label>
-                  {renderCreditorSelection()}
-                </div>
-              )}
+              {selectedPayment === 'credit' && <div style={styles.creditInput}><label>Credit To:</label>{renderCreditorSelection()}</div>}
             </>
           )}
-
-          <button 
-            onClick={handleConfirm} 
-            disabled={!canConfirm || processing} 
-            style={{ ...styles.confirmButton, opacity: canConfirm && !processing ? 1 : 0.5 }}
-          >
+          <button onClick={handleConfirm} disabled={!canConfirm || processing} style={{ ...styles.confirmButton, opacity: canConfirm && !processing ? 1 : 0.5 }}>
             {processing ? 'Processing...' : `Confirm ${isCounter ? 'Sale' : 'Settlement'}`}
           </button>
         </div>
       </div>
-
-      {/* Add Creditor Modal */}
       {showAddCreditor && (
         <div style={styles.modalOverlay}>
           <div style={styles.modal}>
             <h3>Add New Creditor</h3>
             <div style={styles.addCreditorForm}>
-              <div style={styles.inputGroup}>
-                <label>Name *</label>
-                <input
-                  type="text"
-                  value={newCreditorName}
-                  onChange={(e) => setNewCreditorName(capitalizeFirstLetter(e.target.value))}
-                  placeholder="Customer name"
-                  style={styles.input}
-                  autoFocus
-                />
-              </div>
-              <div style={styles.inputGroup}>
-                <label>Phone (optional)</label>
-                <input
-                  type="text"
-                  value={newCreditorPhone}
-                  onChange={(e) => setNewCreditorPhone(e.target.value)}
-                  placeholder="Phone number"
-                  style={styles.input}
-                />
-              </div>
+              <div style={styles.inputGroup}><label>Name *</label><input type="text" value={newCreditorName} onChange={(e) => setNewCreditorName(capitalizeFirstLetter(e.target.value))} placeholder="Customer name" style={styles.input} autoFocus /></div>
+              <div style={styles.inputGroup}><label>Phone (optional)</label><input type="text" value={newCreditorPhone} onChange={(e) => setNewCreditorPhone(e.target.value)} placeholder="Phone number" style={styles.input} /></div>
             </div>
             <div style={styles.modalButtons}>
-              <button 
-                onClick={() => { setShowAddCreditor(false); setNewCreditorName(''); setNewCreditorPhone('') }} 
-                style={styles.modalCancel}
-                disabled={addingCreditor}
-              >
-                Cancel
-              </button>
-              <button 
-                onClick={handleAddCreditor} 
-                style={styles.modalConfirm}
-                disabled={!newCreditorName.trim() || addingCreditor}
-              >
-                {addingCreditor ? 'Adding...' : 'Add & Select'}
-              </button>
+              <button onClick={() => { setShowAddCreditor(false); setNewCreditorName(''); setNewCreditorPhone('') }} style={styles.modalCancel} disabled={addingCreditor}>Cancel</button>
+              <button onClick={handleAddCreditor} style={styles.modalConfirm} disabled={!newCreditorName.trim() || addingCreditor}>{addingCreditor ? 'Adding...' : 'Add & Select'}</button>
             </div>
           </div>
         </div>
       )}
-
-      {/* Success Modal */}
       {showSuccess && completedBillInfo && (
         <div style={styles.modalOverlay}>
           <div style={styles.modal}>
@@ -478,15 +257,11 @@ function SettleView({ table, items, customerName, onBack, onConfirm, user }) {
             <h3 style={styles.successTitle}>Bill Completed Successfully!</h3>
             <div style={styles.successDetails}>
               <p style={styles.successTable}>{completedBillInfo.table}</p>
-              {completedBillInfo.customerName && (
-                <p style={styles.successCustomer}>👤 {completedBillInfo.customerName}</p>
-              )}
+              {completedBillInfo.customerName && <p style={styles.successCustomer}>👤 {completedBillInfo.customerName}</p>}
               <p style={styles.successTotal}>Rs. {completedBillInfo.total.toLocaleString()}</p>
               <p style={styles.successPayment}>{completedBillInfo.paymentLabel}</p>
             </div>
-            <button onClick={handleSuccessOk} style={styles.successButton}>
-              OK
-            </button>
+            <button onClick={handleSuccessOk} style={styles.successButton}>OK</button>
           </div>
         </div>
       )}

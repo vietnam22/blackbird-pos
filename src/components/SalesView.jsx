@@ -1,10 +1,15 @@
 import { useState } from 'react'
-import { PAYMENT_MODES } from '../data/menu'
+
+const PAYMENT_MODES = [
+  { id: 'cash', label: '💵 Cash', color: '#2d5a2d' },
+  { id: 'qr', label: '📱 QR', color: '#2d4a6d' },
+  { id: 'credit', label: '📝 Credit', color: '#6d4a2d' },
+  { id: 'cash_qr', label: '💵+📱 Split', color: '#4a4a6d' },
+]
 
 function SalesView({ completedBills, onBack }) {
   const [filter, setFilter] = useState('today')
 
-  // Filter bills by time period
   const getFilteredBills = () => {
     const now = new Date()
     const today = new Date(now.getFullYear(), now.getMonth(), now.getDate())
@@ -23,7 +28,6 @@ function SalesView({ completedBills, onBack }) {
   const filteredBills = getFilteredBills()
   const totalSales = filteredBills.reduce((sum, b) => sum + b.total, 0)
 
-  // Group by payment mode
   const byPaymentMode = PAYMENT_MODES.reduce((acc, mode) => {
     const modeBills = filteredBills.filter(b => b.paymentMode === mode.id)
     acc[mode.id] = {
@@ -35,7 +39,6 @@ function SalesView({ completedBills, onBack }) {
     return acc
   }, {})
 
-  // Add partial payments
   const partialBills = filteredBills.filter(b => b.paymentMode === 'partial')
   byPaymentMode['partial'] = {
     count: partialBills.length,
@@ -44,7 +47,6 @@ function SalesView({ completedBills, onBack }) {
     color: '#8b4a6d',
   }
 
-  // Outstanding credits summary (all time)
   const outstandingCredits = completedBills.filter(
     b => (b.paymentMode === 'credit' || b.paymentMode === 'partial') && !b.creditPaid
   )
@@ -62,7 +64,6 @@ function SalesView({ completedBills, onBack }) {
         <h1>📊 Sales</h1>
       </header>
 
-      {/* Time Filter */}
       <div style={styles.filterBar}>
         {['today', 'week', 'month', 'all'].map(f => (
           <button
@@ -76,14 +77,12 @@ function SalesView({ completedBills, onBack }) {
       </div>
 
       <div style={styles.content}>
-        {/* Summary Card */}
         <div style={styles.card}>
           <h3>Summary</h3>
           <div style={styles.bigNumber}>Rs. {totalSales.toLocaleString()}</div>
           <div style={styles.subText}>{filteredBills.length} bills</div>
         </div>
 
-        {/* Payment Mode Breakdown */}
         <div style={styles.card}>
           <h3>By Payment Mode</h3>
           <div style={styles.modeList}>
@@ -102,7 +101,6 @@ function SalesView({ completedBills, onBack }) {
           </div>
         </div>
 
-        {/* Outstanding Credits Summary */}
         {totalCredit > 0 && (
           <div style={styles.creditCard}>
             <div style={styles.creditHeader}>

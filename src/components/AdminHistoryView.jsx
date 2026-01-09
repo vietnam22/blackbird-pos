@@ -479,15 +479,37 @@ function AdminHistoryView({ completedBills }) {
           <p style={{ color: '#888', marginBottom: 15 }}>These emails will receive daily summary when a day is ended.</p>
           
           <div style={{ display: 'flex', gap: 10, marginBottom: 20 }}>
-            <input 
-              type="email" 
-              value={newEmail} 
-              onChange={e => setNewEmail(e.target.value)} 
-              placeholder="Add email address" 
-              style={{ ...S.datePick, flex: 1 }}
-            />
-            <button onClick={addEmailRecipient} style={{ ...S.genBtn, padding: '10px 20px' }}>Add</button>
-          </div>
+  <input 
+    type="email" 
+    value={newEmail} 
+    onChange={e => setNewEmail(e.target.value)} 
+    placeholder="Add email address" 
+    style={{ 
+      flex: 1, 
+      padding: 10, 
+      borderRadius: 8, 
+      border: '1px solid #555', 
+      background: '#1e1e1e', 
+      color: '#fff', 
+      fontSize: 16 
+    }}
+  />
+  <button 
+    onClick={addEmailRecipient} 
+    style={{ 
+      padding: '10px 20px', 
+      borderRadius: 8, 
+      border: 'none', 
+      background: '#2d5a2d', 
+      color: '#fff', 
+      fontSize: 16, 
+      cursor: 'pointer',
+      whiteSpace: 'nowrap'
+    }}
+  >
+    Add
+  </button>
+</div>
 
           {emailRecipients.length === 0 ? (
             <p style={S.empty}>No email recipients configured</p>

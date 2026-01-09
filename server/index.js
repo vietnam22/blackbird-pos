@@ -24,6 +24,7 @@ const INVENTORY_FILE = path.join(DATA_DIR, 'inventory.json')
 const CREDITORS_FILE = path.join(DATA_DIR, 'creditors.json')
 const CREDIT_LOGS_FILE = path.join(DATA_DIR, 'credit_logs.json')
 const EMAIL_RECIPIENTS_FILE = path.join(DATA_DIR, 'email_recipients.json')
+const MENU_FILE = path.join(__dirname, 'data', 'menu.json')
 
 const readJSON = (file, def) => {
   try { return JSON.parse(fs.readFileSync(file, 'utf8')) } 
@@ -751,6 +752,108 @@ app.delete('/api/email-recipients/:email', (req, res) => {
   data.recipients = data.recipients.filter(e => e !== decodeURIComponent(email))
   writeJSON(EMAIL_RECIPIENTS_FILE, data)
   res.json({ success: true, recipients: data.recipients })
+})
+const readMenu = () => {
+  try {
+    if (fs.existsSync(MENU_FILE)) {
+      return JSON.parse(fs.readFileSync(MENU_FILE, 'utf8'))
+    }
+    // If no menu.json exists, initialize from the hardcoded menu
+    // You'll need to import or require your menu.js data here
+    const defaultMenu = require('./data/menu-default.json') // Create this from your menu.js
+    fs.writeFileSync(MENU_FILE, JSON.stringify(defaultMenu, null, 2))
+    return defaultMenu
+  } catch (error) {
+    console.error('Error reading menu:', error)
+    return { items: [], categories: [] }
+  }
+}
+
+const writeMenu = (data) => {
+  fs.writeFileSync(MENU_FILE, JSON.stringify(data, null, 2))
+}
+
+// GET /api/menu - Get all menu items
+app.get('/api/menu', (req, res) => {
+  const menu = readMenu()
+  res.json(menu)
+})
+
+// POST /api/menu - Add new menu item
+app.post('/api/menu', (req, res) => {
+  const { name, price, category, priceOnRequest } = req.body
+  
+  if (!name || !category) {
+    return res.json({ success: false, message: 'Name and category are required' })
+  }
+
+  const menu = readMenu()
+  
+  // Check if item already exists
+  const exists = menu.items.find(item => item.name.toLowerCase() === name.toLowerCase())
+  if (exists) {
+    return res.json({ success: false, message: 'Item with this name already exists' })
+  }
+
+  const newItem = {
+    name: name.trim(),
+    price: priceOnRequest ? 0 : Number(price) || 0,
+    category,
+    priceOnRequest: priceOnRequest || false
+  }
+
+  menu.items.push(newItem)
+  writeMenu(menu)
+  
+  res.json({ success: true, item: newItem })
+})
+
+// PATCH /api/menu/:name - Update menu item
+app.patch('/api/menu/:name', (req, res) => {
+  const originalName = decodeURIComponent(req.params.name)
+  const { name, price, category, priceOnRequest } = req.body
+  
+  const menu = readMenu()
+  const index = menu.items.findIndex(item => item.name === originalName)
+  
+  if (index === -1) {
+    return res.json({ success: false, message: 'Item not found' })
+  }
+
+  // If renaming, check if new name already exists
+  if (name !== originalName) {
+    const nameExists = menu.items.find(item => item.name.toLowerCase() === name.toLowerCase())
+    if (nameExists) {
+      return res.json({ success: false, message: 'An item with this name already exists' })
+    }
+  }
+
+  menu.items[index] = {
+    name: name?.trim() || menu.items[index].name,
+    price: priceOnRequest ? 0 : (price !== undefined ? Number(price) : menu.items[index].price),
+    category: category || menu.items[index].category,
+    priceOnRequest: priceOnRequest || false
+  }
+
+  writeMenu(menu)
+  res.json({ success: true, item: menu.items[index] })
+})
+
+// DELETE /api/menu/:name - Delete menu item
+app.delete('/api/menu/:name', (req, res) => {
+  const itemName = decodeURIComponent(req.params.name)
+  
+  const menu = readMenu()
+  const index = menu.items.findIndex(item => item.name === itemName)
+  
+  if (index === -1) {
+    return res.json({ success: false, message: 'Item not found' })
+  }
+
+  menu.items.splice(index, 1)
+  writeMenu(menu)
+  
+  res.json({ success: true })
 })
 
 const PORT = 3001

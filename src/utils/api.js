@@ -579,4 +579,53 @@ export const api = {
       return { success: false }
     }
   },
+  getMenu: async () => {
+  try {
+    const res = await fetch(`${API_URL}/menu`)
+    return await res.json()
+  } catch (error) {
+    console.error('Failed to fetch menu:', error)
+    return { items: [] }
+  }
+},
+
+addMenuItem: async (item) => {
+  try {
+    const res = await fetch(`${API_URL}/menu`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(item),
+    })
+    return await res.json()
+  } catch (error) {
+    console.error('Failed to add menu item:', error)
+    return { success: false }
+  }
+},
+
+updateMenuItem: async (originalName, updates) => {
+  try {
+    const res = await fetch(`${API_URL}/menu/${encodeURIComponent(originalName)}`, {
+      method: 'PATCH',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(updates),
+    })
+    return await res.json()
+  } catch (error) {
+    console.error('Failed to update menu item:', error)
+    return { success: false }
+  }
+},
+
+deleteMenuItem: async (itemName) => {
+  try {
+    const res = await fetch(`${API_URL}/menu/${encodeURIComponent(itemName)}`, {
+      method: 'DELETE',
+    })
+    return await res.json()
+  } catch (error) {
+    console.error('Failed to delete menu item:', error)
+    return { success: false }
+  }
+},
 }

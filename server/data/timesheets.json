@@ -234,6 +234,14 @@
       "clockIn": "2025-12-29T14:48:56.301Z",
       "clockOut": "2026-01-04T01:32:43.856Z",
       "hoursWorked": 130.73
+    },
+    {
+      "id": 1767931613786,
+      "userId": 3,
+      "userName": "Shilu",
+      "clockIn": "2026-01-09T04:06:53.786Z",
+      "clockOut": "2026-01-09T04:07:15.328Z",
+      "hoursWorked": 0.01
     }
   ]
 }

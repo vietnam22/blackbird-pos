@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import AdminUsersView from './AdminUsersView'
 import AdminHistoryView from './AdminHistoryView'
+import AdminMenuView from './AdminMenuView'
 
 function AdminView({ user, onBack, completedBills }) {
   const [activeTab, setActiveTab] = useState('users')
@@ -18,19 +19,26 @@ function AdminView({ user, onBack, completedBills }) {
           onClick={() => setActiveTab('users')}
           style={{ ...styles.tab, background: activeTab === 'users' ? '#444' : 'transparent' }}
         >
-          Users
+          👥 Users
         </button>
         <button
           onClick={() => setActiveTab('history')}
           style={{ ...styles.tab, background: activeTab === 'history' ? '#444' : 'transparent' }}
         >
-          History
+          📅 History
+        </button>
+        <button
+          onClick={() => setActiveTab('menu')}
+          style={{ ...styles.tab, background: activeTab === 'menu' ? '#444' : 'transparent' }}
+        >
+          🍽️ Update Menu
         </button>
       </div>
 
       <div style={styles.content}>
         {activeTab === 'users' && <AdminUsersView user={user} />}
         {activeTab === 'history' && <AdminHistoryView completedBills={completedBills} />}
+        {activeTab === 'menu' && <AdminMenuView />}
       </div>
     </div>
   )
@@ -52,7 +60,7 @@ const styles = {
     cursor: 'pointer', 
     fontSize: 16 
   },
-  tabs: { display: 'flex', justifyContent: 'center', gap: 10, marginBottom: 20 },
+  tabs: { display: 'flex', justifyContent: 'center', gap: 10, marginBottom: 20, flexWrap: 'wrap' },
   tab: { 
     padding: '10px 20px', 
     border: '1px solid #444', 

@@ -1,12 +1,12 @@
 {
   "currentDay": {
-    "id": 1767924932655,
-    "startedAt": "2026-01-09T02:15:32.655Z",
+    "id": 1767934159888,
+    "startedAt": "2026-01-09T04:49:19.888Z",
     "startedBy": {
       "userId": 1,
       "userName": "Admin"
     },
-    "startingCash": 3434,
+    "startingCash": 4545,
     "endedAt": null,
     "endedBy": null,
     "closingCash": null
@@ -380,6 +380,54 @@
       },
       "closingCash": 7216,
       "closingQR": 1031
+    },
+    {
+      "id": 1767924932655,
+      "startedAt": "2026-01-09T02:15:32.655Z",
+      "startedBy": {
+        "userId": 1,
+        "userName": "Admin"
+      },
+      "startingCash": 3434,
+      "endedAt": "2026-01-09T03:54:21.000Z",
+      "endedBy": {
+        "userId": 1,
+        "userName": "Admin"
+      },
+      "closingCash": 3434,
+      "closingQR": 345
+    },
+    {
+      "id": 1767931173364,
+      "startedAt": "2026-01-09T03:59:33.364Z",
+      "startedBy": {
+        "userId": 1,
+        "userName": "Admin"
+      },
+      "startingCash": 3400,
+      "endedAt": "2026-01-09T04:02:38.207Z",
+      "endedBy": {
+        "userId": 1,
+        "userName": "Admin"
+      },
+      "closingCash": 3400,
+      "closingQR": 345
+    },
+    {
+      "id": 1767931396246,
+      "startedAt": "2026-01-09T04:03:16.246Z",
+      "startedBy": {
+        "userId": 3,
+        "userName": "Shilu"
+      },
+      "startingCash": 4000,
+      "endedAt": "2026-01-09T04:09:30.740Z",
+      "endedBy": {
+        "userId": 1,
+        "userName": "Admin"
+      },
+      "closingCash": 4280,
+      "closingQR": 675
     }
   ]
 }

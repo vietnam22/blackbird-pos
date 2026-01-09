@@ -135,6 +135,21 @@
       "customerName": null,
       "paymentMode": "credit",
       "partialPayment": null
+    },
+    {
+      "id": 1767943516320,
+      "type": "credit_given",
+      "timestamp": "2026-01-09T07:25:16.320Z",
+      "billId": 1767943516303,
+      "table": "Table 3",
+      "creditName": "Aahat Regmi",
+      "creditorId": 1766975831033,
+      "amount": 220,
+      "totalBillAmount": 220,
+      "createdBy": "Admin",
+      "customerName": null,
+      "paymentMode": "credit",
+      "partialPayment": null
     }
   ]
 }

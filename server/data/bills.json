@@ -3137,10 +3137,10 @@
       "partialPayment": null,
       "timestamp": "2026-01-08T10:59:00.191Z",
       "createdBy": "Shilu"
-    }
-  ],
-  "openTabs": {
-    "Table 3": {
+    },
+    {
+      "id": 1767925906441,
+      "table": "Table 7",
       "items": [
         {
           "name": "Masala Milk Tea",
@@ -3192,7 +3192,235 @@
           "addedAt": "2026-01-09T02:25:47.353Z"
         }
       ],
-      "customerName": "Amar"
+      "total": 345,
+      "customerName": "Amar",
+      "paymentMode": "qr",
+      "creditName": null,
+      "creditorId": null,
+      "creditPaid": true,
+      "cashAmount": null,
+      "qrAmount": null,
+      "partialPayment": null,
+      "timestamp": "2026-01-09T02:31:46.441Z",
+      "createdBy": "Admin"
+    },
+    {
+      "id": 1767931551702,
+      "table": "Counter",
+      "items": [
+        {
+          "name": "Sikhar Ice",
+          "price": 20,
+          "category": "smoke",
+          "addedBy": "Shilu",
+          "addedAt": "2026-01-09T04:04:55.195Z"
+        },
+        {
+          "name": "Sikhar Ice",
+          "price": 20,
+          "category": "smoke",
+          "addedBy": "Shilu",
+          "addedAt": "2026-01-09T04:04:55.371Z"
+        }
+      ],
+      "total": 40,
+      "customerName": null,
+      "paymentMode": "cash",
+      "creditName": null,
+      "creditorId": null,
+      "creditPaid": true,
+      "cashAmount": null,
+      "qrAmount": null,
+      "partialPayment": null,
+      "timestamp": "2026-01-09T04:05:51.702Z",
+      "createdBy": "Shilu"
+    },
+    {
+      "id": 1767931563277,
+      "table": "Table 3",
+      "items": [
+        {
+          "name": "Masala Milk Tea",
+          "price": 45,
+          "category": "tea",
+          "addedBy": "Shilu",
+          "addedAt": "2026-01-09T04:03:34.944Z"
+        },
+        {
+          "name": "Masala Milk Tea",
+          "price": 45,
+          "category": "tea",
+          "addedBy": "Shilu",
+          "addedAt": "2026-01-09T04:03:35.120Z"
+        },
+        {
+          "name": "Sikhar Ice",
+          "price": 20,
+          "category": "smoke",
+          "addedBy": "Shilu",
+          "addedAt": "2026-01-09T04:03:38.899Z"
+        },
+        {
+          "name": "Sikhar Ice",
+          "price": 20,
+          "category": "smoke",
+          "addedBy": "Shilu",
+          "addedAt": "2026-01-09T04:03:39.078Z"
+        },
+        {
+          "name": "Dozen Chicken MoMo",
+          "price": 200,
+          "category": "kitchen",
+          "addedBy": "Shilu",
+          "addedAt": "2026-01-09T04:03:43.167Z"
+        }
+      ],
+      "total": 330,
+      "customerName": "Samrat",
+      "paymentMode": "qr",
+      "creditName": null,
+      "creditorId": null,
+      "creditPaid": true,
+      "cashAmount": null,
+      "qrAmount": null,
+      "partialPayment": null,
+      "timestamp": "2026-01-09T04:06:03.277Z",
+      "createdBy": "Shilu"
+    },
+    {
+      "id": 1767931569751,
+      "table": "Table 5",
+      "items": [
+        {
+          "name": "Americano (D)",
+          "price": 120,
+          "category": "coffee",
+          "addedBy": "Shilu",
+          "addedAt": "2026-01-09T04:03:59.368Z"
+        },
+        {
+          "name": "Americano (D)",
+          "price": 120,
+          "category": "coffee",
+          "addedBy": "Shilu",
+          "addedAt": "2026-01-09T04:03:59.545Z"
+        }
+      ],
+      "total": 240,
+      "customerName": "Siddhu",
+      "paymentMode": "cash",
+      "creditName": null,
+      "creditorId": null,
+      "creditPaid": true,
+      "cashAmount": null,
+      "qrAmount": null,
+      "partialPayment": null,
+      "timestamp": "2026-01-09T04:06:09.751Z",
+      "createdBy": "Shilu"
+    },
+    {
+      "id": 1767943119163,
+      "table": "Table 3",
+      "items": [
+        {
+          "name": "Sausage",
+          "price": 50,
+          "category": "kitchen",
+          "priceOnRequest": false,
+          "addedBy": "Admin",
+          "addedAt": "2026-01-09T07:18:24.874Z"
+        },
+        {
+          "name": "Sausage",
+          "price": 50,
+          "category": "kitchen",
+          "priceOnRequest": false,
+          "addedBy": "Admin",
+          "addedAt": "2026-01-09T07:18:25.462Z"
+        },
+        {
+          "name": "Sausage",
+          "price": 50,
+          "category": "kitchen",
+          "priceOnRequest": false,
+          "addedBy": "Admin",
+          "addedAt": "2026-01-09T07:18:25.930Z"
+        }
+      ],
+      "total": 150,
+      "customerName": null,
+      "paymentMode": "cash",
+      "creditName": null,
+      "creditorId": null,
+      "creditPaid": true,
+      "cashAmount": null,
+      "qrAmount": null,
+      "partialPayment": null,
+      "timestamp": "2026-01-09T07:18:39.163Z",
+      "createdBy": "Admin"
+    },
+    {
+      "id": 1767943516303,
+      "table": "Table 3",
+      "items": [
+        {
+          "name": "Americano (S)",
+          "price": 110,
+          "category": "coffee",
+          "addedBy": "Admin",
+          "addedAt": "2026-01-09T07:24:56.049Z"
+        },
+        {
+          "name": "Americano (S)",
+          "price": 110,
+          "category": "coffee",
+          "addedBy": "Admin",
+          "addedAt": "2026-01-09T07:24:56.230Z"
+        }
+      ],
+      "total": 220,
+      "customerName": null,
+      "paymentMode": "credit",
+      "creditName": "Aahat Regmi",
+      "creditorId": 1766975831033,
+      "creditPaid": false,
+      "cashAmount": null,
+      "qrAmount": null,
+      "partialPayment": null,
+      "timestamp": "2026-01-09T07:25:16.303Z",
+      "createdBy": "Admin"
+    },
+    {
+      "id": 1767944429444,
+      "table": "Table 8",
+      "items": [
+        {
+          "name": "Doppio",
+          "price": 130,
+          "category": "coffee",
+          "addedBy": "Admin",
+          "addedAt": "2026-01-09T07:30:18.123Z"
+        },
+        {
+          "name": "Doppio",
+          "price": 130,
+          "category": "coffee",
+          "addedBy": "Admin",
+          "addedAt": "2026-01-09T07:30:18.304Z"
+        }
+      ],
+      "total": 260,
+      "customerName": null,
+      "paymentMode": "cash",
+      "creditName": null,
+      "creditorId": null,
+      "creditPaid": true,
+      "cashAmount": null,
+      "qrAmount": null,
+      "partialPayment": null,
+      "timestamp": "2026-01-09T07:40:29.444Z",
+      "createdBy": "Admin"
     }
-  }
+  ],
+  "openTabs": {}
 }
